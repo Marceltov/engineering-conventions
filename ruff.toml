@@ -1,5 +1,5 @@
 # Marceltov/engineering-conventions: code/formatting.md. Copy into a Python project's root.
-line-length = 160
+line-length = 160  # 160 everywhere: .editorconfig, .prettierrc.json, ruff.toml
 
 [lint]
 # pycodestyle, Pyflakes, import order, pyupgrade, bugbear, simplify, Ruff's own rules.
