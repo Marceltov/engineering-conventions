@@ -5,7 +5,7 @@ description: Marcel Bruckner's engineering conventions - architecture (MCP first
 
 # Engineering conventions
 
-The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PLUGIN_ROOT}/docs/`), the same pages as the site at https://marceltov.github.io/engineering-conventions/. Read the pages; this file only says which ones and how to apply them.
+The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PLUGIN_ROOT}/docs/`), the same pages as the site at https://engineering-conventions.marceltov.de/. Read the pages; this file only says which ones and how to apply them.
 
 ## Which pages to read
 

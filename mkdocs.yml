@@ -1,6 +1,6 @@
 site_name: engineering-conventions
 site_description: How Marcel Bruckner builds software. Architecture, code, repository setup and stacks, with the reason for each rule and what it rules out.
-site_url: https://marceltov.github.io/engineering-conventions/
+site_url: https://engineering-conventions.marceltov.de/
 repo_url: https://github.com/Marceltov/engineering-conventions
 repo_name: Marceltov/engineering-conventions
 edit_uri: edit/main/docs/
