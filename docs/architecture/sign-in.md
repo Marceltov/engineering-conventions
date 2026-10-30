@@ -1,6 +1,6 @@
 # Sign-in
 
-**An app with a web UI and its own users signs in with Better Auth. An MCP server whose login is a form checked by the service behind it signs in with mcp-login-oauth. A backend never signs anyone in: it checks the token it is given.**
+**An app with a web UI and its own users signs in with [Better Auth](../stacks/better-auth.md). An MCP server whose login is a form checked by the service behind it signs in with [mcp-login-oauth](../stacks/mcp-login-oauth.md). A backend never signs anyone in: it checks the token it is given.**
 
 ## Why
 

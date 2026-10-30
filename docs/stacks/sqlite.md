@@ -8,7 +8,7 @@ One file on one volume is the simplest thing to run, back up and move, and it is
 
 ## How
 
-- **One file per concern** in `DATA_DIR`: the app's data (`<app>.sqlite`), and the sign-in's own file (`auth.sqlite`, or mcp-login-oauth's `oauth.sqlite`), so that backups and exports of the data hold no sessions or tokens.
+- **One file per concern** in `DATA_DIR`: the app's data (`<app>.sqlite`), and the sign-in's own file (`auth.sqlite`, or [mcp-login-oauth](mcp-login-oauth.md)'s `oauth.sqlite`), so that backups and exports of the data hold no sessions or tokens.
 - **Migrations** in `backend/db/migrations.ts`, applied at start-up in order. A change to the schema is a new migration; a shipped one is never edited, because databases out there already ran it.
 - **Typed queries** with `kysely` over `better-sqlite3`. Every read of a guarded table goes through the gate function.
 - **Tests** run against a fresh database with a fixture seed.

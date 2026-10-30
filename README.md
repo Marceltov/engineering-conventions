@@ -2,7 +2,7 @@
 
 How Marcel Bruckner builds software: architecture, code, repository setup and stacks, each with its reason and what it rules out.
 
-**Read them:** [marceltov.github.io/engineering-conventions](https://marceltov.github.io/engineering-conventions/)
+**Read them:** [engineering-conventions.marceltov.de](https://engineering-conventions.marceltov.de/)
 
 **Use them in Claude Code:** this repository is also a Claude Code plugin. Claude loads the conventions that apply before it designs, builds, sets up or reviews code.
 

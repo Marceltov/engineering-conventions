@@ -8,13 +8,14 @@ Docs split between a long README and a site drift apart. One place, built with `
 
 ## How
 
-- **`mkdocs.yml`** at the root: `site_name`, `site_description`, `site_url: https://marceltov.github.io/<repo>/`, `repo_url`, `edit_uri: edit/main/docs/`, the license in `copyright`.
+- **`mkdocs.yml`** at the root: `site_name`, `site_description`, `site_url: https://<repo>.marceltov.de/`, `repo_url`, `edit_uri: edit/main/docs/`, the license in `copyright`.
 - **Theme:** `material`, fonts Atkinson Hyperlegible Next (text) and Atkinson Hyperlegible Mono (code), a light and a dark palette with a toggle, and the features `navigation.instant`, `navigation.footer`, `navigation.top`, `toc.follow`, `search.suggest`, `search.highlight`, `content.code.copy`, `content.action.edit`. Its own colours and icon are required, see _Design_ below.
 - **Markdown extensions:** `admonition`, `attr_list`, `md_in_html`, `tables`, `toc` with permalinks, `pymdownx.details`, `highlight`, `inlinehilite`, `superfences` (with a `mermaid` fence where diagrams are used), `tabbed`.
 - **Pinned:** `mkdocs-material==9.7.7` with `mkdocs<2`. MkDocs 2.0 drops the plugin and theme system, and Material 9 doesn't work with it.
 - **Preview:** `uvx --with mkdocs-material==9.7.7 --with 'mkdocs<2' mkdocs serve`. Add `site/` to `.gitignore`.
-- **Publish:** `.github/workflows/pages.yml` builds with `mkdocs build --strict` on every pull request that touches `docs/**` or `mkdocs.yml`, and on `main` deploys with `actions/upload-pages-artifact` and `actions/deploy-pages` (permissions `pages: write`, `id-token: write`). Once per repository: _Settings → Pages → Source: GitHub Actions_.
+- **Publish:** `.github/workflows/pages.yml` builds with `mkdocs build --strict` on every pull request that touches `docs/**` or `mkdocs.yml`, and on `main` deploys with `actions/upload-pages-artifact` and `actions/deploy-pages` (permissions `pages: write`, `id-token: write`). Once per repository: _Settings → Pages → Source: GitHub Actions_, and the custom domain `<repo>.marceltov.de` under _Settings → Pages → Custom domain_ (a DNS `CNAME` to `marceltov.github.io`, then _Enforce HTTPS_). With the Actions deploy, the domain lives in the settings; no `CNAME` file is needed.
 
+- **Its own domain:** every site is served at `<repo>.marceltov.de`, and links to it use that address, never `marceltov.github.io/<repo>`, which only redirects.
 - **README links are absolute** (the docs site or GitHub), because the README is also shown on PyPI and npm, where links into the repository lead nowhere.
 - **The menu is grouped**, as in passageway: Home and the values page, then sections such as _Start_, _Guides_, _Reference_, _Contributing_ (development, roadmap) and _Decisions_ (the ADRs). Each page's heading matches its menu entry. No flat list of every page.
 
@@ -92,4 +93,4 @@ Claude cloud sessions can't push workflow files (their GitHub connection lacks t
 
 ## Reference
 
-passageway (palette, archway logo, hero, header links for agents); freundebuch (its own colours and orbit icon); mcp-login-oauth (cobalt keyhole); this repository.
+passageway (palette, archway logo, hero, header links for agents); freundebuch (its own colours and orbit icon); [mcp-login-oauth](https://mcp-login-oauth.marceltov.de/) (cobalt keyhole); this repository.

@@ -26,7 +26,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 
 - [MCP first, one domain layer](architecture/mcp-first.md): MCP, REST and the web pages call the same framework-free domain layer; every tool result carries `next`.
 - [One gate for every read](architecture/one-gate-for-every-read.md): privacy, scoping or spoilers are one function every read goes through.
-- [Sign-in](architecture/sign-in.md): Better Auth for apps with a web UI, mcp-login-oauth for form-login MCP servers, backends check tokens.
+- [Sign-in](architecture/sign-in.md): [Better Auth](stacks/better-auth.md) for apps with a web UI, [mcp-login-oauth](stacks/mcp-login-oauth.md) for form-login MCP servers, backends check tokens.
 
 **Code**
 
