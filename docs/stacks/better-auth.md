@@ -4,7 +4,7 @@
 
 ## Why
 
-Better Auth is an open-source (MIT) library that runs in the app's process: accounts, sessions, magic links, email codes, passkeys, any OpenID Connect provider, and an OAuth server for MCP clients. It keeps sign-in code out of each app. Some of its defaults are weaker than these conventions, so each app sets them. The architecture is on [Sign-in](../architecture/sign-in.md); decided in mcp-login-oauth ADR 0004.
+Better Auth is an open-source (MIT) library that runs in the app's process: accounts, sessions, magic links, email codes, passkeys, any OpenID Connect provider, and an OAuth server for MCP clients. It keeps sign-in code out of each app. Some of its defaults are weaker than these conventions, so each app sets them. The architecture is on [Sign-in](../architecture/sign-in.md).
 
 ## How
 
@@ -30,4 +30,4 @@ Better Auth is an open-source (MIT) library that runs in the app's process: acco
 
 ## Reference
 
-questlog ADR 0004 (sign-in with Better Auth, in its own SQLite file); mcp-login-oauth ADR 0004.
+questlog ADR 0004 (sign-in with Better Auth, in its own SQLite file).

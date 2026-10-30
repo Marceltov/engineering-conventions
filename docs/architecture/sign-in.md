@@ -4,7 +4,7 @@
 
 ## Why
 
-Sign-in is security code, and less of our own is better. Better Auth already does accounts, sessions, magic links, email codes, passkeys, any OpenID Connect provider and an OAuth server for MCP clients. mcp-login-oauth exists for the case Better Auth can't cover: an MCP server in front of another service (Trilium, Paperless, InvoiceNinja), where the login is that service's own and the grant carries its credentials. Decided 2026-10-30 in mcp-login-oauth ADR 0004.
+Sign-in is security code, and less of our own is better. Better Auth already does accounts, sessions, magic links, email codes, passkeys, any OpenID Connect provider and an OAuth server for MCP clients. mcp-login-oauth exists for the case Better Auth can't cover: an MCP server in front of another service (Trilium, Paperless, InvoiceNinja), where the login is that service's own and the grant carries its credentials. Decided 2026-10-30 (questlog ADR 0004).
 
 ## How
 
@@ -40,4 +40,4 @@ Settings for Better Auth are on [Better Auth](../stacks/better-auth.md); the lib
 
 ## Reference
 
-mcp-login-oauth ADR 0004 (apps with a web UI sign in with Better Auth); questlog ADR 0004 (sign-in with Better Auth, in its own SQLite file).
+questlog ADR 0004 (sign-in with Better Auth, in its own SQLite file); mcp-login-oauth, the OAuth server for form-login FastMCP servers.

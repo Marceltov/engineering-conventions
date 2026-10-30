@@ -31,4 +31,4 @@ urllib.request.urlopen(request, context=ctx)       # urllib
 
 ## Reference
 
-passageway (Marceltov/passageway#66): its Confluence, Trilium and Wikipedia connectors, the OpenAI embedder and the model download. mcp-login-oauth's Python package uses it for calls to OIDC providers (ADR 0004).
+passageway (Marceltov/passageway#66): its Confluence, Trilium and Wikipedia connectors, the OpenAI embedder and the model download.

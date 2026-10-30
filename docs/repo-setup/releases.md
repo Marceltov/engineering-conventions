@@ -12,7 +12,6 @@ A tag is a single, reviewable act: what is released is exactly what is on `main`
 - The release workflow checks that the tag matches the version in the project (`package.json`, `pyproject.toml`) before it builds.
 - The image gets three tags: the exact version, the minor line and `latest`.
 - The release notes list the merged pull requests; a project may also post them elsewhere (notefeed posts its releases to a feed).
-- A library in a monorepo folder that npm can't install from git gets its own tag prefix (`ts-vX.Y.Z`), and CI attaches the packed tarball to the release.
 - `CLAUDE.md` names the release command.
 
 ## Rules out
@@ -23,4 +22,4 @@ A tag is a single, reviewable act: what is released is exactly what is on `main`
 
 ## Reference
 
-freundebuch and notefeed (image releases); mcp-login-oauth (`ts-v*` tarball releases).
+freundebuch and notefeed (image releases); mcp-login-oauth (a library pinned by its tag).

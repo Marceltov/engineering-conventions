@@ -40,4 +40,4 @@ decision-makers: <who>
 
 ## Reference
 
-freundebuch's `docs/adr/` (17 decisions); mcp-login-oauth's ADR 0004 and questlog's ADR 0004, which supersedes its 0003.
+freundebuch's `docs/adr/` (17 decisions); questlog's ADR 0004, which supersedes its 0003.
