@@ -32,6 +32,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 
 - [Language](code/language.md): code, logs and docs in English; UI text from one copy file.
 - [HTTPS clients trust the OS certificate store](code/https-clients.md): `truststore`, not certifi's bundle.
+- [Formatting and linting](code/formatting.md): Prettier, and Ruff for Python, at 160 columns, from shared config files; CI checks.
 
 **Repository setup**
 

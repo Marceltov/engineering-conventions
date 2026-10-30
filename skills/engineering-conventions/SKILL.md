@@ -1,6 +1,6 @@
 ---
 name: engineering-conventions
-description: Marcel Bruckner's engineering conventions - architecture (MCP first, one domain layer, one gate for every read, sign-in), code (language, HTTPS clients), repository setup (CLAUDE.md, values and roadmap pages, ADRs, docs site, Dependabot, releases) and stacks (Next.js, SQLite, Better Auth, mcp-login-oauth, Python and FastMCP). Use before designing, building, setting up, reviewing or choosing a stack for code in one of his repositories, when starting a new repository, and when a review should name the convention a change touches.
+description: Marcel Bruckner's engineering conventions - architecture (MCP first, one domain layer, one gate for every read, sign-in), code (language, HTTPS clients, formatting and linting with Prettier and Ruff), repository setup (CLAUDE.md, values and roadmap pages, ADRs, docs site, Dependabot, releases) and stacks (Next.js, SQLite, Better Auth, mcp-login-oauth, Python and FastMCP). Use before designing, building, setting up, reviewing or choosing a stack for code in one of his repositories, when starting a new repository, and when a review should name the convention a change touches.
 ---
 
 # Engineering conventions
@@ -15,6 +15,7 @@ The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PL
 | design a feature, a surface or a data flow                                                                         | `architecture/mcp-first.md`, `architecture/one-gate-for-every-read.md`                 |
 | add or change sign-in, tokens, API keys or a backend that checks them                                              | `architecture/sign-in.md`, then `stacks/better-auth.md` or `stacks/mcp-login-oauth.md` |
 | write code that calls something over HTTPS                                                                         | `code/https-clients.md`                                                                |
+| write, format or lint code, or set up a formatter, linter or CI checks                                             | `code/formatting.md`                                                                   |
 | write UI text, logs, identifiers or docs                                                                           | `code/language.md`                                                                     |
 | work in a Next.js app                                                                                              | `stacks/nextjs.md`, `stacks/sqlite.md`                                                 |
 | work in Python                                                                                                     | `stacks/python.md`                                                                     |

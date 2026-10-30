@@ -20,6 +20,7 @@ nav:
   - Code:
       - Language: code/language.md
       - HTTPS clients trust the OS certificate store: code/https-clients.md
+      - Formatting and linting: code/formatting.md
   - Repository setup:
       - CLAUDE.md: repo-setup/claude-md.md
       - Values and roadmap pages: repo-setup/values-and-roadmap.md

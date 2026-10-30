@@ -16,7 +16,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 <project>: <what it is, in one line>.
 
 ## Commands
-- the dev, build, typecheck, lint and test commands; how to run one test
+- the dev, build, typecheck, format, lint and test commands; how to run one test
 - code generation and what CI checks about it
 - docs preview and release
 
