@@ -22,20 +22,44 @@ Title "What \<project\> stands for", right after Home in the docs nav (`docs/val
 
 ## The roadmap page
 
-Title "Where \<project\> is going", right after the values page (`docs/roadmap.md`). Written by hand.
+Title "Where \<project\> is going" (or "Roadmap"), in the menu's _Contributing_ section or right after the values page (`docs/roadmap.md`). **It is a visual timeline rendered from a data file**, as passageway's ([passageway.marceltov.de/roadmap](https://passageway.marceltov.de/roadmap/)): what is planned on top, what has shipped below with the day it shipped. Decided 2026-10-30.
 
-- **Intro:** where the project comes from and what it is becoming, in two or three sentences; then that the page says what is planned and why, inside the values, each item linked to its issue and the value it serves, **no dates**, and that an item leaves the page when it ships (the release notes have it) or is dropped (the reason in its issue).
-- **The idea behind all of it:** one paragraph, the thread every item follows.
-- **Sections, in this order:** **Now**, **Next**, **Later**, **Parked** (considered and wanted, but not needed yet), **Decided against** (with the reason, often a value it would break).
-- **Each item:** a bold name, its issue link, one sentence of what and why, and the value point it serves (`[V3](values.md#v3-…)`). Every item has an issue; create one when it doesn't.
-- Check that every link to a value point matches the anchor MkDocs generates for that heading.
+```mermaid
+flowchart LR
+  Y["docs/roadmap.yml"] --> H["docs_hooks/roadmap.py<br/>(MkDocs hook)"]
+  M["roadmap.md with the<br/>&lt;!-- roadmap --&gt; marker"] --> H
+  H --> T["the timeline<br/>in the built page"]
+  C["timeline CSS in<br/>stylesheets/extra.css"] --> T
+```
+
+The hook reads the data file and puts the timeline where the marker is; the site's CSS draws it.
+
+### How it is built
+
+- **The data:** `docs/roadmap.yml`, a list of `items`. Each has an `id`, a `status` (`now`, `next`, `later` or `done`; passageway also has `decide`), a `when` label for open steps (Now / Next / Later) or a `date` for done ones, a Material Design `icon` name, a `title`, a one-sentence `summary`, `links` (label and URL: the issue, the value point, an ADR, the pull request) and optional `details` (a small Markdown subset).
+- **The hook:** `docs_hooks/roadmap.py`, registered under `hooks:` in `mkdocs.yml`, replaces the `<!-- roadmap -->` marker in `roadmap.md` with the timeline. It escapes every text, inlines the icons from the installed mkdocs-material, and fails the build on an unknown icon or a missing marker, so `mkdocs build --strict` checks the data. Copy it from passageway and rename the CSS prefix (`pw-` → the project's own).
+- **The look:** the timeline CSS in `docs/stylesheets/extra.css`, in the project's own palette. A label on the left (Now / Next / Later, or the date for what shipped), a line with a marker (hollow: planned; a thicker, highlighted ring: being built now; filled with a check: shipped), and a card with icon, title, the links on the right and the summary. On a phone the label moves into the card. Check light, dark and phone width before merging.
+- **Links in the timeline are raw HTML**, which MkDocs does not rewrite: give value points and ADRs as absolute site URLs (`https://…/values/#v4-…`), not `values.md#…`.
+
+### What the page says
+
+- **Front matter** `hide: [toc]`.
+- **Intro:** where the project comes from and what it is becoming, in two or three sentences; then that the page says what is planned and why, inside the values, and what has shipped. Planned steps have **no dates**, only now, next or later; shipped steps carry the day they shipped; a dropped step leaves the timeline, with the reason in its issue.
+- **The idea behind all of it:** one paragraph, the thread every step follows.
+- **The timeline** (the marker): open steps first, in file order (now, next, later); shipped steps below, newest first. Start the shipped part with the project's first release and the larger features since, not every fix.
+- **Parked** (considered and wanted, but not needed yet) and **Decided against** (with the reason, often a value it would break): text under the timeline.
+- **Keep it true:** the timeline is rendered from `docs/roadmap.yml` (on GitHub, read that file); the pull request that finishes a step sets `status: done`, replaces `when` with a `date`, adds its link and moves it to the top of the shipped entries; the pull request that changes the plan changes the file.
+- **Every step has an issue** (create one when it doesn't) **and names the value point it serves.** Check that every value link matches the anchor MkDocs generates for that heading.
+- **`CLAUDE.md`** gets one rule: the roadmap is `docs/roadmap.yml`, and the pull request that finishes or changes a step updates it.
 
 ## Rules out
 
 - A project without a values page, or a values point without a **Rules out:** line.
 - Renumbering values points.
-- Roadmap items without an issue, or with dates.
+- Roadmap steps without an issue or a value point, or planned steps with dates.
+- A roadmap as plain text, or one that drops what shipped.
+- Relative links (`values.md#…`) inside the timeline.
 
 ## Reference
 
-notefeed's values page ([docs.notefeed.me/values](https://docs.notefeed.me/values/)); freundebuch's values and roadmap pages; mcp-login-oauth's values and roadmap.
+notefeed's values page ([docs.notefeed.me/values](https://docs.notefeed.me/values/)); passageway's roadmap (the reference for the timeline); freundebuch's values page and timeline (Marceltov/freundebuch#94); mcp-login-oauth's values and timeline.

@@ -1,0 +1,43 @@
+# The roadmap, as data. docs_hooks/roadmap.py (from passageway) renders it as the timeline on the roadmap page.
+#
+# Open entries (status now, next, later or decide) are shown first, in the order of this file, each with a `when` label and `details`.
+# Done entries are shown below them, newest date first (the order of this file breaks ties), each with a `date` and a link to its
+# pull request or release.
+#
+# To finish a step: set `status: done`, replace `when` with `date: YYYY-MM-DD`, add the link to its pull request, and move it to the
+# top of the done entries. `icon` is the name of a Material Design icon (https://pictogrammers.com/library/mdi/).
+# `details` is a small subset of markdown: paragraphs, "- " lists, **bold**, `code` and [links](https://...).
+
+items:
+  # ---- open ------------------------------------------------------------------------------------------------------------
+  - id: claude-md-pointers
+    status: now
+    when: Now
+    icon: link-variant
+    title: Every repository points at the conventions
+    summary: One line in each repository's CLAUDE.md, so a session without the plugin still finds them.
+    links:
+      - {label: "#1", url: "https://github.com/Marceltov/engineering-conventions/issues/1"}
+      - {label: "V2", url: "https://marceltov.github.io/engineering-conventions/values/#v2-the-repository-wins"}
+    details: |
+      Start with freundebuch, notefeed, questlog, mcp-login-oauth, gassi and passageway. Note where a CLAUDE.md repeats a convention (it can shrink) or contradicts one (the repository wins; decide whether the convention should change).
+
+  - id: code-style
+    status: next
+    when: Next
+    icon: code-braces
+    title: Code style
+    summary: Functions, naming, comments and tests, each confirmed by Marcel before it lands.
+    links:
+      - {label: "#2", url: "https://github.com/Marceltov/engineering-conventions/issues/2"}
+      - {label: "V1", url: "https://marceltov.github.io/engineering-conventions/values/#v1-every-rule-has-a-reason-and-a-limit"}
+
+  - id: from-single-repositories
+    status: later
+    when: Later
+    icon: source-merge
+    title: Conventions from single repositories
+    summary: Branch and commit naming, CI as the gate and others that live in one project's CLAUDE.md today.
+    links:
+      - {label: "#3", url: "https://github.com/Marceltov/engineering-conventions/issues/3"}
+      - {label: "V4", url: "https://marceltov.github.io/engineering-conventions/values/#v4-each-rule-is-done-somewhere"}

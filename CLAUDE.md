@@ -6,6 +6,7 @@ engineering-conventions: Marcel Bruckner's engineering conventions, published as
 
 ## Commands
 
+- The roadmap is data: `docs/roadmap.yml`, rendered as a timeline by `docs_hooks/roadmap.py`. The pull request that finishes or changes a step updates it (`status: done`, a `date`, the PR link).
 - Docs: `uvx --with mkdocs-material==9.7.7 --with 'mkdocs<2' mkdocs serve` (`build --strict` in CI); published to GitHub Pages from `main`.
 
 ## Rules
