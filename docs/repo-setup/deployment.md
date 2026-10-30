@@ -19,6 +19,33 @@ Building on the server needs the source, a toolchain and minutes per deploy, and
 ## How
 
 - **CI publishes the image.** A push to `main` publishes `ghcr.io/<owner>/<app>:main` once the tests passed; a version tag publishes the version tags ([Releases](releases.md)). The package is public, or the server logs in to the registry.
+- **The image job lives in `ci.yml`**, not in a workflow of its own: it `needs:` the test jobs, so an image that failed them can't be published, and it runs on pushes only. `packages: write` is set on that job alone; the workflow stays `contents: read`. A separate workflow triggered by `workflow_run` would hang the same guarantee on an `if:` and a checkout of the right commit, would never show on the commit or run on a pull request, and handles version tags poorly.
+
+    ```yaml
+    image:
+      if: github.event_name == 'push'
+      needs: check
+      runs-on: ubuntu-latest
+      permissions:
+        contents: read
+        packages: write
+      steps:
+        - uses: actions/checkout@v4
+        - uses: docker/setup-buildx-action@v3
+        - uses: docker/login-action@v3
+          with:
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+        - uses: docker/build-push-action@v6
+          with:
+            context: .
+            push: true
+            tags: ghcr.io/<owner>/<app>:main
+            cache-from: type=gha
+            cache-to: type=gha,mode=max
+    ```
+
 - **`compose.yaml` in the repository is the one the server runs:** `image:`, not `build:`; `env_file: .env`; one volume for `DATA_DIR`; `restart: unless-stopped`; the port.
 
     ```yaml
@@ -49,6 +76,7 @@ Building on the server needs the source, a toolchain and minutes per deploy, and
 - A committed `.env`; a variable the app reads that `.env.example` doesn't list.
 - An `.env.example` whose unchanged copy overrides the image's defaults or keeps the app from starting.
 - Deploying an image that didn't pass CI.
+- A publish workflow separate from the tests, or `packages: write` on more than the image job.
 
 ## Reference
 
