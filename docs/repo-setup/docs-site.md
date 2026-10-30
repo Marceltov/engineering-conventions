@@ -24,7 +24,7 @@ Docs split between a long README and a site drift apart. One place, built with `
 
 - **A small palette in `docs/stylesheets/extra.css`**, as CSS variables with a project prefix (`--pw-*`, `--ml-*`): an accent for links and the active page, a second colour for hover and focus, an ink for text and a mist for code, tables and the search field, each defined for light and dark. Material's `primary` and `accent` are `custom`.
 - **White pages and a hairline header**: the header is the page colour with a 1px line, not a coloured bar. Dark mode has its own hue (`--md-hue`) and backgrounds from the same family, not plain grey.
-- **Its own icon** as `docs/assets/icon.svg` (or `docs/logo.svg`), used as `logo` and `favicon`: a simple mark from the subject (passageway's archway, mcp-login-oauth's keyhole, freundebuch's orbit), checked on both the light and the dark header.
+- **Its own icon** as `docs/assets/icon.svg` (or `docs/logo.svg`), used as `logo` and `favicon`: a simple mark from the subject (passageway's archway, mcp-login-oauth's cobalt keyhole, freundebuch's orbit), checked on both the light and the dark header.
 - **A home page that opens with what the project does**: a short heading that says it, one paragraph, and one or two buttons to the first step. No feature grid, no stats.
 - **Atkinson Hyperlegible** for text and code on every site, a touch larger and looser (`font-size: 0.82rem; line-height: 1.65`).
 - **One bold thing per site**, everything else quiet: no gradients, card grids, shadows or animations as decoration.
@@ -92,4 +92,4 @@ Claude cloud sessions can't push workflow files (their GitHub connection lacks t
 
 ## Reference
 
-passageway (palette, archway logo, hero, header links for agents); freundebuch (its own colours and orbit icon); mcp-login-oauth (brass keyhole); this repository.
+passageway (palette, archway logo, hero, header links for agents); freundebuch (its own colours and orbit icon); mcp-login-oauth (cobalt keyhole); this repository.

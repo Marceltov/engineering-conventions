@@ -1,6 +1,6 @@
 # mcp-login-oauth
 
-**A FastMCP server whose login is a form checked by the service behind it (a Trilium password, a Paperless or InvoiceNinja login) uses [mcp-login-oauth](https://marceltov.github.io/mcp-login-oauth/) as its OAuth server, never a hand-written copy.**
+**A FastMCP server whose login is a form checked by the service behind it (a Trilium password, a Paperless or InvoiceNinja login) uses [mcp-login-oauth](https://mcp-login-oauth.marceltov.de/) as its OAuth server, never a hand-written copy.**
 
 ## Why
 
@@ -11,7 +11,7 @@ Four MCP servers carried drifting copies of the same OAuth code: only one slowed
 - `LoginOAuthProvider` with a `check_login` callback that checks the form against the service and returns the grant; tools read the grant from the access token.
 - Pin the git tag: `uv add "mcp-login-oauth @ git+https://github.com/Marceltov/mcp-login-oauth@vX.Y.Z"`.
 - Its own store (`build_store`) next to the server's data; the secret comes from the server's env var.
-- It is Python only. Anything in TypeScript signs in with [Better Auth](better-auth.md), including its MCP endpoint; the library's [TypeScript page](https://marceltov.github.io/mcp-login-oauth/typescript/) says how.
+- It is Python only. Anything in TypeScript signs in with [Better Auth](better-auth.md), including its MCP endpoint; the library's [TypeScript page](https://mcp-login-oauth.marceltov.de/typescript/) says how.
 
 ## Rules out
 
