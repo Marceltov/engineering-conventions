@@ -1,8 +1,10 @@
 {
   "name": "engineering-conventions",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Marcel Bruckner's engineering conventions: architecture, code, repository setup and stacks. Claude reads the pages that apply before it designs, builds, sets up or reviews code in his repositories.",
-  "author": { "name": "Marcel Bruckner" },
+  "author": {
+    "name": "Marcel Bruckner"
+  },
   "homepage": "https://marceltov.github.io/engineering-conventions/",
   "repository": "https://github.com/Marceltov/engineering-conventions",
   "license": "CC-BY-4.0"

@@ -39,7 +39,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [Values and roadmap pages](repo-setup/values-and-roadmap.md): what a project stands for and where it is going.
 - [Architecture decisions](repo-setup/adrs.md): MADR files in `docs/adr/`.
 - [Documentation site](repo-setup/docs-site.md): Material for MkDocs on GitHub Pages, each site with its own design; short READMEs.
-- [Diagrams](repo-setup/diagrams.md): whatever has a shape is a small Mermaid diagram with a sentence of reading.
+- [Diagrams](repo-setup/diagrams.md): sequences, flows and structures as small Mermaid diagrams, in the site's palette, with a sentence of reading.
 - [Dependabot with auto-merge](repo-setup/dependabot.md): small bumps merge once CI is green.
 - [Releases](repo-setup/releases.md): a version tag builds the image and the release.
 
