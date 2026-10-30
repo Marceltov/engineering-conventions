@@ -38,7 +38,7 @@ The hook reads the data file and puts the timeline where the marker is; the site
 
 - **The data:** `docs/roadmap.yml`, a list of `items`. Each has an `id`, a `status` (`now`, `next`, `later` or `done`; passageway also has `decide`), a `when` label for open steps (Now / Next / Later) or a `date` for done ones, a Material Design `icon` name, a `title`, a one-sentence `summary`, `links` (label and URL: the issue, the value point, an ADR, the pull request) and optional `details` (a small Markdown subset).
 - **The hook:** `docs_hooks/roadmap.py`, registered under `hooks:` in `mkdocs.yml`, replaces the `<!-- roadmap -->` marker in `roadmap.md` with the timeline. It escapes every text, inlines the icons from the installed mkdocs-material, and fails the build on an unknown icon or a missing marker, so `mkdocs build --strict` checks the data. Copy it from passageway and rename the CSS prefix (`pw-` → the project's own).
-- **The look:** the timeline CSS in `docs/stylesheets/extra.css`, in the project's own palette. A label on the left (Now / Next / Later, or the date for what shipped), a line with a marker (hollow: planned; a thicker, highlighted ring: being built now; filled with a check: shipped), and a card with icon, title, the links on the right and the summary. On a phone the label moves into the card. Check light, dark and phone width before merging.
+- **The look:** the timeline CSS in `docs/stylesheets/extra.css`, in the project's own palette, with no colour of its own: every marker is the site's accent. A label on the left (Now / Next / Later, or the date for what shipped), a line with a marker (hollow: planned; a thicker ring with a soft halo: being built now; filled with a check: shipped), and a card with icon, title, the links on the right and the summary. On a phone the label moves into the card. Check light, dark and phone width before merging.
 - **Links in the timeline are raw HTML**, which MkDocs does not rewrite: give value points and ADRs as absolute site URLs (`https://…/values/#v4-…`), not `values.md#…`.
 
 ### What the page says
@@ -59,6 +59,7 @@ The hook reads the data file and puts the timeline where the marker is; the site
 - Roadmap steps without an issue or a value point, or planned steps with dates.
 - A roadmap as plain text, or one that drops what shipped.
 - Relative links (`values.md#…`) inside the timeline.
+- Timeline colours from another project's palette (passageway's warm `now` ring copied into a blue or green site).
 
 ## Reference
 

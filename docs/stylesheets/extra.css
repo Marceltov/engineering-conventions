@@ -219,7 +219,7 @@
 }
 .ec-now .ec-tl-dot {
   border-width: 3px;
-  border-color: var(--ec-ochre);
+  border-color: var(--ec-pine);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--ec-pine) 22%, transparent);
 }
 .ec-later .ec-tl-dot {
@@ -227,7 +227,7 @@
 }
 .ec-decide .ec-tl-dot {
   border-style: dashed;
-  border-color: var(--ec-ochre);
+  border-color: var(--ec-pine);
 }
 .ec-done .ec-tl-dot {
   background: var(--ec-pine);
