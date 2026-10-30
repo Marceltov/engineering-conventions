@@ -1,6 +1,6 @@
 ---
 name: engineering-conventions
-description: Marcel Bruckner's engineering conventions - architecture (MCP first, one domain layer, one gate for every read, sign-in), code (language, HTTPS clients, formatting and linting with Prettier and Ruff), repository setup (CLAUDE.md, values and roadmap pages, ADRs, docs site, Dependabot, releases) and stacks (Next.js, SQLite, Better Auth, mcp-login-oauth, Python and FastMCP). Use before designing, building, setting up, reviewing or choosing a stack for code in one of his repositories, when starting a new repository, and when a review should name the convention a change touches.
+description: Marcel Bruckner's engineering conventions - architecture (MCP first, one domain layer, one gate for every read, sign-in), code (language, HTTPS clients, formatting and linting with Prettier and Ruff), working with Claude (the working rules every session gets), repository setup (CLAUDE.md, values and roadmap pages, ADRs, docs site, Dependabot, releases) and stacks (Next.js, SQLite, Better Auth, mcp-login-oauth, Python and FastMCP). Use before designing, building, setting up, reviewing or choosing a stack for code in one of his repositories, when starting a new repository, and when a review should name the convention a change touches.
 ---
 
 # Engineering conventions
@@ -20,6 +20,7 @@ The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PL
 | work in a Next.js app                                                                                              | `stacks/nextjs.md`, `stacks/sqlite.md`                                                 |
 | work in Python                                                                                                     | `stacks/python.md`                                                                     |
 | record a decision                                                                                                  | `repo-setup/adrs.md`                                                                   |
+| change CLAUDE.md, or the working rules every session gets                                                          | `repo-setup/claude-md.md`, `claude/session-rules.md`                                   |
 | change docs, values or roadmap, or the docs site's design                                                          | `repo-setup/docs-site.md`, `repo-setup/values-and-roadmap.md`                          |
 | explain an architecture, a sequence of calls, a flow or a decision with branches, or theme diagrams on a docs site | `repo-setup/diagrams.md`                                                               |
 | touch dependencies or releases                                                                                     | `repo-setup/dependabot.md`, `repo-setup/releases.md`                                   |

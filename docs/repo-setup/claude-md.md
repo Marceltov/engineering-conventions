@@ -34,6 +34,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```
 
 - **Short and specific.** A rule names the file or function it concerns. General advice that any project would have belongs here, in the conventions, not in each `CLAUDE.md`.
+- **Commands and non-obvious rules only.** Task-specific detail (recipes, style guides, background) goes into a project skill, `.claude/skills/<name>/SKILL.md`, which loads when the task comes up; `CLAUDE.md` keeps a one-line pointer to it. A session that finds such sections grown in a `CLAUDE.md` offers to split them out.
 - **Exceptions are named**: a repository with Dependabot auto-merge says that this is the one case where a merge happens without the user saying so.
 - **Environment variables** are prefixed with the app's name (`FREUNDEBUCH_*`), except the shared ones (`PUBLIC_URL`, `DATA_DIR`, `PORT`, `TZ`); `CLAUDE.md` lists the files that must stay in step with them.
 - Generated blocks that tools write into agent files (Next.js's `nextjs-agent-rules` in `AGENTS.md`) are not committed.
@@ -41,6 +42,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Rules out
 
 - A repository without `CLAUDE.md`.
+- A `CLAUDE.md` that carries recipes, style guides or background instead of pointing to a project skill.
 - A `CLAUDE.md` that repeats the README or general advice instead of this project's commands and rules.
 - Rules that live only in a chat or a pull request comment.
 

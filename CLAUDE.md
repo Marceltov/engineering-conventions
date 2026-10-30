@@ -16,5 +16,6 @@ engineering-conventions: Marcel Bruckner's engineering conventions, published as
 - The repository is public. Nothing private goes in: no hostnames, internal URLs, secrets, account details, personal notes or homelab specifics (V3).
 - Every convention page has the shape in `docs/index.md` (_How a page reads_): the rule, why, how, **Rules out:**, a reference repository.
 - A new page goes into `mkdocs.yml`'s `nav`, into `docs/index.md`'s list and into the skill's table in `skills/engineering-conventions/SKILL.md`. `skills/add-convention/SKILL.md` is the full procedure; keep it in step with these rules.
+- `hooks/session-start.md` is sent with every session: keep it short, and change it together with `docs/claude/session-rules.md`.
 - Bump `version` in `.claude-plugin/plugin.json` with every change to `docs/`, `skills/` or `hooks/`, so installed plugins update.
 - Docs and identifiers are English. Never commit superpowers artifacts (`.superpowers/`, specs, plans).

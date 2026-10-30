@@ -44,6 +44,10 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [Dependabot with auto-merge](repo-setup/dependabot.md): small bumps merge once CI is green.
 - [Releases](repo-setup/releases.md): a version tag builds the image and the release.
 
+**Working with Claude**
+
+- [Working rules for Claude sessions](claude/session-rules.md): small tool output, narrow reads and searches, no unasked subagents, short replies; in every session from its start.
+
 **Stacks**
 
 - [Next.js app](stacks/nextjs.md), [SQLite](stacks/sqlite.md), [Better Auth](stacks/better-auth.md), [mcp-login-oauth](stacks/mcp-login-oauth.md), [Python and FastMCP](stacks/python.md).

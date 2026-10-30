@@ -35,7 +35,9 @@ nav:
       - Better Auth: stacks/better-auth.md
       - mcp-login-oauth: stacks/mcp-login-oauth.md
       - Python and FastMCP: stacks/python.md
-  - Using the Claude Code plugin: plugin.md
+  - Working with Claude:
+      - Working rules for Claude sessions: claude/session-rules.md
+      - Using the Claude Code plugin: plugin.md
 
 theme:
   name: material
