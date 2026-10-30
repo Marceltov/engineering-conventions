@@ -1,0 +1,157 @@
+/* engineering-conventions: pine and ochre, the green ink and the brass rule of a drafting table. White pages, a hairline header. */
+
+:root > * {
+  --ec-pine: #2c6e49;
+  --ec-ochre: #9a5b12;
+  --ec-ink: #1d2420;
+  --ec-mist: #edf3ee;
+
+  --md-primary-fg-color: #ffffff;
+  --md-primary-fg-color--light: #ffffff;
+  --md-primary-fg-color--dark: #ffffff;
+  --md-primary-bg-color: var(--ec-ink);
+  --md-primary-bg-color--light: #4f5a53;
+  --md-accent-fg-color: var(--ec-ochre);
+  --md-typeset-a-color: var(--ec-pine);
+  --md-typeset-color: var(--ec-ink);
+  --md-code-bg-color: var(--ec-mist);
+  --md-footer-bg-color: var(--ec-ink);
+  --md-footer-bg-color--dark: #121815;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 150;
+  --ec-pine: #86d1a3;
+  --ec-ochre: #e8b06a;
+  --ec-ink: #e3ebe5;
+  --ec-mist: hsla(150, 12%, 17%, 1);
+
+  --md-default-bg-color: hsla(150, 14%, 9%, 1);
+  --md-primary-fg-color: hsla(150, 14%, 12%, 1);
+  --md-primary-fg-color--light: hsla(150, 14%, 12%, 1);
+  --md-primary-fg-color--dark: hsla(150, 14%, 12%, 1);
+  --md-primary-bg-color: var(--ec-ink);
+  --md-typeset-a-color: var(--ec-pine);
+  --md-typeset-color: hsla(150, 8%, 86%, 1);
+  --md-code-bg-color: var(--ec-mist);
+  --md-footer-bg-color: hsla(150, 14%, 7%, 1);
+  --md-footer-bg-color--dark: hsla(150, 14%, 5%, 1);
+}
+
+/* Header: a hairline instead of a coloured bar. */
+.md-header {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  box-shadow: none;
+}
+.md-header--shadow {
+  box-shadow: 0 1px 0 var(--md-default-fg-color--lightest);
+}
+.md-search__input,
+.md-search__input:hover {
+  background-color: var(--ec-mist);
+  color: var(--ec-ink);
+}
+.md-search__input::placeholder,
+.md-search__icon {
+  color: var(--md-default-fg-color--light);
+}
+/* The header already names the site; drop the repeat atop the sidebar. */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary > .md-nav__title {
+    display: none;
+  }
+}
+
+/* Reading rhythm: Atkinson reads best a touch larger and looser. */
+.md-typeset {
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+.md-typeset h1 {
+  color: var(--ec-ink);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.md-typeset h2 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.md-typeset a:focus-visible,
+.md-nav__link:focus-visible {
+  outline: 2px solid var(--ec-ochre);
+  outline-offset: 2px;
+}
+.md-typeset table:not([class]) th {
+  background-color: var(--ec-mist);
+}
+
+/* Home page: the set square and what the conventions are. */
+.ec-hero {
+  padding: 0.6rem 0 0.4rem;
+}
+.ec-hero__mark {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1.1rem;
+}
+.md-typeset .ec-hero h1 {
+  font-size: 2.2rem;
+  line-height: 1.12;
+  margin: 0 0 0.45em;
+  max-width: 15em;
+  text-wrap: balance;
+}
+.ec-hero__lead {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  max-width: 36em;
+  margin: 0 0 0.8rem;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .md-button {
+  color: var(--ec-pine);
+  border-color: currentColor;
+  margin: 0.3rem 0.4rem 0.3rem 0;
+}
+.md-typeset .md-button--primary {
+  background-color: var(--ec-pine);
+  border-color: var(--ec-pine);
+  color: #ffffff;
+}
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary {
+  color: hsla(150, 14%, 9%, 1);
+}
+.md-typeset .md-button:hover,
+.md-typeset .md-button:focus,
+.md-typeset .md-button--primary:hover,
+.md-typeset .md-button--primary:focus {
+  background-color: var(--ec-ochre);
+  border-color: var(--ec-ochre);
+  color: #ffffff;
+}
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .ec-hero h1 {
+    font-size: 1.7rem;
+  }
+}
+
+/* Notes and tips in pine rather than Material's blue and teal. */
+.md-typeset .admonition.note,
+.md-typeset details.note,
+.md-typeset .admonition.tip,
+.md-typeset details.tip {
+  border-color: var(--ec-pine);
+}
+.md-typeset .note > .admonition-title,
+.md-typeset .note > summary,
+.md-typeset .tip > .admonition-title,
+.md-typeset .tip > summary {
+  background-color: color-mix(in srgb, var(--ec-pine) 12%, transparent);
+}
+.md-typeset .note > .admonition-title::before,
+.md-typeset .note > summary::before,
+.md-typeset .tip > .admonition-title::before,
+.md-typeset .tip > summary::before {
+  background-color: var(--ec-pine);
+}

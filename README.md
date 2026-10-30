@@ -15,4 +15,4 @@ A repository that follows them says so in its `CLAUDE.md`: "Follows Marceltov/en
 
 ## License
 
-Copyright © 2026 Marcel Bruckner. Licensed under the [GNU Affero General Public License v3.0 or later](LICENSE).
+Copyright © 2026 Marcel Bruckner. Licensed under [Creative Commons Attribution 4.0 International](LICENSE) (CC BY 4.0): copy and adapt these conventions for your own projects, with attribution.

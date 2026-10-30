@@ -4,7 +4,7 @@ site_url: https://marceltov.github.io/engineering-conventions/
 repo_url: https://github.com/Marceltov/engineering-conventions
 repo_name: Marceltov/engineering-conventions
 edit_uri: edit/main/docs/
-copyright: Copyright &copy; 2026 Marcel Bruckner. Licensed under <a href="https://github.com/Marceltov/engineering-conventions/blob/main/LICENSE">AGPL-3.0-or-later</a>
+copyright: Copyright &copy; 2026 Marcel Bruckner. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
 
 nav:
   - Home: index.md
@@ -22,6 +22,7 @@ nav:
       - Values and roadmap pages: repo-setup/values-and-roadmap.md
       - Architecture decisions: repo-setup/adrs.md
       - Documentation site: repo-setup/docs-site.md
+      - Diagrams: repo-setup/diagrams.md
       - Dependabot with auto-merge: repo-setup/dependabot.md
       - Releases: repo-setup/releases.md
   - Stacks:
@@ -34,21 +35,23 @@ nav:
 
 theme:
   name: material
+  logo: assets/icon.svg
+  favicon: assets/icon.svg
   font:
     text: Atkinson Hyperlegible Next
     code: Atkinson Hyperlegible Mono
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue grey
-      accent: teal
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue grey
-      accent: teal
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
@@ -62,6 +65,9 @@ theme:
     - search.highlight
     - content.code.copy
     - content.action.edit
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
   - admonition

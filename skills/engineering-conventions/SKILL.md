@@ -19,7 +19,8 @@ The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PL
 | work in a Next.js app | `stacks/nextjs.md`, `stacks/sqlite.md` |
 | work in Python | `stacks/python.md` |
 | record a decision | `repo-setup/adrs.md` |
-| change docs, values or roadmap | `repo-setup/docs-site.md`, `repo-setup/values-and-roadmap.md` |
+| change docs, values or roadmap, or the docs site's design | `repo-setup/docs-site.md`, `repo-setup/values-and-roadmap.md` |
+| explain an architecture, a flow or a decision with branches | `repo-setup/diagrams.md` |
 | touch dependencies or releases | `repo-setup/dependabot.md`, `repo-setup/releases.md` |
 
 `docs/index.md` lists every page. When none fits, read the index and pick by title.

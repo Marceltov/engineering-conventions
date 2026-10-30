@@ -1,8 +1,21 @@
-# engineering-conventions
+---
+hide:
+  - toc
+---
 
-How Marcel Bruckner builds software. These are the standing rules for every repository: how an app is shaped, how code is written, how a repository is set up and which stacks it uses. Each rule says why it exists and what it rules out, and names a repository where it is done.
+<div class="ec-hero" markdown>
+<img class="ec-hero__mark" src="assets/icon.svg" alt="">
 
-They are written for people and for Claude alike. The same pages ship as a [Claude Code plugin](plugin.md), so a session loads the ones that apply before it designs, builds, sets up or reviews code.
+# How Marcel Bruckner builds software
+
+<p class="ec-hero__lead">The standing rules for every repository: how an app is shaped, how code is written, how a repository is set up and which stacks it uses. Each says why it exists and what it rules out, and names a repository where it is done.</p>
+
+[Read the conventions](#the-conventions){ .md-button .md-button--primary }
+[Use them in Claude Code](plugin.md){ .md-button }
+
+</div>
+
+They are written for people and for Claude alike: the same pages ship as a [Claude Code plugin](plugin.md), so a session loads the ones that apply before it designs, builds, sets up or reviews code.
 
 !!! note "The repository wins"
     A repository's own `CLAUDE.md`, values page and ADRs override these conventions where they differ. A repository that follows them says so in its `CLAUDE.md`: "Follows Marceltov/engineering-conventions; the rules here win where they differ."
@@ -25,7 +38,8 @@ They are written for people and for Claude alike. The same pages ship as a [Clau
 - [CLAUDE.md](repo-setup/claude-md.md): commands, architecture and rules for every session.
 - [Values and roadmap pages](repo-setup/values-and-roadmap.md): what a project stands for and where it is going.
 - [Architecture decisions](repo-setup/adrs.md): MADR files in `docs/adr/`.
-- [Documentation site](repo-setup/docs-site.md): Material for MkDocs on GitHub Pages; short READMEs.
+- [Documentation site](repo-setup/docs-site.md): Material for MkDocs on GitHub Pages, each site with its own design; short READMEs.
+- [Diagrams](repo-setup/diagrams.md): whatever has a shape is a small Mermaid diagram with a sentence of reading.
 - [Dependabot with auto-merge](repo-setup/dependabot.md): small bumps merge once CI is green.
 - [Releases](repo-setup/releases.md): a version tag builds the image and the release.
 
