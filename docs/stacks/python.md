@@ -24,4 +24,4 @@
 
 ## Reference
 
-mcp-login-oauth (package layout, `uv`, `pytest`); passageway (`truststore`); trilium-mcp, invoiceninja-mcp and paperless-ngx-mcp (FastMCP with mcp-login-oauth).
+[mcp-login-oauth](https://mcp-login-oauth.marceltov.de/) (package layout, `uv`, `pytest`); passageway (`truststore`); trilium-mcp, invoiceninja-mcp and paperless-ngx-mcp (FastMCP with mcp-login-oauth).

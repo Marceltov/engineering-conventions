@@ -24,4 +24,4 @@ A tag is a single, reviewable act: what is released is exactly what is on `main`
 
 ## Reference
 
-freundebuch and notefeed (image releases); mcp-login-oauth (PyPI through Trusted Publishing).
+freundebuch and notefeed (image releases); [mcp-login-oauth](https://mcp-login-oauth.marceltov.de/) (PyPI through Trusted Publishing).

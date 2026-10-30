@@ -93,4 +93,4 @@ Claude cloud sessions can't push workflow files (their GitHub connection lacks t
 
 ## Reference
 
-passageway (palette, archway logo, hero, header links for agents); freundebuch (its own colours and orbit icon); mcp-login-oauth (cobalt keyhole); this repository.
+passageway (palette, archway logo, hero, header links for agents); freundebuch (its own colours and orbit icon); [mcp-login-oauth](https://mcp-login-oauth.marceltov.de/) (cobalt keyhole); this repository.

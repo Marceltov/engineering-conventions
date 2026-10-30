@@ -111,4 +111,4 @@ extra_javascript:
 
 ## Reference
 
-passageway (`docs/how-it-works.md`: a `flowchart LR` with subgraphs, a `sequenceDiagram`, a `flowchart TD` for ranking); freundebuch (`docs/internals/how-it-works.md`); mcp-login-oauth (the sign-in sequence on its home page, how `verify` decides, and the TypeScript setup; the palette variables and `javascripts/mermaid.js`).
+passageway (`docs/how-it-works.md`: a `flowchart LR` with subgraphs, a `sequenceDiagram`, a `flowchart TD` for ranking); freundebuch (`docs/internals/how-it-works.md`); [mcp-login-oauth](https://mcp-login-oauth.marceltov.de/) (the sign-in sequence on its home page, how `verify` decides, and the TypeScript setup; the palette variables and `javascripts/mermaid.js`).
