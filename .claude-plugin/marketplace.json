@@ -1,0 +1,11 @@
+{
+  "name": "engineering-conventions",
+  "owner": { "name": "Marcel Bruckner" },
+  "plugins": [
+    {
+      "name": "engineering-conventions",
+      "source": "./",
+      "description": "Marcel Bruckner's engineering conventions: architecture, code, repository setup and stacks."
+    }
+  ]
+}

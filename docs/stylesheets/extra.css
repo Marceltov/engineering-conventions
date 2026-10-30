@@ -1,0 +1,389 @@
+/* engineering-conventions: pine and ochre, the green ink and the brass rule of a drafting table. White pages, a hairline header. */
+
+:root > * {
+  --ec-pine: #2c6e49;
+  --ec-ochre: #9a5b12;
+  --ec-ink: #1d2420;
+  --ec-mist: #edf3ee;
+
+  --md-primary-fg-color: #ffffff;
+  --md-primary-fg-color--light: #ffffff;
+  --md-primary-fg-color--dark: #ffffff;
+  --md-primary-bg-color: var(--ec-ink);
+  --md-primary-bg-color--light: #4f5a53;
+  --md-accent-fg-color: var(--ec-ochre);
+  --md-typeset-a-color: var(--ec-pine);
+  --md-typeset-color: var(--ec-ink);
+  --md-code-bg-color: var(--ec-mist);
+  --md-footer-bg-color: var(--ec-ink);
+  --md-footer-bg-color--dark: #121815;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 150;
+  --ec-pine: #86d1a3;
+  --ec-ochre: #e8b06a;
+  --ec-ink: #e3ebe5;
+  --ec-mist: hsla(150, 12%, 17%, 1);
+
+  --md-default-bg-color: hsla(150, 14%, 9%, 1);
+  --md-primary-fg-color: hsla(150, 14%, 12%, 1);
+  --md-primary-fg-color--light: hsla(150, 14%, 12%, 1);
+  --md-primary-fg-color--dark: hsla(150, 14%, 12%, 1);
+  --md-primary-bg-color: var(--ec-ink);
+  --md-typeset-a-color: var(--ec-pine);
+  --md-typeset-color: hsla(150, 8%, 86%, 1);
+  --md-code-bg-color: var(--ec-mist);
+  --md-footer-bg-color: hsla(150, 14%, 7%, 1);
+  --md-footer-bg-color--dark: hsla(150, 14%, 5%, 1);
+}
+
+/* Header: a hairline instead of a coloured bar. */
+.md-header {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  box-shadow: none;
+}
+.md-header--shadow {
+  box-shadow: 0 1px 0 var(--md-default-fg-color--lightest);
+}
+.md-search__input,
+.md-search__input:hover {
+  background-color: var(--ec-mist);
+  color: var(--ec-ink);
+}
+.md-search__input::placeholder,
+.md-search__icon {
+  color: var(--md-default-fg-color--light);
+}
+/* The header already names the site; drop the repeat atop the sidebar. */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary > .md-nav__title {
+    display: none;
+  }
+}
+
+/* Reading rhythm: Atkinson reads best a touch larger and looser. */
+.md-typeset {
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+.md-typeset h1 {
+  color: var(--ec-ink);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.md-typeset h2 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.md-typeset a:focus-visible,
+.md-nav__link:focus-visible {
+  outline: 2px solid var(--ec-ochre);
+  outline-offset: 2px;
+}
+.md-typeset table:not([class]) th {
+  background-color: var(--ec-mist);
+}
+
+/* Home page: the set square and what the conventions are. */
+.ec-hero {
+  padding: 0.6rem 0 0.4rem;
+}
+.ec-hero__mark {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1.1rem;
+}
+.md-typeset .ec-hero h1 {
+  font-size: 2.2rem;
+  line-height: 1.12;
+  margin: 0 0 0.45em;
+  max-width: 15em;
+  text-wrap: balance;
+}
+.ec-hero__lead {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  max-width: 36em;
+  margin: 0 0 0.8rem;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .md-button {
+  color: var(--ec-pine);
+  border-color: currentColor;
+  margin: 0.3rem 0.4rem 0.3rem 0;
+}
+.md-typeset .md-button--primary {
+  background-color: var(--ec-pine);
+  border-color: var(--ec-pine);
+  color: #ffffff;
+}
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary {
+  color: hsla(150, 14%, 9%, 1);
+}
+.md-typeset .md-button:hover,
+.md-typeset .md-button:focus,
+.md-typeset .md-button--primary:hover,
+.md-typeset .md-button--primary:focus {
+  background-color: var(--ec-ochre);
+  border-color: var(--ec-ochre);
+  color: #ffffff;
+}
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .ec-hero h1 {
+    font-size: 1.7rem;
+  }
+}
+
+/* Notes and tips in pine rather than Material's blue and teal. */
+.md-typeset .admonition.note,
+.md-typeset details.note,
+.md-typeset .admonition.tip,
+.md-typeset details.tip {
+  border-color: var(--ec-pine);
+}
+.md-typeset .note > .admonition-title,
+.md-typeset .note > summary,
+.md-typeset .tip > .admonition-title,
+.md-typeset .tip > summary {
+  background-color: color-mix(in srgb, var(--ec-pine) 12%, transparent);
+}
+.md-typeset .note > .admonition-title::before,
+.md-typeset .note > summary::before,
+.md-typeset .tip > .admonition-title::before,
+.md-typeset .tip > summary::before {
+  background-color: var(--ec-pine);
+}
+
+/* ---- The roadmap timeline (docs/roadmap.yml, rendered by docs_hooks/roadmap.py; from passageway) ----------------------------------------
+   A label on the left (a date for what shipped), a line with a marker (hollow: planned, filled with a check: shipped) and a
+   card on the right. On narrow screens the label moves into the card and the line stays on the left. */
+.md-typeset .ec-center {
+  text-align: center;
+}
+.md-typeset .ec-lead {
+  max-width: 34em;
+  margin-inline: auto;
+  color: var(--md-default-fg-color--light);
+}
+
+.ec-timeline {
+  --ec-dot: 1.1rem;
+  --ec-when: 6.2rem;
+  --ec-gap: 0.9rem;
+  max-width: 46rem;
+  margin: 2.2rem auto 2.6rem;
+}
+.ec-tl-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--ec-when) var(--ec-dot) minmax(0, 1fr);
+  column-gap: var(--ec-gap);
+  padding-bottom: 0.6rem;
+}
+.ec-tl-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--ec-when) + var(--ec-gap) + var(--ec-dot) / 2 - 1px);
+  width: 2px;
+  background: var(--md-default-fg-color--lightest);
+}
+.ec-tl-row:first-child::before {
+  top: 1.25rem;
+}
+.ec-tl-row:last-child::before {
+  bottom: calc(100% - 1.25rem);
+}
+
+.ec-tl-when {
+  padding-top: 0.78rem;
+  text-align: right;
+  font-size: 0.72rem;
+  font-style: italic;
+  white-space: nowrap;
+  color: var(--md-default-fg-color--light);
+}
+.ec-tl-dot {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: var(--ec-dot);
+  height: var(--ec-dot);
+  margin-top: 0.7rem;
+  border: 2px solid var(--ec-pine);
+  border-radius: 50%;
+  background: var(--md-default-bg-color);
+}
+.ec-now .ec-tl-dot {
+  border-width: 3px;
+  border-color: var(--ec-pine);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--ec-pine) 22%, transparent);
+}
+.ec-later .ec-tl-dot {
+  border-color: var(--md-default-fg-color--lighter);
+}
+.ec-decide .ec-tl-dot {
+  border-style: dashed;
+  border-color: var(--ec-pine);
+}
+.ec-done .ec-tl-dot {
+  background: var(--ec-pine);
+}
+.ec-done .ec-tl-dot::after {
+  content: "";
+  position: absolute;
+  left: 0.27rem;
+  top: 0.06rem;
+  width: 0.28rem;
+  height: 0.56rem;
+  border: solid var(--md-default-bg-color);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.ec-tl-card {
+  padding: 0.65rem 1rem 0.7rem;
+  border-radius: 0.6rem;
+  background: var(--ec-mist);
+}
+.ec-tl-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.ec-ic {
+  display: inline-flex;
+  flex: none;
+  width: 1.05rem;
+  height: 1.05rem;
+  color: var(--ec-pine);
+}
+.ec-ic svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+.ec-later .ec-ic {
+  color: var(--md-default-fg-color--light);
+}
+.ec-decide .ec-ic {
+  color: var(--ec-ochre);
+}
+.ec-tl-title {
+  flex: 1 1 auto;
+  font-weight: 600;
+}
+.ec-tl-links {
+  display: flex;
+  gap: 0.7rem;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+.md-typeset .ec-tl-summary {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+  color: var(--md-default-fg-color--light);
+}
+/* Material styles every <details> as an admonition (a box with an icon and a chevron); here it is a quiet "Details" toggle. */
+.md-typeset details.ec-tl-details {
+  margin: 0.45rem 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+  font-size: 0.76rem;
+}
+.md-typeset details.ec-tl-details > summary {
+  margin: 0;
+  padding: 0;
+  background: none;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--md-typeset-a-color);
+}
+.md-typeset details.ec-tl-details > summary::before {
+  content: none;
+}
+.md-typeset details.ec-tl-details > summary::after {
+  content: "\203A";
+  position: static;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  margin-left: 0.35em;
+  background: none;
+  -webkit-mask-image: none;
+  mask-image: none;
+  color: inherit;
+  transition: transform 0.15s;
+}
+.md-typeset details.ec-tl-details[open] > summary::after {
+  transform: rotate(90deg);
+}
+.md-typeset .ec-tl-details p,
+.md-typeset .ec-tl-details ul {
+  margin: 0.4em 0;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .ec-timeline {
+    --ec-when: 0rem;
+  }
+  .ec-tl-row {
+    grid-template-columns: var(--ec-dot) minmax(0, 1fr);
+    grid-template-areas: ". when" "dot card";
+  }
+  .ec-tl-row::before {
+    left: calc(var(--ec-dot) / 2 - 1px);
+  }
+  .ec-tl-when {
+    grid-area: when;
+    padding: 0.2rem 0 0.15rem;
+    text-align: left;
+    font-size: 0.68rem;
+  }
+  .ec-tl-dot {
+    grid-area: dot;
+    margin-top: 0.7rem;
+  }
+  .ec-tl-card {
+    grid-area: card;
+  }
+  .ec-tl-head {
+    flex-wrap: wrap;
+  }
+}
+
+/* Diagrams in the site's palette: Material reads these for Mermaid, in light and dark mode. */
+:root > * {
+  --md-mermaid-font-family: var(--md-text-font-family), sans-serif;
+  --md-mermaid-edge-color: var(--ec-pine);
+  --md-mermaid-node-bg-color: var(--ec-mist);
+  --md-mermaid-node-fg-color: var(--ec-ink);
+  --md-mermaid-label-bg-color: var(--md-default-bg-color);
+  --md-mermaid-label-fg-color: var(--ec-ink);
+  --md-mermaid-sequence-actor-bg-color: var(--ec-mist);
+  --md-mermaid-sequence-actor-fg-color: var(--ec-ink);
+  --md-mermaid-sequence-actor-border-color: var(--ec-pine);
+  --md-mermaid-sequence-actor-line-color: var(--md-default-fg-color--lighter);
+  --md-mermaid-sequence-actorman-bg-color: var(--ec-mist);
+  --md-mermaid-sequence-actorman-line-color: var(--ec-pine);
+  --md-mermaid-sequence-box-bg-color: var(--ec-mist);
+  --md-mermaid-sequence-box-fg-color: var(--ec-ink);
+  --md-mermaid-sequence-label-bg-color: var(--ec-mist);
+  --md-mermaid-sequence-label-fg-color: var(--ec-ink);
+  --md-mermaid-sequence-loop-bg-color: var(--md-default-bg-color);
+  --md-mermaid-sequence-loop-fg-color: var(--ec-ink);
+  --md-mermaid-sequence-loop-border-color: var(--ec-pine);
+  --md-mermaid-sequence-message-fg-color: var(--ec-ink);
+  --md-mermaid-sequence-message-line-color: var(--ec-pine);
+  --md-mermaid-sequence-note-bg-color: var(--ec-mist);
+  --md-mermaid-sequence-note-fg-color: var(--ec-ink);
+  --md-mermaid-sequence-note-border-color: var(--ec-pine);
+  --md-mermaid-sequence-number-bg-color: var(--ec-pine);
+  --md-mermaid-sequence-number-fg-color: var(--md-default-bg-color);
+}

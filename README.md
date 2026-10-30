@@ -1,3 +1,18 @@
 # engineering-conventions
 
-How Marcel Bruckner builds software: principles, architecture, code, repository setup and stacks. Published as a documentation site and as a Claude Code plugin.
+How Marcel Bruckner builds software: architecture, code, repository setup and stacks, each with its reason and what it rules out.
+
+**Read them:** [marceltov.github.io/engineering-conventions](https://marceltov.github.io/engineering-conventions/)
+
+**Use them in Claude Code:** this repository is also a Claude Code plugin. Claude loads the conventions that apply before it designs, builds, sets up or reviews code.
+
+```
+/plugin marketplace add Marceltov/engineering-conventions
+/plugin install engineering-conventions@engineering-conventions
+```
+
+A repository that follows them says so in its `CLAUDE.md`: "Follows Marceltov/engineering-conventions; the rules here win where they differ."
+
+## License
+
+Copyright © 2026 Marcel Bruckner. Licensed under [Creative Commons Attribution 4.0 International](LICENSE) (CC BY 4.0): copy and adapt these conventions for your own projects, with attribution.
