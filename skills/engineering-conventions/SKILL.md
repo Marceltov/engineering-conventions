@@ -1,6 +1,6 @@
 ---
 name: engineering-conventions
-description: Marcel Bruckner's engineering conventions - architecture (MCP first, one domain layer, one gate for every read, sign-in), code (language, HTTPS clients, formatting and linting with Prettier and Ruff), working with Claude (the working rules every session gets), repository setup (CLAUDE.md, values and roadmap pages, ADRs, docs site, Dependabot, releases) and stacks (Next.js, SQLite, Better Auth, mcp-login-oauth, Python and FastMCP). Use before designing, building, setting up, reviewing or choosing a stack for code in one of his repositories, when starting a new repository, and when a review should name the convention a change touches.
+description: Marcel Bruckner's engineering conventions - architecture (MCP first, one domain layer, one gate for every read, sign-in), code (language, HTTPS clients, formatting and linting with Prettier and Ruff), working with Claude (the working rules every session gets), repository setup (CLAUDE.md, values and roadmap pages, ADRs, docs site, Dependabot, releases, deploying with Docker Compose) and stacks (Next.js, SQLite, Better Auth, mcp-login-oauth, Python and FastMCP). Use before designing, building, setting up, reviewing or choosing a stack for code in one of his repositories, when starting a new repository, and when a review should name the convention a change touches.
 ---
 
 # Engineering conventions
@@ -24,6 +24,7 @@ The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PL
 | change docs, values or roadmap, or the docs site's design                                                          | `repo-setup/docs-site.md`, `repo-setup/values-and-roadmap.md`                          |
 | explain an architecture, a sequence of calls, a flow or a decision with branches, or theme diagrams on a docs site | `repo-setup/diagrams.md`                                                               |
 | touch dependencies or releases                                                                                     | `repo-setup/dependabot.md`, `repo-setup/releases.md`                                   |
+| deploy an app, or change its `compose.yaml`, `.env.example` or settings                                            | `repo-setup/deployment.md`                                                             |
 
 `docs/index.md` lists every page. When none fits, read the index and pick by title.
 

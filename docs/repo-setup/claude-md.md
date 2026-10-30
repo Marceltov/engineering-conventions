@@ -28,7 +28,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Rules
 - What <project> stands for is `docs/values.md`: changes are judged against it, and a review names the point it touches.
 - Follows Marceltov/engineering-conventions; the rules here win where they differ.
-- Files that must change together (config, `.env.example`, `compose.yaml`, the configuration docs).
+- Files that must change together (config, `.env.example`, the configuration docs).
 - Language of code and UI.
 - Architectural decisions go to `docs/adr/NNNN-*.md` (MADR).
 ```

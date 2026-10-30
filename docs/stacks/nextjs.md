@@ -16,7 +16,7 @@ One process and one image is what self-hosting on one server needs: nothing else
 - **Validation:** `zod` at every boundary (route input, tool input, config).
 - **Logs:** `pino`, structured, English, never a token, a form or a person's details.
 - **Image:** multi-stage Dockerfile, `output: "standalone"`, a distroless Node runtime, a `HEALTHCHECK` on `/health`, data in `DATA_DIR` on one volume. The Node major lives in `.nvmrc` and the Dockerfile and moves by hand, in both at once.
-- **Config:** env vars `<APP>_*` except `PUBLIC_URL`, `DATA_DIR`, `PORT`, `TZ`; `backend/config.ts`, `.env.example`, `compose.yaml` and the configuration docs change together.
+- **Config:** env vars `<APP>_*` except `PUBLIC_URL`, `DATA_DIR`, `PORT`, `TZ`; `backend/config.ts`, `.env.example` and the configuration docs change together; `compose.yaml` reads one `.env` file ([Deploying with Docker Compose](../repo-setup/deployment.md)).
 - **Sign-in:** Better Auth, see [Sign-in](../architecture/sign-in.md).
 
 ## Rules out

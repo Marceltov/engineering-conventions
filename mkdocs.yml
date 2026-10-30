@@ -29,6 +29,7 @@ nav:
       - Diagrams: repo-setup/diagrams.md
       - Dependabot with auto-merge: repo-setup/dependabot.md
       - Releases: repo-setup/releases.md
+      - Deploying with Docker Compose: repo-setup/deployment.md
   - Stacks:
       - Next.js app: stacks/nextjs.md
       - SQLite: stacks/sqlite.md
