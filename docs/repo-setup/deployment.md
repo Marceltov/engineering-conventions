@@ -37,6 +37,7 @@ Building on the server needs the source, a toolchain and minutes per deploy, and
     ```
 
 - **`.env.example` lists every variable** with a comment: what it does, its default, whether it is required. The server's `.env` is a copy of it, filled in, readable only by its owner (`chmod 600`), never committed (`.gitignore`: `.env*` and `!.env.example`).
+- **A copy of `.env.example` starts as it is.** A variable whose empty value would override the image's default (`DATA_DIR`, `PORT`), and an example block that is only valid when complete (an OIDC provider), stays commented out until it is filled in.
 - **Deploy and update:** put the two files in a folder on the server, then `docker compose pull && docker compose up -d`. An image watcher (Watchtower) on the server may do the same on its schedule. A server that shouldn't follow `main` pins a version tag (`:X.Y`) instead.
 - **In front:** a reverse proxy terminates TLS; the app's public address (`PUBLIC_URL`) is the proxy's.
 - **Files that change together:** the app's config module, `.env.example` and the configuration docs. `compose.yaml` doesn't list variables, so a new setting doesn't touch it.
@@ -46,8 +47,9 @@ Building on the server needs the source, a toolchain and minutes per deploy, and
 - Cloning or building on the server; `build:` in the `compose.yaml` a server runs.
 - Variables listed one by one in `compose.yaml`; settings or secrets in `compose.yaml` or baked into the image.
 - A committed `.env`; a variable the app reads that `.env.example` doesn't list.
+- An `.env.example` whose unchanged copy overrides the image's defaults or keeps the app from starting.
 - Deploying an image that didn't pass CI.
 
 ## Reference
 
-questlog (`compose.yaml` with `env_file`, `.env.example`); freundebuch (the image published by CI on every push to `main`).
+questlog (Marceltov/questlog#15: `compose.yaml` with `env_file`, `.env.example` as the server's template); freundebuch (the image published by CI on every push to `main`).
