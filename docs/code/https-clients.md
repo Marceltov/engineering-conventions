@@ -12,10 +12,11 @@ One context per client, and `truststore` is a direct dependency of the package t
 
 ```python
 import ssl, truststore
+
 ctx = truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
 
-httpx.Client(..., verify=ctx)                      # httpx
-urllib.request.urlopen(request, context=ctx)       # urllib
+httpx.Client(..., verify=ctx)  # httpx
+urllib.request.urlopen(request, context=ctx)  # urllib
 ```
 
 - **Every client**, not only the ones for internal servers: model downloads, public APIs and Wikipedia too, so nobody has to guess later which call meets a corporate proxy.

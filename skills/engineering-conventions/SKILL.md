@@ -9,19 +9,19 @@ The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PL
 
 ## Which pages to read
 
-| When you are about to … | Read |
-|---|---|
-| start a new repository, or a repository lacks the basics | every page under `repo-setup/`, then the stack pages it uses |
-| design a feature, a surface or a data flow | `architecture/mcp-first.md`, `architecture/one-gate-for-every-read.md` |
-| add or change sign-in, tokens, API keys or a backend that checks them | `architecture/sign-in.md`, then `stacks/better-auth.md` or `stacks/mcp-login-oauth.md` |
-| write code that calls something over HTTPS | `code/https-clients.md` |
-| write UI text, logs, identifiers or docs | `code/language.md` |
-| work in a Next.js app | `stacks/nextjs.md`, `stacks/sqlite.md` |
-| work in Python | `stacks/python.md` |
-| record a decision | `repo-setup/adrs.md` |
-| change docs, values or roadmap, or the docs site's design | `repo-setup/docs-site.md`, `repo-setup/values-and-roadmap.md` |
-| explain an architecture, a sequence of calls, a flow or a decision with branches, or theme diagrams on a docs site | `repo-setup/diagrams.md` |
-| touch dependencies or releases | `repo-setup/dependabot.md`, `repo-setup/releases.md` |
+| When you are about to …                                                                                            | Read                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| start a new repository, or a repository lacks the basics                                                           | every page under `repo-setup/`, then the stack pages it uses                           |
+| design a feature, a surface or a data flow                                                                         | `architecture/mcp-first.md`, `architecture/one-gate-for-every-read.md`                 |
+| add or change sign-in, tokens, API keys or a backend that checks them                                              | `architecture/sign-in.md`, then `stacks/better-auth.md` or `stacks/mcp-login-oauth.md` |
+| write code that calls something over HTTPS                                                                         | `code/https-clients.md`                                                                |
+| write UI text, logs, identifiers or docs                                                                           | `code/language.md`                                                                     |
+| work in a Next.js app                                                                                              | `stacks/nextjs.md`, `stacks/sqlite.md`                                                 |
+| work in Python                                                                                                     | `stacks/python.md`                                                                     |
+| record a decision                                                                                                  | `repo-setup/adrs.md`                                                                   |
+| change docs, values or roadmap, or the docs site's design                                                          | `repo-setup/docs-site.md`, `repo-setup/values-and-roadmap.md`                          |
+| explain an architecture, a sequence of calls, a flow or a decision with branches, or theme diagrams on a docs site | `repo-setup/diagrams.md`                                                               |
+| touch dependencies or releases                                                                                     | `repo-setup/dependabot.md`, `repo-setup/releases.md`                                   |
 
 `docs/index.md` lists every page. When none fits, read the index and pick by title.
 
