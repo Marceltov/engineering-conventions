@@ -19,6 +19,9 @@ Better Auth is an open-source (MIT) library that runs in the app's process: acco
     - an email holds only a code during an MCP or script sign-in;
     - telemetry stays off (nothing sets `telemetry.enabled` or `BETTER_AUTH_TELEMETRY`);
     - the secret comes from the app's own env var and is passed in.
+- **A refused sign-in says why.** A provider that refuses a sign-in sends `error` (and optionally `error_description`) back to the callback, and Better Auth passes
+  it on to `errorCallbackURL` as `?error=`. The sign-in page shows that code and the server logs it with the provider's name, so a misconfigured provider
+  shows in the app's own logs, not only in the provider's.
 - **Pages:** Better Auth ships none. The app builds its sign-in and consent pages in its own design, against Better Auth's client.
 
 ## Rules out
@@ -27,6 +30,7 @@ Better Auth is an open-source (MIT) library that runs in the app's process: acco
 - The `bearer` or `device-authorization` plugin.
 - Plain-text magic links or codes; telemetry turned on.
 - Better Auth's tables in the app's data file.
+- A failed provider sign-in that ends on a generic error and leaves no line in the app's log.
 
 ## Reference
 
