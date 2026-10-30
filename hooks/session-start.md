@@ -1,0 +1,1 @@
+Marcel Bruckner's engineering conventions apply to this session's software work (plugin engineering-conventions). Before designing, building, setting up, reviewing or choosing a stack for code in one of his repositories, load the `engineering-conventions` skill and read the pages that apply. A repository's own CLAUDE.md and ADRs win where they differ.

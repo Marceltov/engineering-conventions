@@ -1,0 +1,80 @@
+site_name: engineering-conventions
+site_description: How Marcel Bruckner builds software. Architecture, code, repository setup and stacks, with the reason for each rule and what it rules out.
+site_url: https://marceltov.github.io/engineering-conventions/
+repo_url: https://github.com/Marceltov/engineering-conventions
+repo_name: Marceltov/engineering-conventions
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; 2026 Marcel Bruckner. Licensed under <a href="https://github.com/Marceltov/engineering-conventions/blob/main/LICENSE">AGPL-3.0-or-later</a>
+
+nav:
+  - Home: index.md
+  - What engineering-conventions stands for: values.md
+  - Where engineering-conventions is going: roadmap.md
+  - Architecture:
+      - MCP first, one domain layer: architecture/mcp-first.md
+      - One gate for every read: architecture/one-gate-for-every-read.md
+      - Sign-in: architecture/sign-in.md
+  - Code:
+      - Language: code/language.md
+      - HTTPS clients trust the OS certificate store: code/https-clients.md
+  - Repository setup:
+      - CLAUDE.md: repo-setup/claude-md.md
+      - Values and roadmap pages: repo-setup/values-and-roadmap.md
+      - Architecture decisions: repo-setup/adrs.md
+      - Documentation site: repo-setup/docs-site.md
+      - Dependabot with auto-merge: repo-setup/dependabot.md
+      - Releases: repo-setup/releases.md
+  - Stacks:
+      - Next.js app: stacks/nextjs.md
+      - SQLite: stacks/sqlite.md
+      - Better Auth: stacks/better-auth.md
+      - mcp-login-oauth: stacks/mcp-login-oauth.md
+      - Python and FastMCP: stacks/python.md
+  - Using the Claude Code plugin: plugin.md
+
+theme:
+  name: material
+  font:
+    text: Atkinson Hyperlegible Next
+    code: Atkinson Hyperlegible Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.instant
+    - navigation.footer
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
