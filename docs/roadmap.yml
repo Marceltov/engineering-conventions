@@ -37,7 +37,18 @@ items:
     when: Later
     icon: source-merge
     title: Conventions from single repositories
-    summary: Branch and commit naming, CI as the gate and others that live in one project's CLAUDE.md today.
+    summary: Branch and commit naming, CI as the gate, tests through a quiet wrapper and others that live in one project's CLAUDE.md today.
     links:
       - {label: "#3", url: "https://github.com/Marceltov/engineering-conventions/issues/3"}
       - {label: "V4", url: "https://marceltov.github.io/engineering-conventions/values/#v4-each-rule-is-done-somewhere"}
+
+  # ---- done ------------------------------------------------------------------------------------------------------------
+  - id: first-version
+    status: done
+    date: 2026-10-30
+    icon: book-open-variant
+    title: The conventions, public and as a plugin
+    summary: Architecture, code, repository setup and stacks, moved from a private wiki; a skill to apply them and one to add to them.
+    links:
+      - {label: "#4", url: "https://github.com/Marceltov/engineering-conventions/pull/4"}
+      - {label: "V5", url: "https://marceltov.github.io/engineering-conventions/values/#v5-changes-are-visible"}

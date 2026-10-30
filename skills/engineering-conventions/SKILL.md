@@ -31,4 +31,4 @@ The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PL
 2. **Each convention has a reason and a "Rules out" line.** Use the line to decide: if a change does something it rules out, change the plan or ask the user. Don't apply a convention where its reason doesn't hold; say why.
 3. **Name the page in a review** ("conventions: one gate for every read"), as the repository's values are named ("this breaks V2").
 4. **Don't apply silently what the user hasn't asked for.** A missing values page or Dependabot setup is worth one line to the user, not an unrequested pull request.
-5. **When a convention is wrong or missing**, suggest a change to Marceltov/engineering-conventions (an issue or a pull request) instead of working around it in one repository.
+5. **When a convention is wrong or missing**, change it in Marceltov/engineering-conventions instead of working around it in one repository: the `add-convention` skill says how. A rule the user decides for every repository goes there too, not into a wiki or a single `CLAUDE.md`.

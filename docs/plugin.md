@@ -1,6 +1,6 @@
 # Using the Claude Code plugin
 
-This repository is also a Claude Code plugin. It brings the same pages as this site, a skill that says which page applies when, and a short note at the start of each session that the conventions exist.
+This repository is also a Claude Code plugin. It brings the same pages as this site, a skill that says which page applies when, a skill that adds new conventions, and a short note at the start of each session that the conventions exist.
 
 ## Install
 
@@ -17,6 +17,7 @@ On claude.ai, add the repository as a plugin marketplace for your account, so cl
 
 - **At session start**, a hook adds one paragraph to the context: the conventions apply, load the skill before designing, building, setting up, reviewing or choosing a stack, and the repository's own rules win.
 - **The skill `engineering-conventions`** maps the task to the pages to read (for example: sign-in work reads [Sign-in](architecture/sign-in.md) and the stack page) and says how to apply them: the repository wins, use the _Rules out_ line, name the page in a review, don't change a repository unasked.
+- **The skill `add-convention`** adds, changes or retires a convention: a page in the shape every page has, listed in the menu, the index and the reading skill's table, a version bump and a pull request to this repository. It is used when you decide a rule for every repository ("make this a convention"), or when a convention turns out wrong.
 - **The pages** are read from the installed plugin, so they match the version installed.
 
 ## In a repository

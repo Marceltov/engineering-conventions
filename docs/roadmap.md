@@ -5,7 +5,7 @@ hide:
 
 # Where engineering-conventions is going
 
-engineering-conventions started on 2026-10-30, when the standing rules for Marcel's repositories moved out of a private wiki into a public repository, so that every session and every contributor can read them. It is becoming the one place a new repository is set up from, and the plugin every Claude session loads.
+engineering-conventions started on 2026-10-30, when the standing rules for Marcel's repositories moved out of a private wiki into a public repository (the wiki's pages were retired the same day), so that every session and every contributor can read them. It is becoming the one place a new repository is set up from, and the plugin every Claude session loads.
 
 This page says what is planned and why, inside the [values](values.md), and what has shipped. Each step links its issue and the value it serves. Planned steps have no dates, only now, next or later; shipped steps carry the day they shipped.
 
@@ -17,7 +17,8 @@ Write each rule down once, with its reason and its limit, where every person and
 
 ## Parked
 
-Nothing yet.
+- **One package for the roadmap timeline**: the hook and its CSS are copied into each repository today ([Values and roadmap pages](repo-setup/values-and-roadmap.md)). A shared MkDocs plugin would keep them in step, once more than a handful of sites use them.
+- **A generated ADR menu**: the _Decisions_ section of a docs site is kept by hand ([Documentation site](repo-setup/docs-site.md)); a plugin could build it from `docs/adr/`.
 
 ## Decided against
 

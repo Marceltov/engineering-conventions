@@ -16,11 +16,11 @@ CI is the gate for everything; the update type only decides whether a person als
 
 ## Why
 
-A scheduled audit only reports advisories; the fix still has to be made by hand. On 2026-10-26 notefeed's audit went red with remote-code-execution advisories in `next` and high ones in the MCP SDK. Ready-to-merge bumps that merge by themselves when tests pass close that gap. Dependabot over Renovate: it is built into GitHub, so no third-party app gets write access, and it has `cooldown` and `groups`.
+A scheduled audit only reports advisories; the fix still has to be made by hand. On 2026-10-26 notefeed's audit went red with remote-code-execution advisories in `next` and high ones in the MCP SDK. Ready-to-merge bumps that merge by themselves when tests pass close that gap. Dependabot over Renovate (2026-10-27): it is built into GitHub, so no third-party app gets write access to the code, and it has `cooldown` and `groups` and covers npm, uv, Docker and Actions. Renovate is stronger at lock-file maintenance (refreshing transitive dependencies), a dependency dashboard and OSV advisories, which a small repository rarely needs.
 
 ## How
 
-1. **Switch it on** per repository: `gh api -X PUT repos/<owner>/<repo>/vulnerability-alerts` and `gh api -X PUT repos/<owner>/<repo>/automated-security-fixes`.
+1. **Switch it on** per repository (or under _Settings → Code security_): `gh api -X PUT repos/<owner>/<repo>/vulnerability-alerts` (alerts) and `gh api -X PUT repos/<owner>/<repo>/automated-security-fixes` (the pull requests for advisories). `gh api repos/<owner>/<repo>/automated-security-fixes` then answers `{"enabled":true,"paused":false}`.
 2. **`.github/dependabot.yml`**, one entry per ecosystem (npm, uv/pip, docker, github-actions), each with:
     - `schedule`: weekly, Monday 05:00, `timezone: Europe/Berlin`;
     - `cooldown: default-days: 14`: a release must be two weeks old before it is proposed (security updates skip it);
@@ -30,13 +30,13 @@ A scheduled audit only reports advisories; the fix still has to be made by hand.
     - no YAML anchors or extra top-level keys.
 3. **Auto-merge**, all three parts:
     - allow it: `gh api -X PATCH repos/<owner>/<repo> -F allow_auto_merge=true`;
-    - **require the CI checks on the default branch** with a ruleset (`required_status_checks`, `~DEFAULT_BRANCH`, the admin role as bypass actor). Without required checks, `gh pr merge --auto` doesn't wait: it merges at once;
+    - **require the CI checks on the default branch** with a ruleset (`gh api -X POST repos/<owner>/<repo>/rulesets --input ruleset.json`: the rule `required_status_checks` with the CI job names, the condition `~DEFAULT_BRANCH`, and the repository admin role, `actor_id` 5, as bypass actor so the maintainer can still push directly). Without required checks, `gh pr merge --auto` doesn't wait: it merges at once;
     - `.github/workflows/dependabot-automerge.yml`: on `pull_request`, only for `dependabot[bot]`, `dependabot/fetch-metadata@v2`, then `gh pr merge --auto --merge` for `version-update:semver-patch` and `-minor`; permissions `contents: write`, `pull-requests: write`.
 4. **`CLAUDE.md`** names this as the one exception to "merge only when I say so".
 5. **Keep a scheduled audit** (`npm audit --omit=dev`, `pip-audit`, an image scan) as a safety net.
 6. When a codegen tool is bumped and CI fails on stale generated code, regenerate on the Dependabot branch.
 
-**Caveats:** a merge by the workflow's `GITHUB_TOKEN` starts no further workflows, so a push-to-main job doesn't run for it. Dependabot pull requests get Dependabot's secrets, not the Actions secrets. Security updates don't always open a pull request: check `gh api repos/<owner>/<repo>/dependabot/alerts` after switching it on.
+**Caveats:** a merge by the workflow's `GITHUB_TOKEN` starts no further workflows, so a push-to-main job doesn't run for it. Dependabot pull requests get Dependabot's secrets, not the Actions secrets. Security updates don't always open a pull request (notefeed got none for its root `package-lock.json` and fixed `next`, the MCP SDK and `zod` by hand in notefeed/notefeed#271): check `gh api repos/<owner>/<repo>/dependabot/alerts` after switching it on.
 
 ## Rules out
 
