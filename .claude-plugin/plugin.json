@@ -1,6 +1,6 @@
 {
   "name": "engineering-conventions",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Marcel Bruckner's engineering conventions: architecture, code, repository setup and stacks. Claude reads the pages that apply before it designs, builds, sets up or reviews code in his repositories, and adds or changes a convention through a pull request to this repository.",
   "author": {
     "name": "Marcel Bruckner"
