@@ -12,6 +12,7 @@ A rule applied in each read path is missed in one of them, and the one that is m
 - **Every query on a guarded table goes through it**, including aggregates. Derived output (a briefing, a tool's `next`, a notification) is built only from rows that came through it.
 - **The tests use a fixture seed** with rows on both sides of the rule (two users, shared and private items) and assert, per read path, that the hidden rows don't appear in any form, counts included.
 - **The values page names the rule** as a line never crossed, so a review can cite it.
+- **Tenants are not this gate.** Keeping one tenant out of another is the data layer's scope ([one data layer, the tenant in one place](data-layer.md)); this gate decides what a reader sees inside their tenant.
 
 ## Rules out
 
