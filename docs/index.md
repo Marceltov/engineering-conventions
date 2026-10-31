@@ -30,7 +30,8 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 
 **Code**
 
-- [Language](code/language.md): code, logs and docs in English; UI text from one copy file.
+- [Language and internationalization](code/language.md): code, logs and docs in English; every UI built for several languages, one copy module per language.
+- [Accessibility](code/accessibility.md): WCAG 2.2 AA, never colour alone, colour-blind safe palettes, keyboard and screen readers, reduced motion.
 - [HTTPS clients trust the OS certificate store](code/https-clients.md): `truststore`, not certifi's bundle.
 - [Formatting and linting](code/formatting.md): 160 columns everywhere; Prettier, and Ruff for Python, from shared config files; CI checks.
 

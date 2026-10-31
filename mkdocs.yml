@@ -18,7 +18,8 @@ nav:
       - One gate for every read: architecture/one-gate-for-every-read.md
       - Sign-in: architecture/sign-in.md
   - Code:
-      - Language: code/language.md
+      - Language and internationalization: code/language.md
+      - Accessibility: code/accessibility.md
       - HTTPS clients trust the OS certificate store: code/https-clients.md
       - Formatting and linting: code/formatting.md
   - Repository setup:
