@@ -20,6 +20,7 @@ nav:
   - Code:
       - Language and internationalization: code/language.md
       - Accessibility: code/accessibility.md
+      - Icons: code/icons.md
       - HTTPS clients trust the OS certificate store: code/https-clients.md
       - Formatting and linting: code/formatting.md
   - Repository setup:

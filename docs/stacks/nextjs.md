@@ -12,7 +12,7 @@ One process and one image is what self-hosting on one server needs: nothing else
 - **Pinned exactly:** `next`, `eslint-config-next` and the MCP SDK carry exact versions, not ranges; they move together through one Dependabot group. Next.js has breaking changes between minors: check `node_modules/next/dist/docs/` before relying on a remembered API.
 - **Scripts:** `dev`, `build`, `start`, `lint` (ESLint with the boundary rule and `eslint-config-prettier`), `format` and `format:check` (Prettier, [Formatting and linting](../code/formatting.md)), `typecheck` (`next typegen && tsc --noEmit`), `test` (Vitest), `test:e2e` (Playwright), `generate` (OpenAPI from the route table, committed).
 - **End-to-end tests run against `next dev`**, with a test-only sign-in route that exists only under an env flag and is compiled out of production builds.
-- **Styling:** Tailwind through `@tailwindcss/postcss`; icons from `lucide-react`.
+- **Styling:** Tailwind through `@tailwindcss/postcss`; icons from `lucide-react` (see [Icons](../code/icons.md)).
 - **Validation:** `zod` at every boundary (route input, tool input, config).
 - **Logs:** `pino`, structured, English, never a token, a form or a person's details.
 - **Image:** multi-stage Dockerfile, `output: "standalone"`, a distroless Node runtime, a `HEALTHCHECK` on `/health`, data in `DATA_DIR` on one volume. The Node major lives in `.nvmrc` and the Dockerfile and moves by hand, in both at once.
