@@ -26,8 +26,10 @@ nav:
   - Repository setup:
       - CLAUDE.md: repo-setup/claude-md.md
       - Values and roadmap pages: repo-setup/values-and-roadmap.md
+      - Where a repository lives: repo-setup/where-a-repo-lives.md
       - Architecture decisions: repo-setup/adrs.md
       - Documentation site: repo-setup/docs-site.md
+      - Docs live with the code: repo-setup/docs-live-with-the-code.md
       - Diagrams: repo-setup/diagrams.md
       - Dependabot with auto-merge: repo-setup/dependabot.md
       - Releases: repo-setup/releases.md
