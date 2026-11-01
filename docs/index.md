@@ -46,6 +46,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [Dependabot with auto-merge](repo-setup/dependabot.md): small bumps merge once CI is green.
 - [Releases](repo-setup/releases.md): a version tag builds the image and the release.
 - [Deploying with Docker Compose](repo-setup/deployment.md): the server runs the published image from `compose.yaml` and one `.env` file; nothing is built there.
+- [Mail on a product's domain](repo-setup/mail.md): one catch-all mailbox people read, role addresses as aliases; the app sends from its own `noreply@` mailbox; SPF, DKIM, DMARC.
 
 **Working with Claude**
 

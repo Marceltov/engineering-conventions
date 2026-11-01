@@ -26,6 +26,7 @@ The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PL
 | explain an architecture, a sequence of calls, a flow or a decision with branches, or theme diagrams on a docs site | `repo-setup/diagrams.md`                                                               |
 | touch dependencies or releases                                                                                     | `repo-setup/dependabot.md`, `repo-setup/releases.md`                                   |
 | deploy an app, or change its `compose.yaml`, `.env.example` or settings                                            | `repo-setup/deployment.md`                                                             |
+| set up a product's domain, its mail addresses or the app's SMTP                                                    | `repo-setup/mail.md`                                                                   |
 
 `docs/index.md` lists every page. When none fits, read the index and pick by title.
 

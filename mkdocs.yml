@@ -32,6 +32,7 @@ nav:
       - Dependabot with auto-merge: repo-setup/dependabot.md
       - Releases: repo-setup/releases.md
       - Deploying with Docker Compose: repo-setup/deployment.md
+      - Mail on a product's domain: repo-setup/mail.md
   - Stacks:
       - Next.js app: stacks/nextjs.md
       - SQLite: stacks/sqlite.md
