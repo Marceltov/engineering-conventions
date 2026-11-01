@@ -40,6 +40,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 
 - [CLAUDE.md](repo-setup/claude-md.md): commands, architecture and rules for every session.
 - [Values and roadmap pages](repo-setup/values-and-roadmap.md): what a project stands for and where it is going.
+- [Where a repository lives](repo-setup/where-a-repo-lives.md): a named product has its own org and image namespace; new projects start under the personal account.
 - [Architecture decisions](repo-setup/adrs.md): MADR files in `docs/adr/`.
 - [Documentation site](repo-setup/docs-site.md): Material for MkDocs on GitHub Pages, each site with its own design; short READMEs.
 - [Diagrams](repo-setup/diagrams.md): sequences, flows and structures as small Mermaid diagrams, in the site's palette, with a sentence of reading.

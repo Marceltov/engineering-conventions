@@ -24,6 +24,7 @@ The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PL
 | change CLAUDE.md, or the working rules every session gets                                                          | `repo-setup/claude-md.md`, `claude/session-rules.md`                                   |
 | change docs, values or roadmap, or the docs site's design                                                          | `repo-setup/docs-site.md`, `repo-setup/values-and-roadmap.md`                          |
 | explain an architecture, a sequence of calls, a flow or a decision with branches, or theme diagrams on a docs site | `repo-setup/diagrams.md`                                                               |
+| create a repository or an org, move one, or name a product's image                                                 | `repo-setup/where-a-repo-lives.md`                                                     |
 | touch dependencies or releases                                                                                     | `repo-setup/dependabot.md`, `repo-setup/releases.md`                                   |
 | deploy an app, or change its `compose.yaml`, `.env.example` or settings                                            | `repo-setup/deployment.md`                                                             |
 
