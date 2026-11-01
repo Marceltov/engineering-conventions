@@ -43,6 +43,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [Where a repository lives](repo-setup/where-a-repo-lives.md): a named product has its own org and image namespace; new projects start under the personal account.
 - [Architecture decisions](repo-setup/adrs.md): MADR files in `docs/adr/`.
 - [Documentation site](repo-setup/docs-site.md): Material for MkDocs on GitHub Pages, each site with its own design; short READMEs.
+- [Docs live with the code](repo-setup/docs-live-with-the-code.md): setup, deployment and pitfalls in the repository, changed in the same pull request; a wiki keeps concepts and pointers.
 - [Diagrams](repo-setup/diagrams.md): sequences, flows and structures as small Mermaid diagrams, in the site's palette, with a sentence of reading.
 - [Dependabot with auto-merge](repo-setup/dependabot.md): small bumps merge once CI is green.
 - [Releases](repo-setup/releases.md): a version tag builds the image and the release.
