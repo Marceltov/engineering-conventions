@@ -41,4 +41,4 @@ A project moves to its own org once it has a name; from then on the org and the 
 
 ## Reference
 
-[notefeed](https://github.com/notefeed), [noticebox](https://github.com/noticebox) and [Gesetze-fuer-KI](https://github.com/Gesetze-fuer-KI) (product orgs with their images); gamepanion (moved from the personal account once it had its name).
+[notefeed](https://github.com/notefeed), [noticebox](https://github.com/noticebox) and [Gesetze-fuer-KI](https://github.com/Gesetze-fuer-KI) (product orgs with their images); Gamepanion (moved from the personal account once it had its name).
