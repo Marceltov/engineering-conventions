@@ -9,26 +9,26 @@ The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PL
 
 ## Which pages to read
 
-| When you are about to …                                                                                            | Read                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
-| start a new repository, or a repository lacks the basics                                                           | every page under `repo-setup/`, then the stack pages it uses                           |
-| design a feature, a surface or a data flow                                                                         | `architecture/mcp-first.md`, `architecture/one-gate-for-every-read.md`                 |
-| add or change sign-in, tokens, API keys or a backend that checks them                                              | `architecture/sign-in.md`, then `stacks/better-auth.md` or `stacks/mcp-login-oauth.md` |
-| write code that calls something over HTTPS                                                                         | `code/https-clients.md`                                                                |
-| write, format or lint code, or set up a formatter, linter or CI checks                                             | `code/formatting.md`                                                                   |
-| write UI text, logs, identifiers or docs, or add a language                                                        | `code/language.md`                                                                     |
-| build or change a UI: colours, controls, focus, motion, icons                                                      | `code/accessibility.md`, `code/icons.md`                                               |
-| work in a Next.js app                                                                                              | `stacks/nextjs.md`, `stacks/sqlite.md`                                                 |
-| work in Python                                                                                                     | `stacks/python.md`                                                                     |
-| record a decision                                                                                                  | `repo-setup/adrs.md`                                                                   |
-| change CLAUDE.md, or the working rules every session gets                                                          | `repo-setup/claude-md.md`, `claude/session-rules.md`                                   |
-| change docs, values or roadmap, or the docs site's design                                                          | `repo-setup/docs-site.md`, `repo-setup/values-and-roadmap.md`                          |
-| document how something is set up, deployed or run, or move notes out of a wiki                                     | `repo-setup/docs-live-with-the-code.md`                                                |
-| explain an architecture, a sequence of calls, a flow or a decision with branches, or theme diagrams on a docs site | `repo-setup/diagrams.md`                                                               |
-| create a repository or an org, move one, or name a product's image                                                 | `repo-setup/where-a-repo-lives.md`                                                     |
-| touch dependencies or releases                                                                                     | `repo-setup/dependabot.md`, `repo-setup/releases.md`                                   |
-| deploy an app, or change its `compose.yaml`, `.env.example` or settings                                            | `repo-setup/deployment.md`                                                             |
-| set up a product's domain, its mail addresses or the app's SMTP                                                    | `repo-setup/mail.md`                                                                   |
+| When you are about to …                                                                                                    | Read                                                                                   |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| start a new repository, or a repository lacks the basics                                                                   | every page under `repo-setup/`, then the stack pages it uses                           |
+| design a feature, a surface or a data flow                                                                                 | `architecture/mcp-first.md`, `architecture/one-gate-for-every-read.md`                 |
+| add or change sign-in, tokens, API keys or a backend that checks them                                                      | `architecture/sign-in.md`, then `stacks/better-auth.md` or `stacks/mcp-login-oauth.md` |
+| write code that calls something over HTTPS                                                                                 | `code/https-clients.md`                                                                |
+| write, format or lint code, or set up a formatter, linter or CI checks                                                     | `code/formatting.md`                                                                   |
+| write UI text, logs, identifiers or docs, or add a language                                                                | `code/language.md`                                                                     |
+| build or change a UI: colours, controls, focus, motion, icons                                                              | `code/accessibility.md`, `code/icons.md`                                               |
+| work in a Next.js app                                                                                                      | `stacks/nextjs.md`, `stacks/sqlite.md`                                                 |
+| work in Python                                                                                                             | `stacks/python.md`                                                                     |
+| record a decision                                                                                                          | `repo-setup/adrs.md`                                                                   |
+| change CLAUDE.md, or the working rules every session gets                                                                  | `repo-setup/claude-md.md`, `claude/session-rules.md`                                   |
+| change docs, values or roadmap, or the docs site's design                                                                  | `repo-setup/docs-site.md`, `repo-setup/values-and-roadmap.md`                          |
+| change how something is set up, deployed or run (its docs change in the same PR), document it, or move notes out of a wiki | `repo-setup/docs-live-with-the-code.md`                                                |
+| explain an architecture, a sequence of calls, a flow or a decision with branches, or theme diagrams on a docs site         | `repo-setup/diagrams.md`                                                               |
+| create a repository or an org, move one, or name a product's image                                                         | `repo-setup/where-a-repo-lives.md`                                                     |
+| touch dependencies or releases                                                                                             | `repo-setup/dependabot.md`, `repo-setup/releases.md`                                   |
+| deploy an app, or change its `compose.yaml`, `.env.example` or settings                                                    | `repo-setup/deployment.md`, `repo-setup/docs-live-with-the-code.md`                    |
+| set up a product's domain, its mail addresses or the app's SMTP                                                            | `repo-setup/mail.md`                                                                   |
 
 `docs/index.md` lists every page. When none fits, read the index and pick by title.
 
