@@ -17,6 +17,7 @@ nav:
       - MCP first, one domain layer: architecture/mcp-first.md
       - One gate for every read: architecture/one-gate-for-every-read.md
       - Sign-in: architecture/sign-in.md
+      - Selling a hosted instance: architecture/payments.md
   - Code:
       - Language and internationalization: code/language.md
       - Accessibility: code/accessibility.md
@@ -35,6 +36,7 @@ nav:
       - Releases: repo-setup/releases.md
       - Deploying with Docker Compose: repo-setup/deployment.md
       - Mail on a product's domain: repo-setup/mail.md
+      - Operator pages: repo-setup/operator-pages.md
   - Stacks:
       - Next.js app: stacks/nextjs.md
       - SQLite: stacks/sqlite.md
