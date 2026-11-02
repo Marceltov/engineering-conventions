@@ -27,6 +27,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [MCP first, one domain layer](architecture/mcp-first.md): MCP, REST and the web pages call the same framework-free domain layer; every tool result carries `next`.
 - [One gate for every read](architecture/one-gate-for-every-read.md): privacy, scoping or spoilers are one function every read goes through.
 - [Sign-in](architecture/sign-in.md): [Better Auth](stacks/better-auth.md) for apps with a web UI, [mcp-login-oauth](stacks/mcp-login-oauth.md) for form-login MCP servers, backends check tokens.
+- [Selling a hosted instance](architecture/payments.md): payments only with a configured provider, behind one interface with a fake beside it; webhooks become own events; access checked locally against `validUntil`; prices in the provider.
 
 **Code**
 
@@ -49,6 +50,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [Releases](repo-setup/releases.md): a version tag builds the image and the release.
 - [Deploying with Docker Compose](repo-setup/deployment.md): the server runs the published image from `compose.yaml` and one `.env` file; nothing is built there.
 - [Mail on a product's domain](repo-setup/mail.md): one catch-all mailbox people read, role addresses as aliases; the app sends from its own `noreply@` mailbox; SPF, DKIM, DMARC.
+- [Operator pages](repo-setup/operator-pages.md): imprint, privacy, terms and pricing words as the operator's Markdown files named by settings; public texts in `stacks`, contracts in `legal`, the operator guide on the internal docs site.
 
 **Working with Claude**
 
