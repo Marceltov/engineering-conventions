@@ -63,7 +63,7 @@ Building on the server needs the source, a toolchain and minutes per deploy, and
       app-data:
     ```
 
-- **`.env.example` lists every variable** with a comment: what it does, its default, whether it is required. The server's `.env` is a copy of it, filled in, readable only by its owner (`chmod 600`), never committed (`.gitignore`: `.env*` and `!.env.example`).
+- **`.env.example` lists every variable** with a comment: what it does, its default, whether it is required. The server's `.env` is a copy of it, filled in, readable only by its owner (`chmod 600`), every value also in the password manager ([Every secret in the password manager](secrets.md)), never committed (`.gitignore`: `.env*` and `!.env.example`).
 - **A copy of `.env.example` starts as it is.** A variable whose empty value would override the image's default (`DATA_DIR`, `PORT`), and an example block that is only valid when complete (an OIDC provider), stays commented out until it is filled in.
 - **Deploy and update:** put the two files in a folder on the server, then `docker compose pull && docker compose up -d`. An image watcher (Watchtower) on the server may do the same on its schedule. A server that shouldn't follow `main` pins a version tag (`:X.Y`) instead.
 - **In front:** a reverse proxy terminates TLS; the app's public address (`PUBLIC_URL`) is the proxy's.

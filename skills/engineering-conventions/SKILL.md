@@ -1,6 +1,6 @@
 ---
 name: engineering-conventions
-description: Marcel Bruckner's engineering conventions - architecture (MCP first, one domain layer, one gate for every read, sign-in), code (language and internationalization, accessibility, icons, HTTPS clients, formatting and linting with Prettier and Ruff), working with Claude (the working rules every session gets), repository setup (CLAUDE.md, values and roadmap pages, ADRs, docs site, Dependabot, releases, deploying with Docker Compose) and stacks (Next.js, SQLite, Better Auth, mcp-login-oauth, Python and FastMCP). Use before designing, building, setting up, reviewing or choosing a stack for code in one of his repositories, when starting a new repository, and when a review should name the convention a change touches.
+description: Marcel Bruckner's engineering conventions - architecture (MCP first, one domain layer, one gate for every read, sign-in), code (language and internationalization, accessibility, icons, HTTPS clients, formatting and linting with Prettier and Ruff), working with Claude (the working rules every session gets), repository setup (CLAUDE.md, values and roadmap pages, ADRs, docs site, Dependabot, releases, deploying with Docker Compose, every secret in the password manager) and stacks (Next.js, SQLite, Better Auth, mcp-login-oauth, Python and FastMCP). Use before designing, building, setting up, reviewing or choosing a stack for code in one of his repositories, when starting a new repository, and when a review should name the convention a change touches.
 ---
 
 # Engineering conventions
@@ -28,6 +28,7 @@ The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PL
 | create a repository or an org, move one, or name a product's image                                                         | `repo-setup/where-a-repo-lives.md`                                                     |
 | touch dependencies or releases                                                                                             | `repo-setup/dependabot.md`, `repo-setup/releases.md`                                   |
 | deploy an app, or change its `compose.yaml`, `.env.example` or settings                                                    | `repo-setup/deployment.md`, `repo-setup/docs-live-with-the-code.md`                    |
+| create, store or use a secret (a password, token, key, `.env` value), or set up a machine or stack that has secrets        | `repo-setup/secrets.md`                                                                |
 | set up a product's domain, its mail addresses or the app's SMTP                                                            | `repo-setup/mail.md`                                                                   |
 
 `docs/index.md` lists every page. When none fits, read the index and pick by title.

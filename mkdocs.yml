@@ -35,6 +35,7 @@ nav:
       - Releases: repo-setup/releases.md
       - Deploying with Docker Compose: repo-setup/deployment.md
       - Mail on a product's domain: repo-setup/mail.md
+      - Every secret in the password manager: repo-setup/secrets.md
   - Stacks:
       - Next.js app: stacks/nextjs.md
       - SQLite: stacks/sqlite.md
