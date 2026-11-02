@@ -51,6 +51,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [Deploying with Docker Compose](repo-setup/deployment.md): the server runs the published image from `compose.yaml` and one `.env` file; nothing is built there.
 - [Mail on a product's domain](repo-setup/mail.md): one catch-all mailbox people read, role addresses as aliases; the app sends from its own `noreply@` mailbox; SPF, DKIM, DMARC.
 - [Operator pages](repo-setup/operator-pages.md): imprint, privacy, terms and pricing words as the operator's Markdown files named by settings; public texts in `stacks`, contracts in `legal`, the operator guide on the internal docs site.
+- [Every secret in the password manager](repo-setup/secrets.md): every `.env` value, password and key of every machine in 1Password; losing one machine loses no access.
 
 **Working with Claude**
 
