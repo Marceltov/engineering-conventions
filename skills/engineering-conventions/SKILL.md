@@ -30,6 +30,8 @@ The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PL
 | deploy an app, or change its `compose.yaml`, `.env.example` or settings                                                    | `repo-setup/deployment.md`, `repo-setup/docs-live-with-the-code.md`                    |
 | create, store or use a secret (a password, token, key, `.env` value), or set up a machine or stack that has secrets        | `repo-setup/secrets.md`                                                                |
 | set up a product's domain, its mail addresses or the app's SMTP                                                            | `repo-setup/mail.md`                                                                   |
+| sell a hosted instance: payments, a payment provider, checkout, webhooks, plans, a free tier                               | `architecture/payments.md`, `repo-setup/operator-pages.md`                             |
+| add or change an imprint, privacy policy, terms or another text the operator answers for                                   | `repo-setup/operator-pages.md`                                                         |
 
 `docs/index.md` lists every page. When none fits, read the index and pick by title.
 
