@@ -36,6 +36,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [Icons](code/icons.md): lucide through one icons module, always next to a word; Material's icons on docs sites; the project's mark drawn for it.
 - [HTTPS clients trust the OS certificate store](code/https-clients.md): `truststore`, not certifi's bundle.
 - [Formatting and linting](code/formatting.md): 160 columns everywhere; Prettier, and Ruff for Python, from shared config files; CI checks.
+- [Shared code lives once](code/shared-code-lives-once.md): code needed in a second package moves into the shared package and both use it; never copied, never an underscore name imported across packages.
 
 **Repository setup**
 
