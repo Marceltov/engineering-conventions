@@ -47,6 +47,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [Documentation site](repo-setup/docs-site.md): Material for MkDocs on GitHub Pages, each site with its own design; short READMEs.
 - [Docs live with the code](repo-setup/docs-live-with-the-code.md): setup, deployment and pitfalls in the repository, changed in the same pull request; a wiki keeps concepts and pointers.
 - [Diagrams](repo-setup/diagrams.md): sequences, flows and structures as small Mermaid diagrams, in the site's palette, with a sentence of reading.
+- [Charts](repo-setup/charts.md): numbers drawn as charts from the data the page holds, with the table kept as the table view.
 - [Dependabot with auto-merge](repo-setup/dependabot.md): small bumps merge once CI is green.
 - [Releases](repo-setup/releases.md): a version tag builds the image and the release.
 - [Deploying with Docker Compose](repo-setup/deployment.md): the server runs the published image from `compose.yaml` and one `.env` file; nothing is built there.

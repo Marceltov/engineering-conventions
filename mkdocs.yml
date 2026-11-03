@@ -33,6 +33,7 @@ nav:
       - Documentation site: repo-setup/docs-site.md
       - Docs live with the code: repo-setup/docs-live-with-the-code.md
       - Diagrams: repo-setup/diagrams.md
+      - Charts: repo-setup/charts.md
       - Dependabot with auto-merge: repo-setup/dependabot.md
       - Releases: repo-setup/releases.md
       - Deploying with Docker Compose: repo-setup/deployment.md
