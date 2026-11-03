@@ -26,11 +26,12 @@ Docs split between a long README and a site drift apart. One place, built with `
 - **A small palette in `docs/stylesheets/extra.css`**, as CSS variables with a project prefix (`--pw-*`, `--ml-*`): an accent for links and the active page, a second colour for hover and focus, an ink for text and a mist for code, tables and the search field, each defined for light and dark. Material's `primary` and `accent` are `custom`.
 - **White pages and a hairline header**: the header is the page colour with a 1px line, not a coloured bar. Dark mode has its own hue (`--md-hue`) and backgrounds from the same family, not plain grey.
 - **Its own icon** as `docs/assets/icon.svg` (or `docs/logo.svg`), used as `logo` and `favicon`: a simple mark from the subject (passageway's archway, mcp-login-oauth's cobalt keyhole, freundebuch's orbit), checked on both the light and the dark header.
-- **A home page that opens with what the project does**: a short heading that says it, one paragraph, and one or two buttons to the first step. No feature grid, no stats.
+- **A home page that opens with what the project does**: a short heading that says it, one paragraph, and one or two buttons to the first step. Below it, a few cards that say in a line what the project is and link to the page that explains it, and one diagram that shows how it works, may be animated. Every card links somewhere and every diagram shows the real flow. No stats counters, no feature grid of icons.
 - **Atkinson Hyperlegible** for text and code on every site, a touch larger and looser (`font-size: 0.82rem; line-height: 1.65`).
-- **One bold thing per site**, everything else quiet: no gradients, card grids, shadows or animations as decoration.
+- **One bold thing per site**, everything else quiet: no gradients or shadows as decoration. Cards and animation are allowed where they carry information (a link and a summary, the real data flow); a card that links nowhere or an animation that shows nothing is decoration. Animation is ambient, never an entrance effect, and stops under `prefers-reduced-motion`.
 - **Check it before merging**: build, serve and take screenshots in light mode, dark mode and at phone width.
-- **Diagrams** follow [Diagrams](diagrams.md).
+- **Diagrams** follow [Diagrams](diagrams.md); numbers follow [Charts](charts.md).
+- **Code samples are readable.** JSON and other data in a code block is pretty-printed: one key per line, two-space indent, nothing that scrolls sideways (about 80 columns). A sample on one line is for a value that fits inside a sentence.
 
 ??? example "`.github/workflows/pages.yml`"
 
@@ -88,8 +89,9 @@ Claude cloud sessions can't push workflow files (their GitHub connection lacks t
 - A docs build without `--strict`.
 - Unpinned MkDocs or Material.
 - Material's default palette and icon, or one project's palette copied to another.
-- Decoration that carries no information: gradients, card grids, shadows, entrance animations.
+- Decoration that carries no information: gradients, shadows, entrance animations, cards that link nowhere, an animation that shows nothing.
 - Merging a design change without screenshots in light and dark mode.
+- A JSON sample squeezed onto one long line that scrolls sideways or is cut off.
 
 ## Reference
 
