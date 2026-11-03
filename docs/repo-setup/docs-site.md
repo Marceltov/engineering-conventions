@@ -30,7 +30,8 @@ Docs split between a long README and a site drift apart. One place, built with `
 - **Atkinson Hyperlegible** for text and code on every site, a touch larger and looser (`font-size: 0.82rem; line-height: 1.65`).
 - **One bold thing per site**, everything else quiet: no gradients, card grids, shadows or animations as decoration.
 - **Check it before merging**: build, serve and take screenshots in light mode, dark mode and at phone width.
-- **Diagrams** follow [Diagrams](diagrams.md).
+- **Diagrams** follow [Diagrams](diagrams.md); numbers follow [Charts](charts.md).
+- **Code samples are readable.** JSON and other data in a code block is pretty-printed: one key per line, two-space indent, nothing that scrolls sideways (about 80 columns). A sample on one line is for a value that fits inside a sentence.
 
 ??? example "`.github/workflows/pages.yml`"
 
@@ -90,6 +91,7 @@ Claude cloud sessions can't push workflow files (their GitHub connection lacks t
 - Material's default palette and icon, or one project's palette copied to another.
 - Decoration that carries no information: gradients, card grids, shadows, entrance animations.
 - Merging a design change without screenshots in light and dark mode.
+- A JSON sample squeezed onto one long line that scrolls sideways or is cut off.
 
 ## Reference
 
