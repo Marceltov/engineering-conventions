@@ -31,6 +31,7 @@ pytest (`conftest.py` at the root of the tests):
 ```python
 import pytest
 
+
 @pytest.fixture(autouse=True)
 def data_dir(tmp_path, monkeypatch):
     monkeypatch.setenv("DATA_DIR", str(tmp_path))
