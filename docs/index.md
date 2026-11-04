@@ -38,6 +38,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [HTTPS clients trust the OS certificate store](code/https-clients.md): `truststore`, not certifi's bundle.
 - [Formatting and linting](code/formatting.md): 160 columns everywhere; Prettier, and Ruff for Python, from shared config files; CI checks.
 - [Shared code lives once](code/shared-code-lives-once.md): code needed in a second package moves into the shared package and both use it; never copied, never an underscore name imported across packages.
+- [Tests keep their data in temporary directories](code/tests-temp-dirs.md): the test setup points the data directory at a temporary one for every test; nothing writes the app's real data directory.
 
 **Repository setup**
 
