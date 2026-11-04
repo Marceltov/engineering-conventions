@@ -50,6 +50,7 @@ nav:
   - Working with Claude:
       - Working rules for Claude sessions: claude/session-rules.md
       - Using the Claude Code plugin: plugin.md
+      - Publishing a plugin to the marketplace: claude/marketplace.md
 
 theme:
   name: material

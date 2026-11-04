@@ -59,6 +59,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 **Working with Claude**
 
 - [Working rules for Claude sessions](claude/session-rules.md): small tool output, narrow reads and searches, no unasked subagents, short replies; in every session from its start.
+- [Publishing a plugin to the marketplace](claude/marketplace.md): pinned by commit, shipped by bumping `version`, and the plugin starts the marketplace's pin itself.
 
 **Stacks**
 
