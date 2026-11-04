@@ -36,6 +36,7 @@ nav:
       - Charts: repo-setup/charts.md
       - Dependabot with auto-merge: repo-setup/dependabot.md
       - Releases: repo-setup/releases.md
+      - Contributor licence agreement: repo-setup/cla.md
       - Deploying with Docker Compose: repo-setup/deployment.md
       - Mail on a product's domain: repo-setup/mail.md
       - Operator pages: repo-setup/operator-pages.md
