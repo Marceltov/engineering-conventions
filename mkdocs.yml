@@ -18,21 +18,30 @@ nav:
       - One gate for every read: architecture/one-gate-for-every-read.md
       - One data layer, the tenant in one place: architecture/data-layer.md
       - Sign-in: architecture/sign-in.md
+      - Selling a hosted instance: architecture/payments.md
   - Code:
       - Language and internationalization: code/language.md
       - Accessibility: code/accessibility.md
       - Icons: code/icons.md
       - HTTPS clients trust the OS certificate store: code/https-clients.md
       - Formatting and linting: code/formatting.md
+      - Shared code lives once: code/shared-code-lives-once.md
   - Repository setup:
       - CLAUDE.md: repo-setup/claude-md.md
       - Values and roadmap pages: repo-setup/values-and-roadmap.md
+      - Where a repository lives: repo-setup/where-a-repo-lives.md
       - Architecture decisions: repo-setup/adrs.md
       - Documentation site: repo-setup/docs-site.md
+      - Docs live with the code: repo-setup/docs-live-with-the-code.md
       - Diagrams: repo-setup/diagrams.md
+      - Charts: repo-setup/charts.md
       - Dependabot with auto-merge: repo-setup/dependabot.md
       - Releases: repo-setup/releases.md
+      - Contributor licence agreement: repo-setup/cla.md
       - Deploying with Docker Compose: repo-setup/deployment.md
+      - Mail on a product's domain: repo-setup/mail.md
+      - Operator pages: repo-setup/operator-pages.md
+      - Every secret in the password manager: repo-setup/secrets.md
   - Stacks:
       - Next.js app: stacks/nextjs.md
       - SQLite: stacks/sqlite.md
@@ -42,6 +51,7 @@ nav:
   - Working with Claude:
       - Working rules for Claude sessions: claude/session-rules.md
       - Using the Claude Code plugin: plugin.md
+      - Publishing a plugin to the marketplace: claude/marketplace.md
 
 theme:
   name: material
