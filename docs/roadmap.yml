@@ -42,6 +42,19 @@ items:
       - { label: "#3", url: "https://github.com/Marceltov/engineering-conventions/issues/3" }
       - { label: "V4", url: "https://engineering-conventions.marceltov.de/values/#v4-each-rule-is-done-somewhere" }
 
+  - id: official-payment-packages
+    status: next
+    when: Next
+    icon: credit-card-outline
+    title: The provider's official packages for payments
+    summary: notefeed and Gamepanion drop their hand-written Creem module for Creem's own packages and keep only the mapping to their records.
+    links:
+      - { label: "Gamepanion #107", url: "https://github.com/Gamepanion/gamepanion/issues/107" }
+      - { label: "notefeed #339", url: "https://github.com/notefeed/notefeed/issues/339" }
+      - { label: "V4", url: "https://engineering-conventions.marceltov.de/values/#v4-each-rule-is-done-somewhere" }
+    details: |
+      Decided 2026-11-04 after comparing what exists on npm: no payments library of our own. The webhook route on `@creem_io/nextjs`, the API through `creem`, the checkout as an overlay with `@creem_io/embed`, test deliveries signed with `@creem_io/webhook-types`. The callbacks keep the rules of [Selling a hosted instance](https://engineering-conventions.marceltov.de/architecture/payments/): a cancel keeps access to the paid period's end, a refund or dispute ends it at once. Once one app runs it, `payments.md` says so as the rule.
+
   # ---- done ------------------------------------------------------------------------------------------------------------
   - id: first-version
     status: done
