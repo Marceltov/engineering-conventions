@@ -44,6 +44,8 @@ The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PL
 
 `docs/index.md` lists every page. When none fits, read the index and pick by title.
 
+To check a whole repository against every page, use the `audit` skill instead.
+
 ## How to apply them
 
 1. **The repository wins.** Its `CLAUDE.md`, its `docs/values.md` and its ADRs override these conventions where they differ. Follow them, and mention the difference once if it looks unintended.
