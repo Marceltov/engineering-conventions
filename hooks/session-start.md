@@ -2,7 +2,7 @@
 
 # Engineering conventions and working rules
 
-Marcel Bruckner's engineering conventions apply to this session's software work (plugin engineering-conventions). Before designing, building, setting up, reviewing or choosing a stack for code in one of his repositories, load the `engineering-conventions` skill and read the pages that apply. When the user decides a rule for every repository, or a convention is wrong, load the `add-convention` skill and change the conventions themselves.
+Marcel Bruckner's engineering conventions apply to this session's software work (plugin engineering-conventions). Before designing, building, setting up, reviewing or choosing a stack for code in one of his repositories, load the `engineering-conventions` skill and read the pages that apply. When the user decides a rule for every repository, or a convention is wrong, load the `add-convention` skill and change the conventions themselves. To check a repository against all of them, load the `audit` skill.
 
 These working rules apply in every repository. Where a repository's CLAUDE.md or ADRs say otherwise, they win.
 
