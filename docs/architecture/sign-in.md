@@ -4,7 +4,7 @@
 
 ## Why
 
-Sign-in is security code, and less of our own is better. Better Auth already does accounts, sessions, magic links, email codes, passkeys, any OpenID Connect provider and an OAuth server for MCP clients. mcp-login-oauth exists for the case Better Auth can't cover: an MCP server in front of another service (Trilium, Paperless, InvoiceNinja), where the login is that service's own and the grant carries its credentials. Decided 2026-10-30 (questlog ADR 0004). On 2026-11-10 (noticebox ADR 0002) API tokens moved from "when the first script needs one" to "from the start", and an allowlist became the rule for who may sign in, because a provider like GitHub or Google lets anyone on the internet finish a sign-in.
+Sign-in is security code, and less of our own is better. Better Auth already does accounts, sessions, magic links, email codes, passkeys, any OpenID Connect provider and an OAuth server for MCP clients. mcp-login-oauth exists for the case Better Auth can't cover: an MCP server in front of another service (Trilium, Paperless, InvoiceNinja), where the login is that service's own and the grant carries its credentials. Decided 2026-10-30 (questlog ADR 0004). On 2026-11-10 (noticebox ADR 0002) API tokens moved from "when the first script needs one" to "from the start", magic links became the default sign-in, and an allowlist became the rule for who may sign in, because a provider like GitHub or Google lets anyone on the internet finish a sign-in.
 
 ## How
 
@@ -21,6 +21,7 @@ The sign-in lives in the Next.js app; anything behind it only checks tokens.
 
 - **Web UI: backend-for-frontend.** The browser holds only Better Auth's `HttpOnly` session cookie and talks only to Next.js. When a separate backend exists, a Next.js route forwards the request with a short-lived JWT for the signed-in user. No token reaches the browser and there is no CORS.
 - **MCP clients** sign in through OAuth at the app (`@better-auth/mcp`), with tokens bound to the MCP resource (RFC 8707).
+- **Magic link by default:** every app with a web UI signs people in by magic link, sent through the app's own SMTP ([Mail](../repo-setup/mail.md)), so it needs no outside provider to be usable. Providers are added on top.
 - **Several providers, configured by env vars:** each OpenID Connect or built-in provider the app's env names becomes a button on the sign-in page (names on [Better Auth](../stacks/better-auth.md)).
 - **Who may sign in is an allowlist:** `<APP>_ALLOWED_EMAILS`, addresses and `@domain` entries. Only a verified email on the list gets in; an empty list lets nobody in. The provider doesn't decide this.
 - **Scripts** sign in like MCP clients, once through OAuth in a browser, with tokens bound to the API, or use an **API token**, from the start:
@@ -42,6 +43,7 @@ Settings for Better Auth are on [Better Auth](../stacks/better-auth.md); the lib
 - A backend that runs its own sign-in or trusts a forwarded user id without a token.
 - Tokens in the browser's JavaScript, in `localStorage` or in a URL.
 - A magic link during an MCP or script sign-in.
+- An app with a web UI whose only way in is an outside provider.
 - Joining two sign-ins on an unverified email.
 - A sign-in open to every account a provider has, or an allowlist that lets everyone in when it is empty.
 - An API token that works on MCP or as a browser session; an API token stored in plain text.
