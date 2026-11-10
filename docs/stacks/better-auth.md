@@ -9,7 +9,10 @@ Better Auth is an open-source (MIT) library that runs in the app's process: acco
 ## How
 
 - **Database:** its own file, `DATA_DIR/auth.sqlite`, next to the app's data. The app's tables carry Better Auth's `user.id` as the user id; deleting a user deletes their data in an `after` hook.
-- **Sign-in methods:** OpenID Connect providers from the app's own env vars (`<APP>_OIDC_<NAME>_ISSUER`, `_CLIENT_ID`, `_CLIENT_SECRET`, `_LABEL`), built-in providers for Google and Apple, `genericOAuth` for the rest; magic link and email code (`email-otp`) sent through the app's SMTP settings; passkeys (`@better-auth/passkey`), added while signed in.
+- **Sign-in methods:** OpenID Connect providers from the app's own env vars (`<APP>_OIDC_<NAME>_ISSUER`, `_CLIENT_ID`, `_CLIENT_SECRET`, `_LABEL`), built-in providers for Google, Apple and GitHub (`<APP>_OIDC_GITHUB_CLIENT_ID` and `_CLIENT_SECRET`, no issuer), `genericOAuth` for the rest; every configured provider is a button on the sign-in page; magic link (`magic-link`), always on, and email code (`email-otp`), both sent through the app's SMTP settings (`<APP>_SMTP_URL`, `<APP>_SMTP_FROM`), only to emails on the allowlist; passkeys (`@better-auth/passkey`), added while signed in.
+- **Allowlist:** a `databaseHooks` check on user and session creation refuses any email not in `<APP>_ALLOWED_EMAILS` (addresses and `@domain`), and refuses everyone when the list is empty.
+- **API tokens:** the `api-key` plugin, keys hashed, with a name, permissions for the scope and an expiry; a key never becomes a session. The REST routes check it; `/mcp` refuses it.
+- **Tests:** end-to-end setup creates the user and the session through Better Auth's server side (`auth.$context`'s internal adapter) and stores the signed session cookie for the browser; no provider runs in tests.
 - **MCP:** `@better-auth/mcp` with `@better-auth/cimd`; tokens bound to the MCP resource. Dynamic client registration only when a client needs it (claude.ai does).
 - **Backends:** the `jwt` plugin; backends check its tokens against `/api/auth/jwks`.
 - **Identity:** verified email by default, with `trustedProviders`; `disableImplicitLinking` when a second sign-in must be linked by hand.
@@ -34,4 +37,4 @@ Better Auth is an open-source (MIT) library that runs in the app's process: acco
 
 ## Reference
 
-questlog ADR 0004 (sign-in with Better Auth, in its own SQLite file).
+questlog ADR 0004 (sign-in with Better Auth, in its own SQLite file); noticebox ADR 0002 (several providers, an email allowlist, API tokens).

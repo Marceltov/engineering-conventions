@@ -25,6 +25,7 @@ Every surface is a thin adapter over one domain layer.
 - **A feature lands over MCP first**: the tool, its description and what it returns. REST and the pages follow in the same or a later change.
 - **Every tool result carries `next: string[]`**: short English instructions built from what this call did (the default day it chose, the relationship that already existed, what a merge moved). It is written only in the tool layer, so REST stays plain data. What Claude needs _before_ a call stays in the descriptions; what only matters _after_ moves into `next`.
 - **Tokens are bound to one surface**: an MCP token fails on REST and the other way round, and the browser cookie never works on MCP.
+- **API tokens are a feature like any other**: they are created, listed and revoked over MCP too. The create result returns the token once; its `next` tells Claude to hand it to the person to store in the password manager, and not to repeat it.
 - **Every result that names an item carries its URL in the web app**, so Claude can hand the user a link.
 - **The REST API has a route table** from which `openapi.json` is generated and committed; CI fails when it differs.
 
