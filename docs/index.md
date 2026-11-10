@@ -35,7 +35,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [Language and internationalization](code/language.md): code, logs and docs in English; every UI built for several languages, one copy module per language.
 - [Accessibility](code/accessibility.md): WCAG 2.2 AA, never colour alone, colour-blind safe palettes, keyboard and screen readers, reduced motion.
 - [Icons](code/icons.md): lucide through one icons module, always next to a word; Material's icons on docs sites; the project's mark drawn for it.
-- [HTTPS clients trust the OS certificate store](code/https-clients.md): `truststore`, not certifi's bundle.
+- [HTTPS clients trust the OS certificate store](code/https-clients.md): `truststore`, not certifi's bundle; `node --use-system-ca`, not Node's own list.
 - [Formatting and linting](code/formatting.md): 160 columns everywhere; Prettier, and Ruff for Python, from shared config files; CI checks.
 - [Shared code lives once](code/shared-code-lives-once.md): code needed in a second package moves into the shared package and both use it; never copied, never an underscore name imported across packages.
 - [Tests keep their data in temporary directories](code/tests-temp-dirs.md): the test setup points the data directory at a temporary one for every test; nothing writes the app's real data directory.
