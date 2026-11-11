@@ -10,7 +10,7 @@ How selling is set up on the hosted instance (which products, webhooks, settings
 
 ## How
 
-- **One setting per file:** `<APP>_IMPRINT_FILE`, `<APP>_PRIVACY_FILE`, `<APP>_TERMS_FILE`, `<APP>_NOTICE_FILE`, and the pricing page's words (`<APP>_LICENSE_FILE` in notefeed) while a payment provider is set. Each names a Markdown file, mounted read-only into the container.
+- **One setting per file:** `<APP>_IMPRINT_FILE`, `<APP>_PRIVACY_FILE`, `<APP>_TERMS_FILE`, `<APP>_NOTICE_FILE`, and the pricing page's words (`<APP>_LICENSE_FILE` in notefeed, `<APP>_PRICING_FILE` in Gamepanion) while a payment provider is set; that page is public ([selling a hosted instance](../architecture/payments.md)). Each names a Markdown file, mounted read-only into the container.
 - **No file, no page.** Without the setting, or with a file that can't be read, the page doesn't exist and the footer has no link to it. A file a page cannot do without (the pricing page's words while payments are on) stops the start and names the setting or the field, never the text.
 - **A size limit** (a few hundred KB) on each file: a page of text, not a place to keep files.
 - **Every language** the UI has ([language](../code/language.md)): one file per language, or one file with a section per language, as the app documents.
@@ -20,7 +20,7 @@ How selling is set up on the hosted instance (which products, webhooks, settings
   |---|---|---|
   | Imprint, privacy policy, terms, pricing words | the product's `stacks` repository, next to the compose file (`<app>/legal/*.md`), mounted into the container | everyone, through the app |
   | Contracts, data-processing agreements, drafts | the product's private `legal` repository ([where a repository lives](where-a-repo-lives.md)) | the operator |
-  | The operator guide: products, webhooks, setting and secret names (never values), how to go live | `docs/` of the deployment or `stacks` repository | the operator, on the internal docs site |
+  | The operator guide: products, webhooks, setting and secret names (never values), the product texts, [how to go live](going-live-with-payments.md) | `docs/` of the deployment or `stacks` repository | the operator, on the internal docs site |
 
 - **The internal docs site** is one MkDocs site built from the `docs/` of the business's deployment and stacks repositories at each deploy, served behind the same sign-in as the other internal tools. A repository whose docs should be there is added to the site's list of repositories; nothing is copied by hand.
 - **The app's public docs** say how to set the files on a self-hosted instance, and nothing about how the hosted instance sells.

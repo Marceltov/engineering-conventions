@@ -39,7 +39,8 @@ The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PL
 | collect metrics from a server or container, give a writer its credential, or build or change a dashboard                   | `repo-setup/resource-monitoring.md`                                                    |
 | add or change an alert rule, its thresholds, a contact point, a notification template or a route                           | `repo-setup/alerting.md`                                                               |
 | set up a product's domain, its mail addresses or the app's SMTP                                                            | `repo-setup/mail.md`                                                                   |
-| sell a hosted instance: payments, a payment provider, checkout, webhooks, plans, a free tier                               | `architecture/payments.md`, `repo-setup/operator-pages.md`                             |
+| sell a hosted instance: payments, a payment provider, checkout, webhooks, plans, a pricing page, a free tier               | `architecture/payments.md`, `repo-setup/operator-pages.md`                             |
+| move a hosted instance to the provider's live store, write product texts, or prepare the provider's review                 | `repo-setup/going-live-with-payments.md`, `architecture/payments.md`                   |
 | add or change an imprint, privacy policy, terms or another text the operator answers for                                   | `repo-setup/operator-pages.md`                                                         |
 
 `docs/index.md` lists every page. When none fits, read the index and pick by title.

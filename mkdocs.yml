@@ -43,6 +43,7 @@ nav:
       - Deploying with Docker Compose: repo-setup/deployment.md
       - Mail on a product's domain: repo-setup/mail.md
       - Operator pages: repo-setup/operator-pages.md
+      - Going live with a payment provider: repo-setup/going-live-with-payments.md
       - Every secret in the password manager: repo-setup/secrets.md
       - Resource usage and capacity dashboards: repo-setup/resource-monitoring.md
       - Alerts that reach a person: repo-setup/alerting.md
