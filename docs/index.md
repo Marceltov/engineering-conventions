@@ -28,7 +28,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [One gate for every read](architecture/one-gate-for-every-read.md): privacy, scoping or spoilers are one function every read goes through.
 - [One data layer, the tenant in one place](architecture/data-layer.md): only the data layer talks to the database; a scope from the session applies the tenant, never each query.
 - [Sign-in](architecture/sign-in.md): [Better Auth](stacks/better-auth.md) for apps with a web UI, [mcp-login-oauth](stacks/mcp-login-oauth.md) for form-login MCP servers, backends check tokens; an email allowlist decides who signs in; API tokens from the start, REST only.
-- [Selling a hosted instance](architecture/payments.md): payments only with a configured provider, behind one interface with a fake beside it; webhooks become own events; access checked locally against `validUntil`; prices in the provider.
+- [Selling a hosted instance](architecture/payments.md): payments only with a configured provider, behind one interface with a fake beside it; a public pricing page; webhooks become own events; access checked locally against `validUntil`; prices in the provider.
 
 **Code**
 
@@ -57,6 +57,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [Deploying with Docker Compose](repo-setup/deployment.md): the server runs the published image from `compose.yaml` and one `.env` file; nothing is built there.
 - [Mail on a product's domain](repo-setup/mail.md): one catch-all mailbox people read, role addresses as aliases; the app sends from its own `noreply@` mailbox; SPF, DKIM, DMARC.
 - [Operator pages](repo-setup/operator-pages.md): imprint, privacy, terms and pricing words as the operator's Markdown files named by settings; public texts in `stacks`, contracts in `legal`, the operator guide on the internal docs site.
+- [Going live with a payment provider](repo-setup/going-live-with-payments.md): the test store first, the live store by settings alone; prices, terms, privacy, imprint and support public and the product texts seen on a test checkout before the provider's review; one real purchase and refund before announcing.
 - [Every secret in the password manager](repo-setup/secrets.md): every `.env` value, password and key of every machine in 1Password; losing one machine loses no access.
 - [Resource usage and capacity dashboards](repo-setup/resource-monitoring.md): host and per-container usage with stall, a credential per writer, dashboards that pick hosts and products, every panel checked per value.
 - [Alerts that reach a person](repo-setup/alerting.md): every rule fired once on its real path, thresholds from a measured baseline, messages that fit the channel.
