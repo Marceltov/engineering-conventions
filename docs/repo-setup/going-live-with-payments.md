@@ -56,4 +56,4 @@ Gamepanion moved its hosted instance from Creem's test store to its live store o
 
 ## Reference
 
-Gamepanion: its hosted instance on Creem's live store since 2026-11-11 (settings from the deployment repository, product texts in its operator guide), and the public pricing page `app/(site)/pricing/`. notefeed's pricing page, `/license`, is public as well (`app/(site)/license/`).
+Gamepanion: its hosted instance on Creem's live store since 2026-11-11 (settings from the deployment repository, product texts in its operator guide), and the public pricing page `app/(site)/pricing/` (Gamepanion/gamepanion#147). notefeed's pricing page, `/license`, is public as well (`app/(site)/license/`).

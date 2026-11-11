@@ -56,4 +56,4 @@ The provider talks to the buyer and to the app's webhook; the app decides access
 
 ## Reference
 
-notefeed: `backend/payments/` (`types.ts`, `creem.ts`, `fake.ts`), `backend/licensing.ts`, `backend/licenseflow.ts`, ADRs 0029, 0035, 0036 and 0050. Gamepanion follows it for its subscription (gamepanion/gamepanion#48, `backend/payments/`, `backend/billing/`); its public pricing page is `app/(site)/pricing/`, notefeed's is `/license`. Next, both replace their hand-written Creem module with Creem's official packages and keep only the mapping to their own records (see the roadmap); not a payments library of their own.
+notefeed: `backend/payments/` (`types.ts`, `creem.ts`, `fake.ts`), `backend/licensing.ts`, `backend/licenseflow.ts`, ADRs 0029, 0035, 0036 and 0050. Gamepanion follows it for its subscription (gamepanion/gamepanion#48, `backend/payments/`, `backend/billing/`); its public pricing page is `app/(site)/pricing/` (Gamepanion/gamepanion#147), notefeed's is `/license`. Next, both replace their hand-written Creem module with Creem's official packages and keep only the mapping to their own records (see the roadmap); not a payments library of their own.
