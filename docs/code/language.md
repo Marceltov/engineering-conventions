@@ -1,6 +1,6 @@
 # Language and internationalization
 
-**Code, identifiers, the API, MCP tool names and descriptions, logs, commit messages and docs are English. Every UI is built for more than one language from the start, even while it ships one: its strings come from one copy module per language, English first, and the page speaks the language the user picked or their browser asks for.** Decided 2026-10-31.
+**Code, identifiers, the API, MCP tool names and descriptions, logs, commit messages and docs are English. Every UI is built for more than one language from the start, even while it ships one: its strings come from one copy module per language, English first, and the page speaks the language the user picked or their browser asks for.** Decided 2026-10-31. Not for a content site in one language (below), added 2026-11-12.
 
 ## Why
 
@@ -17,13 +17,23 @@ English keeps the code, the tool descriptions Claude reads and the docs in one l
 - **What the user types** (a name, a game's German stat names) is kept as they wrote it, next to the English where the app needs one.
 - The project's `CLAUDE.md` names the languages and the copy files.
 
+## Where it stops
+
+**A content site in one language is not a UI in this sense.** A local business's website, written for one market and carrying legal texts that must be in that language (terms, withdrawal notice, imprint), keeps its prose in its pages: the text is the content, like Markdown, and pulling it into a copy module makes it harder to edit without making a second language any closer. What such a site still does:
+
+- Values that more than one page shows (prices, contact details, terms quoted on several pages) live in one module, not copied into each page.
+- Numbers, money and durations are formatted in one place, with `Intl` where it applies.
+- `<html lang>` names the language, and `CLAUDE.md` says the site is in one language on purpose.
+
+When such a site gets a second language, or grows an app-like part (an account, a dashboard), the rule above applies to that part.
+
 ## Rules out
 
 - Identifiers, logs or docs in German (or mixed).
-- User-facing strings inline in components or route handlers, or a UI built for one language only.
+- User-facing strings inline in components or route handlers, or a UI built for one language only (a one-language content site excepted, see _Where it stops_).
 - A copy module per language that isn't checked against the English one.
 - Translating what the user wrote.
 
 ## Reference
 
-questlog (Marceltov/questlog#29: the copy modules, the language choice and the switch; #30: the docs in German); questlog also keeps the game's own language next to the English (its values, V8). freundebuch still has one German copy file (`components/copy.ts`).
+questlog (Marceltov/questlog#29: the copy modules, the language choice and the switch; #30: the docs in German); questlog also keeps the game's own language next to the English (its values, V8). freundebuch still has one German copy file (`components/copy.ts`). A one-language content site: 3dbruckner.de (3D-Bruckner/3dbruckner#32, closed for this reason; shared values in `src/lib/content.ts`).
