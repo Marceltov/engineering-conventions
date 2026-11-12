@@ -44,6 +44,17 @@ A Developer Certificate of Origin (`Signed-off-by`) is not enough: it says the c
 
   Its status check is required on `main`, so an unsigned pull request can't be merged.
 
+- **The `cla-signatures` branch holds only `signatures.json`** and is created with the workflow, before any pull request runs it: the action does not create the branch, and the first check fails without it. It is an orphan branch, not a copy of `main`, so nothing on it can go stale; it is never merged. The signatures stay in the project's own repository, so they move with it (another organization, a new maintainer), and the workflow's own token can write them. Create it once:
+
+  ```sh
+  R=repos/<owner>/<repo>
+  blob=$(gh api $R/git/blobs -f content=$'{\n   "signedContributors": []\n}' -f encoding=utf-8 --jq .sha)
+  tree=$(gh api $R/git/trees -f "tree[][path]=signatures.json" -f "tree[][mode]=100644" \
+    -f "tree[][type]=blob" -f "tree[][sha]=$blob" --jq .sha)
+  commit=$(gh api $R/git/commits -f message="CLA signatures" -f tree=$tree --jq .sha)
+  gh api $R/git/refs -f ref=refs/heads/cla-signatures -f sha=$commit
+  ```
+
 - **Libraries under MIT or a similar permissive licence need none:** anyone, the maintainer included, may already use them under any terms. A repository with permissive parts beside the product (an SDK, protocols) says in `CONTRIBUTING.md` that those parts, or a plugin in one's own repository, need no agreement.
 
 ## Rules out
@@ -52,7 +63,8 @@ A Developer Certificate of Origin (`Signed-off-by`) is not enough: it says the c
 - A DCO or a licence header in place of the agreement.
 - Collecting anything beyond the comment: names, addresses or signatures on paper.
 - An agreement written from scratch where the Apache one fits.
+- A `cla-signatures` branch made from `main`, or the signatures kept anywhere but the project's own repository (a shared repository needs a personal access token in every organization and ties one project's records to the others).
 
 ## Reference
 
-passageway: `CLA.md`, `CONTRIBUTING.md` and `.github/workflows/cla.yml` (passageway #97). notefeed and Gamepanion follow (Marceltov/engineering-conventions#21).
+passageway: `CLA.md`, `CONTRIBUTING.md` and `.github/workflows/cla.yml` (passageway #97). notefeed and Gamepanion follow (Marceltov/engineering-conventions#21). notefeed's `cla-signatures` branch is the first that holds only `signatures.json` (2026-11-12, found when notefeed#351 was the first pull request its check ran on).
