@@ -1,14 +1,17 @@
 # Icons
 
-**A web UI takes its icons from one library, [lucide](https://lucide.dev) (`lucide-react`), through one icons module, and an icon only ever repeats a word that stands next to it. Docs sites use the icons that ship with Material for MkDocs. The app's own mark and its pictures are drawn for the project.** Decided 2026-10-31.
+**A web UI takes its icons from one library, [lucide](https://lucide.dev) (`lucide-react`, or `@lucide/astro` on an Astro site), through one icons module, and an icon only ever repeats a word that stands next to it. Arrows and other symbols are icons too, never Unicode characters typed into the text. Docs sites use the icons that ship with Material for MkDocs. The app's own mark and its pictures are drawn for the project.** Decided 2026-10-31; arrows added 2026-11-12.
 
 ## Why
 
 Plain cards under text labels read as dull, and icons make a page easier to scan: what a card is (a weapon, a boss, an open quest) shows before its name is read. Mixing sets (a few from one library, an emoji here, a hand-drawn one there) gives mismatched line weights, and an icon without a word leaves every reader guessing, and a screen reader with nothing to say.
 
+Arrows typed as characters (`↗`, `→`, `↓`) look like plain text on a desktop, but iOS draws some of them as colour emoji, so the same link reads as a glyph on one device and a cartoon on another. Seen on 2026-11-11 on a personal website, where the "↗" after external links turned into an emoji on iPhones.
+
 ## How
 
-- **One library:** `lucide-react`, imported per icon (tree-shaken). Not a second set next to it.
+- **One library:** `lucide-react`, imported per icon (tree-shaken); on an Astro site `@lucide/astro`, the same icons as Astro components. Not a second set next to it.
+- **Arrows and symbols from the library:** an external link gets `ArrowUpRight`, a next step `ArrowRight`, and so on, `aria-hidden` next to the word. Never `↗`, `→`, `✓` or similar characters in the text or in CSS `content`.
 - **One module** (`components/icons.tsx`) maps the app's things to icons: a part of a page, a kind of row, a status. A thing the map doesn't know gets a neutral fallback (`Package`), so new data never breaks a page. Components import icons from there, not ad hoc, so one thing keeps one icon everywhere.
 - **Next to a word, hidden from screen readers:** `aria-hidden="true"` on the icon; the word says it. An icon-only control (a close button) gets an `aria-label` instead (see [Accessibility](accessibility.md)).
 - **Colour from the place, not the icon:** an icon takes the colour of the section it is in (a CSS custom property such as `--c`), or the accent outside one; quieter (muted) for what is done or gone. Colour adds to the word, it never replaces it.
@@ -31,10 +34,11 @@ const Icon = itemIcon(item.kind);
 ## Rules out
 
 - A second icon library, emoji as icons, or icons pasted in as one-off SVGs where the library has one.
+- Arrows, check marks and other symbols as Unicode characters in text or CSS `content`, where the library has an icon for them.
 - An icon that carries meaning without a word next to it or an accessible name.
 - An icon picked inline in a component for a thing the icons module already maps.
 - Taking the project's own mark from the icon library.
 
 ## Reference
 
-questlog (Marceltov/questlog#33, ADR 0012: `components/icons.tsx` with the register tabs, section headings, card tiles and the start page's cards).
+questlog (Marceltov/questlog#33, ADR 0012: `components/icons.tsx` with the register tabs, section headings, card tiles and the start page's cards). Arrows: MarcelBruckner-Business/marcelbruckner#29 (`@lucide/astro` instead of `↗` and `→`); 3D-Bruckner/3dbruckner#22 uses Lucide from the start.
