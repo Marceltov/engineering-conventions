@@ -1,12 +1,12 @@
 # Releases
 
-**A release is a version tag `vX.Y.Z` on `main`. CI builds and tags the image (`X.Y.Z`, `X.Y`, `latest`) and makes the GitHub release from the pull requests merged since the last tag.** Every tool we make also mirrors each GitHub release to its own feed on [notefeed](https://notefeed.me): the release notes as they are, plus a link back, once per tag. Decided 2026-11-13.
+**A release is a version tag `vX.Y.Z` on `main`. CI builds and tags the image (`X.Y.Z`, `X.Y`, `latest`) and makes the GitHub release from the pull requests merged since the last tag.** The GitHub release is the only place its notes live: they are not mirrored anywhere, and a page that shows releases reads them from GitHub. Decided 2026-11-13.
 
 ## Why
 
 A tag is a single, reviewable act: what is released is exactly what is on `main` at that commit, and the release notes come from the pull requests that already describe each change. Nothing is published from a laptop.
 
-GitHub's release list is only read by people who already watch the repository. A notefeed feed can be read in the browser, followed by RSS and queried by an AI assistant over MCP, so the people who use a tool hear about its releases without a GitHub account. notefeed, passageway and the Trilium projects already did this, each with the same few lines; on 2026-11-13 it became the rule for every tool, so that no release goes out unannounced.
+Release notes live in one place. Every repository already has a feed of its releases that needs no GitHub account (`https://github.com/<owner>/<repo>/releases.atom`). On 2026-11-13 the rule was briefly that every tool mirrors its releases to its own notefeed feed, as notefeed, passageway, freundebuch and the Trilium projects did. Rolling it out showed the cost: a feed, a license and two secrets per tool for a second copy of notes that are public on GitHub anyway. It was dropped the same day. The website reads the releases from GitHub instead.
 
 ## How
 
@@ -18,46 +18,11 @@ GitHub's release list is only read by people who already watch the repository. A
 - The release notes list the merged pull requests.
 - `CLAUDE.md` names the release command.
 
-### Release notes on notefeed
+### Showing releases elsewhere
 
-```mermaid
-flowchart LR
-  T["tag vX.Y.Z"] --> R["GitHub release<br/>(notes from the PRs)"]
-  R --> C{"note tagged<br/>&lt;repo&gt;-vX.Y.Z<br/>on the feed?"}
-  C -- no --> P["post the notes<br/>+ link to the release"]
-  C -- yes --> S["nothing"]
-```
-
-- **One feed per product.** A product of several repositories (an app, its MCP server, its plugin) shares one feed; a tool on its own gets its own. Create the feed when the tool gets its first release, with a title and description that say what the tool is.
-- **Read link and feed name are the same.** The feed is created with a password and a read id equal to its name, so `https://notefeed.me/r/<feed>` is where anyone reads it, and the README and the docs site link there. Only the password posts.
-- **Two Actions secrets**: `NOTEFEED_FEED` (the feed's name) and `NOTEFEED_FEED_PASSWORD`, both secrets so that forks have neither. The password goes into the password manager first ([Every secret in the password manager](secrets.md)). Without `NOTEFEED_FEED` the step says so and posts nothing, so forks work.
-- **The post is a mirror of the GitHub release.** The body is the release body exactly as GitHub shows it: not rewritten, not shortened, not summarized. The only addition is one line at the end, `[The release on GitHub](<release url>)`. The notes are written once, on GitHub.
-- **Title** `<repo> X.Y.Z` (the version without its `v`). **Tags** `release`, `<repo>` and `<repo>-vX.Y.Z`.
-- **Posted once per tag, never updated.** Before posting, the step asks the feed for a note tagged `<repo>-vX.Y.Z` and posts nothing if there is one, so a re-run is safe. A later edit to the GitHub release is not carried over to the note.
-- **It runs right after the GitHub release is made**, in the same job. Where releases are made by hand, a workflow on `release: published` posts instead (a release made by the workflow's `GITHUB_TOKEN` does not start one, so image repositories post from their release job).
-- **A failed post doesn't fail the release** (`continue-on-error: true`): the release and the image are out either way; run the job again.
-
-The step, for a release job that has just made the GitHub release (`jq` and `gh` are on GitHub's runners):
-
-```yaml
-- name: Post the notes to notefeed
-  continue-on-error: true
-  env:
-    GH_TOKEN: ${{ github.token }}
-    TAG: ${{ github.ref_name }}
-    NOTEFEED_FEED: ${{ secrets.NOTEFEED_FEED }}
-    NOTEFEED_FEED_PASSWORD: ${{ secrets.NOTEFEED_FEED_PASSWORD }}
-  run: |
-    [ -n "$NOTEFEED_FEED" ] || { echo "No NOTEFEED_FEED secret, not posting"; exit 0; }
-    repo=${GITHUB_REPOSITORY#*/}
-    feed="https://notefeed.me/api/v1/feeds/$NOTEFEED_FEED/notes"
-    posted=$(curl -fsS -H "X-Feed-Password: $NOTEFEED_FEED_PASSWORD" "$feed?tag=$repo-$TAG&limit=1" | jq '.notes | length')
-    [ "$posted" = 0 ] || { echo "$repo $TAG is already on notefeed"; exit 0; }
-    gh release view "$TAG" --json body,url --jq '.body + "\n\n[The release on GitHub](" + .url + ")\n"' > notefeed.md
-    curl -fsS -o /dev/null -H "Content-Type: text/markdown" -H "X-Feed-Password: $NOTEFEED_FEED_PASSWORD" \
-      -H "X-Note-Title: $repo ${TAG#v}" -H "X-Note-Tags: release,$repo,$repo-$TAG" \
-      --data-binary @notefeed.md "$feed"
-```
+- **A page that lists releases reads them from GitHub at build time** (`GET /repos/<owner>/<repo>/releases`, with the workflow's `GITHUB_TOKEN`), shows the version, date and a link to the release, and builds on a schedule so a new release appears within a day. marcelbruckner.de's Projekte page is the first (MarcelBruckner-Business/marcelbruckner#36).
+- **Readers who want to follow a tool** get its `releases.atom` link.
+- **notefeed is the exception, as its own product:** it posts its releases and a news post to notefeed.me's reserved feeds to use what it sells. That is notefeed's decision, not a rule for other tools.
 
 ## Rules out
 
@@ -65,12 +30,10 @@ The step, for a release job that has just made the GitHub release (`jq` and `gh`
 - A PyPI API token in the repository's secrets.
 - A release whose tag doesn't match the version in the project.
 - Hand-written release notes that repeat the pull requests.
-- A release of a tool that is not posted to its notefeed feed, or a second post for the same tag.
-- A post that is anything other than the GitHub release's body and the link: a summary, a rewrite, a date line, notes written separately for the feed.
-- A feed password that is only in the repository's secrets and not in the password manager.
+- Copying release notes to another place (a feed, a blog post, a changelog file) instead of linking to or reading the GitHub release.
 
 ## Reference
 
 freundebuch and notefeed (image releases); [mcp-login-oauth](https://mcp-login-oauth.marceltov.de/) (PyPI through Trusted Publishing).
 
-Release notes on notefeed: notefeed (its reserved `releases` feed, `.github/workflows/ci.yml`; a mirror since notefeed/notefeed#366), passageway (`scripts/post-to-notefeed.sh` from `.github/workflows/release.yml`), freundebuch (`.github/workflows/ci.yml`), trilium-mcp-proxy and trilium-recall (from the release job) and trilium-llm-wiki (`.github/workflows/notefeed.yml` on `release: published`); the Trilium projects share one feed.
+notefeed's own feeds: `.github/workflows/ci.yml` and `scripts/release-news.sh` in notefeed/notefeed.
