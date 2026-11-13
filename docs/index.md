@@ -24,7 +24,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 
 **Architecture**
 
-- [MCP first, one domain layer](architecture/mcp-first.md): MCP, REST and the web pages call the same framework-free domain layer; every tool result carries `next`.
+- [MCP first, one domain layer](architecture/mcp-first.md): MCP, REST and the web pages call the same framework-free domain layer; every tool result carries `guidance`.
 - [One gate for every read](architecture/one-gate-for-every-read.md): privacy, scoping or spoilers are one function every read goes through.
 - [One data layer, the tenant in one place](architecture/data-layer.md): only the data layer talks to the database; a scope from the session applies the tenant, never each query.
 - [Sign-in](architecture/sign-in.md): [Better Auth](stacks/better-auth.md) for apps with a web UI, [mcp-login-oauth](stacks/mcp-login-oauth.md) for form-login MCP servers, backends check tokens; an email allowlist decides who signs in; API tokens from the start, REST only.
@@ -32,7 +32,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 
 **Code**
 
-- [Language and internationalization](code/language.md): code, logs and docs in English; every UI built for several languages, one copy module per language; a one-language content site keeps its prose in its pages.
+- [Language and internationalization](code/language.md): code, logs and docs in English; every UI built for several languages, one copy module per language, in Next.js through `app/[lang]` and a proxy rewrite; a one-language content site keeps its prose in its pages.
 - [Accessibility](code/accessibility.md): WCAG 2.2 AA, never colour alone, colour-blind safe palettes, keyboard and screen readers, reduced motion.
 - [Icons](code/icons.md): lucide through one icons module, always next to a word, arrows too (no `↗` characters); Material's icons on docs sites; the project's mark drawn for it.
 - [HTTPS clients trust the OS certificate store](code/https-clients.md): `truststore`, not certifi's bundle.

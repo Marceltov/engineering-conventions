@@ -18,6 +18,7 @@ One process and one image is what self-hosting on one server needs: nothing else
 - **Image:** multi-stage Dockerfile, `output: "standalone"`, a distroless Node runtime, a `HEALTHCHECK` on `/health`, data in `DATA_DIR` on one volume. The Node major lives in `.nvmrc` and the Dockerfile and moves by hand, in both at once.
 - **Config:** env vars `<APP>_*` except `PUBLIC_URL`, `DATA_DIR`, `PORT`, `TZ`; `backend/config.ts`, `.env.example` and the configuration docs change together; `compose.yaml` reads one `.env` file ([Deploying with Docker Compose](../repo-setup/deployment.md)).
 - **Sign-in:** Better Auth, see [Sign-in](../architecture/sign-in.md).
+- **Languages:** pages under `app/[lang]/`, the language picked in `proxy.ts` and added in a rewrite, never in the URL; see [Language and internationalization](../code/language.md).
 
 ## Rules out
 
