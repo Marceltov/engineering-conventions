@@ -23,9 +23,9 @@ Every surface is a thin adapter over one domain layer.
 
 - **`backend/` is framework-free** and the frontend imports it only through `backend/index.ts`. ESLint enforces the boundary with `no-restricted-imports`: no `next` or `react` inside `backend/`, no deep imports into it from `app/` or `components/`.
 - **A feature lands over MCP first**: the tool, its description and what it returns. REST and the pages follow in the same or a later change.
-- **Every tool result carries `next: string[]`**: short English instructions built from what this call did (the default day it chose, the relationship that already existed, what a merge moved). It is written only in the tool layer, so REST stays plain data. What Claude needs _before_ a call stays in the descriptions; what only matters _after_ moves into `next`.
+- **Every tool result carries `guidance: string[]`**: short English instructions built from what this call did (the default day it chose, the relationship that already existed, what a merge moved). It is written only in the tool layer, so REST stays plain data. What Claude needs _before_ a call stays in the descriptions; what only matters _after_ moves into `guidance`. It is declared in each tool's `outputSchema` and tested per tool. The name is `guidance`, not `next` (a list's page cursor is usually `next`) or `instructions` (MCP's own name for the server's text, which a client may drop); renamed from `next` on 2026-11-13.
 - **Tokens are bound to one surface**: an MCP token fails on REST and the other way round, and the browser cookie never works on MCP.
-- **API tokens are a feature like any other**: they are created, listed and revoked over MCP too. The create result returns the token once; its `next` tells Claude to hand it to the person to store in the password manager, and not to repeat it.
+- **API tokens are a feature like any other**: they are created, listed and revoked over MCP too. The create result returns the token once; its `guidance` tells Claude to hand it to the person to store in the password manager, and not to repeat it.
 - **Every result that names an item carries its URL in the web app**, so Claude can hand the user a link.
 - **The REST API has a route table** from which `openapi.json` is generated and committed; CI fails when it differs.
 
@@ -35,8 +35,9 @@ Every surface is a thin adapter over one domain layer.
 - Domain logic in route handlers, React components or the tool layer.
 - `backend/` importing Next.js, React or the frontend.
 - After-call guidance only in tool descriptions or server instructions, where a client may drop it.
+- A tool result's guidance under any other name than `guidance`, in particular `next`, which reads as a page cursor.
 - One token that works on every surface.
 
 ## Reference
 
-freundebuch: `backend/`, `backend/tools.ts`, `eslint.config.mjs`, ADR 0001 (AI-first app with a built-in MCP) and ADR 0010 (tool results tell Claude what to do next). questlog follows it (ADR 0001).
+freundebuch: `backend/`, `backend/tools.ts`, `eslint.config.mjs`, ADR 0001 (AI-first app with a built-in MCP) and ADR 0010 (tool results tell Claude what to do next). questlog follows it (ADR 0001). notefeed's `guidance` on all 13 tools (`backend/mcpguidance.ts`, notefeed/notefeed#357), where `next` was already `list_notes`' page cursor. freundebuch and questlog still name the field `next`.
