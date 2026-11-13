@@ -10,7 +10,8 @@ Release notes live in one place. Every repository already has a feed of its rele
 
 ## How
 
-- Tag `main`: `git tag -a vX.Y.Z -m "vX.Y.Z" && git push origin vX.Y.Z`.
+- Tag `main` with a headline: `git tag -a vX.Y.Z -m "A GitHub connector" && git push origin vX.Y.Z`.
+- **Every release starts with a one-line headline**: what the release brings, in a few words, for the people who use it ("A GitHub connector", "Share from an iPhone"). It is the tag message's first line and the first line of the release notes; pages that list releases show it. Not the version, not "Release X.Y.Z", not an image name or a merge commit.
 - The release workflow checks that the tag matches the version in the project (`package.json`, `pyproject.toml`) before it builds.
 - The image gets three tags: the exact version, the minor line and `latest`.
 - **A Python library goes to PyPI** from the same tag, through [Trusted Publishing](https://docs.pypi.org/trusted-publishers/): the workflow publishes with a short-lived token bound to the repository, the workflow file and an environment named `pypi`, so no API token is stored anywhere. The workflow checks that the tag matches `pyproject.toml`, runs the tests, runs `uv build`, publishes with `pypa/gh-action-pypi-publish` and attaches the same files to the GitHub release.
@@ -20,7 +21,7 @@ Release notes live in one place. Every repository already has a feed of its rele
 
 ### Showing releases elsewhere
 
-- **A page that lists releases reads them from GitHub at build time** (`GET /repos/<owner>/<repo>/releases`, with the workflow's `GITHUB_TOKEN`), shows the version, date and a link to the release, and builds on a schedule so a new release appears within a day. marcelbruckner.de's Projekte page is the first (MarcelBruckner-Business/marcelbruckner#36).
+- **A page that lists releases reads them from GitHub at build time** (`GET /repos/<owner>/<repo>/releases`, with the workflow's `GITHUB_TOKEN`), shows the version, the headline, the date and a link to the release, and builds on a schedule so a new release appears within a day. marcelbruckner.de's Projekte page is the first (MarcelBruckner-Business/marcelbruckner#36).
 - **Readers who want to follow a tool** get its `releases.atom` link.
 - **notefeed is the exception, as its own product:** it posts its releases and a news post to notefeed.me's reserved feeds to use what it sells. That is notefeed's decision, not a rule for other tools.
 
@@ -30,6 +31,7 @@ Release notes live in one place. Every repository already has a feed of its rele
 - A PyPI API token in the repository's secrets.
 - A release whose tag doesn't match the version in the project.
 - Hand-written release notes that repeat the pull requests.
+- A release without a headline, or whose first line is the version, an image name or a merge commit.
 - Copying release notes to another place (a feed, a blog post, a changelog file) instead of linking to or reading the GitHub release.
 
 ## Reference
