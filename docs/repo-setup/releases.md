@@ -33,8 +33,7 @@ flowchart LR
 - **Two Actions secrets**: `NOTEFEED_FEED` (the feed's name) and `NOTEFEED_FEED_PASSWORD`. The password goes into the password manager first ([Every secret in the password manager](secrets.md)). Without `NOTEFEED_FEED` the step says so and posts nothing, so forks work.
 - **The post is a mirror of the GitHub release.** The body is the release body exactly as GitHub shows it: not rewritten, not shortened, not summarized. The only addition is one line at the end, `[The release on GitHub](<release url>)`. The notes are written once, on GitHub.
 - **Title** `<repo> X.Y.Z` (the version without its `v`). **Tags** `release`, `<repo>` and `<repo>-vX.Y.Z`.
-- **Posted once, never updated.** A later edit to the GitHub release is not carried over to the note.
-- **Once per tag.** Before posting, the step asks the feed for a note tagged `<repo>-vX.Y.Z` and posts nothing if there is one, so a re-run is safe.
+- **Posted once per tag, never updated.** Before posting, the step asks the feed for a note tagged `<repo>-vX.Y.Z` and posts nothing if there is one, so a re-run is safe. A later edit to the GitHub release is not carried over to the note.
 - **It runs right after the GitHub release is made**, in the same job. Where releases are made by hand, a workflow on `release: published` posts instead (a release made by the workflow's `GITHUB_TOKEN` does not start one, so image repositories post from their release job).
 - **A failed post doesn't fail the release** (`continue-on-error: true`): the release and the image are out either way; run the job again.
 
