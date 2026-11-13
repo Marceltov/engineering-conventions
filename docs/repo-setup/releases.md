@@ -1,6 +1,6 @@
 # Releases
 
-**A release is a version tag `vX.Y.Z` on `main`. CI builds and tags the image (`X.Y.Z`, `X.Y`, `latest`) and makes the GitHub release from the pull requests merged since the last tag.** Every tool we make also posts each release's notes to its own feed on [notefeed](https://notefeed.me), once per tag. Decided 2026-11-13.
+**A release is a version tag `vX.Y.Z` on `main`. CI builds and tags the image (`X.Y.Z`, `X.Y`, `latest`) and makes the GitHub release from the pull requests merged since the last tag.** Every tool we make also mirrors each GitHub release to its own feed on [notefeed](https://notefeed.me): the release notes as they are, plus a link back, once per tag. Decided 2026-11-13.
 
 ## Why
 
@@ -31,7 +31,9 @@ flowchart LR
 - **One feed per product.** A product of several repositories (an app, its MCP server, its plugin) shares one feed; a tool on its own gets its own. Create the feed when the tool gets its first release, with a title and description that say what the tool is.
 - **The feed name is a secret.** Anyone who knows it can read and post, so it never appears in the repository, its docs or a log. Readers get the feed's read link (`/r/<read id>`), which the README and the docs site link to.
 - **Two Actions secrets**: `NOTEFEED_FEED` (the feed's name) and `NOTEFEED_FEED_PASSWORD`. The password goes into the password manager first ([Every secret in the password manager](secrets.md)). Without `NOTEFEED_FEED` the step says so and posts nothing, so forks work.
-- **The post is the GitHub release**: its body plus a link to it, so the notes are written once. Title `<repo> X.Y.Z`; tags `release`, `<repo>` and `<repo>-vX.Y.Z`.
+- **The post is a mirror of the GitHub release.** The body is the release body exactly as GitHub shows it: not rewritten, not shortened, not summarized. The only addition is one line at the end, `[The release on GitHub](<release url>)`. The notes are written once, on GitHub.
+- **Title** `<repo> X.Y.Z` (the version without its `v`). **Tags** `release`, `<repo>` and `<repo>-vX.Y.Z`.
+- **Posted once, never updated.** A later edit to the GitHub release is not carried over to the note.
 - **Once per tag.** Before posting, the step asks the feed for a note tagged `<repo>-vX.Y.Z` and posts nothing if there is one, so a re-run is safe.
 - **It runs right after the GitHub release is made**, in the same job. Where releases are made by hand, a workflow on `release: published` posts instead (a release made by the workflow's `GITHUB_TOKEN` does not start one, so image repositories post from their release job).
 - **A failed post doesn't fail the release** (`continue-on-error: true`): the release and the image are out either way; run the job again.
@@ -58,8 +60,6 @@ The step, for a release job that has just made the GitHub release (`jq` and `gh`
       --data-binary @notefeed.md "$feed"
 ```
 
-A project may add more on top, such as notefeed's short news post written from the release for its users.
-
 ## Rules out
 
 - Publishing an image or a package from a local machine.
@@ -67,11 +67,11 @@ A project may add more on top, such as notefeed's short news post written from t
 - A release whose tag doesn't match the version in the project.
 - Hand-written release notes that repeat the pull requests.
 - A release of a tool that is not posted to its notefeed feed, or a second post for the same tag.
-- Notes written separately for the feed instead of posting the GitHub release.
+- A post that is anything other than the GitHub release's body and the link: a summary, a rewrite, a date line, notes written separately for the feed.
 - A feed password that is only in the repository's secrets and not in the password manager.
 
 ## Reference
 
 freundebuch and notefeed (image releases); [mcp-login-oauth](https://mcp-login-oauth.marceltov.de/) (PyPI through Trusted Publishing).
 
-Release notes on notefeed: notefeed (its reserved `releases` feed, `.github/workflows/ci.yml`), passageway (`scripts/post-to-notefeed.sh` from `.github/workflows/release.yml`), freundebuch (`.github/workflows/ci.yml`), trilium-mcp-proxy and trilium-recall (from the release job) and trilium-llm-wiki (`.github/workflows/notefeed.yml` on `release: published`); the Trilium projects share one feed.
+Release notes on notefeed: notefeed (its reserved `releases` feed, `.github/workflows/ci.yml`; a mirror since notefeed/notefeed#366), passageway (`scripts/post-to-notefeed.sh` from `.github/workflows/release.yml`), freundebuch (`.github/workflows/ci.yml`), trilium-mcp-proxy and trilium-recall (from the release job) and trilium-llm-wiki (`.github/workflows/notefeed.yml` on `release: published`); the Trilium projects share one feed.
