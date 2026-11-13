@@ -29,8 +29,8 @@ flowchart LR
 ```
 
 - **One feed per product.** A product of several repositories (an app, its MCP server, its plugin) shares one feed; a tool on its own gets its own. Create the feed when the tool gets its first release, with a title and description that say what the tool is.
-- **The feed name is a secret.** Anyone who knows it can read and post, so it never appears in the repository, its docs or a log. Readers get the feed's read link (`/r/<read id>`), which the README and the docs site link to.
-- **Two Actions secrets**: `NOTEFEED_FEED` (the feed's name) and `NOTEFEED_FEED_PASSWORD`. The password goes into the password manager first ([Every secret in the password manager](secrets.md)). Without `NOTEFEED_FEED` the step says so and posts nothing, so forks work.
+- **Read link and feed name are the same.** The feed is created with a password and a read id equal to its name, so `https://notefeed.me/r/<feed>` is where anyone reads it, and the README and the docs site link there. Only the password posts.
+- **Two Actions secrets**: `NOTEFEED_FEED` (the feed's name) and `NOTEFEED_FEED_PASSWORD`, both secrets so that forks have neither. The password goes into the password manager first ([Every secret in the password manager](secrets.md)). Without `NOTEFEED_FEED` the step says so and posts nothing, so forks work.
 - **The post is a mirror of the GitHub release.** The body is the release body exactly as GitHub shows it: not rewritten, not shortened, not summarized. The only addition is one line at the end, `[The release on GitHub](<release url>)`. The notes are written once, on GitHub.
 - **Title** `<repo> X.Y.Z` (the version without its `v`). **Tags** `release`, `<repo>` and `<repo>-vX.Y.Z`.
 - **Posted once per tag, never updated.** Before posting, the step asks the feed for a note tagged `<repo>-vX.Y.Z` and posts nothing if there is one, so a re-run is safe. A later edit to the GitHub release is not carried over to the note.
