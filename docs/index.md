@@ -52,7 +52,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [Diagrams](repo-setup/diagrams.md): sequences, flows and structures as small Mermaid diagrams, in the site's palette, with a sentence of reading.
 - [Charts](repo-setup/charts.md): numbers drawn as charts from the data the page holds, with the table kept as the table view.
 - [Dependabot with auto-merge](repo-setup/dependabot.md): small bumps merge once CI is green.
-- [Releases](repo-setup/releases.md): a version tag builds the image and the release.
+- [Releases](repo-setup/releases.md): a version tag builds the image and the release, and its notes go to the tool's notefeed feed.
 - [Security setup](repo-setup/security.md): private reports, secret and code scanning, a daily audit, and an SBOM and provenance on every release; `SECURITY.md` says it.
 - [Contributor licence agreement](repo-setup/cla.md): a product repository whose licence may change takes the Apache ICLA by pull request comment, enforced by a workflow; permissive libraries need none.
 - [Deploying with Docker Compose](repo-setup/deployment.md): the server runs the published image from `compose.yaml` and one `.env` file; nothing is built there.
