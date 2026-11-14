@@ -27,6 +27,7 @@ Every surface is a thin adapter over one domain layer.
 - **Tokens are bound to one surface**: an MCP token fails on REST and the other way round, and the browser cookie never works on MCP.
 - **API tokens are a feature like any other**: they are created, listed and revoked over MCP too. The create result returns the token once; its `guidance` tells Claude to hand it to the person to store in the password manager, and not to repeat it.
 - **Every result that names an item carries its URL in the web app**, so Claude can hand the user a link.
+- **Fields are listed once** and every surface is built from that list: [One field list for every surface](one-field-list.md).
 - **The REST API has a route table** from which `openapi.json` is generated and committed; CI fails when it differs.
 
 ## Rules out

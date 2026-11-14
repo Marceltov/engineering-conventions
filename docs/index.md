@@ -26,6 +26,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 
 - [MCP first, one domain layer](architecture/mcp-first.md): MCP, REST and the web pages call the same framework-free domain layer; every tool result carries `guidance`.
 - [One gate for every read](architecture/one-gate-for-every-read.md): privacy, scoping or spoilers are one function every read goes through.
+- [One field list for every surface](architecture/one-field-list.md): a domain object's fields are listed once; MCP, REST, `openapi.json` and the checks are built from that list.
 - [One data layer, the tenant in one place](architecture/data-layer.md): only the data layer talks to the database; a scope from the session applies the tenant, never each query.
 - [Sign-in](architecture/sign-in.md): [Better Auth](stacks/better-auth.md) for apps with a web UI, [mcp-login-oauth](stacks/mcp-login-oauth.md) for form-login MCP servers, backends check tokens; an email allowlist decides who signs in; API tokens from the start, REST only.
 - [Selling a hosted instance](architecture/payments.md): payments only with a configured provider, behind one interface with a fake beside it; a public pricing page; webhooks become own events; access checked locally against `validUntil`; prices in the provider.

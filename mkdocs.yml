@@ -16,6 +16,7 @@ nav:
   - Architecture:
       - MCP first, one domain layer: architecture/mcp-first.md
       - One gate for every read: architecture/one-gate-for-every-read.md
+      - One field list for every surface: architecture/one-field-list.md
       - One data layer, the tenant in one place: architecture/data-layer.md
       - Sign-in: architecture/sign-in.md
       - Selling a hosted instance: architecture/payments.md
