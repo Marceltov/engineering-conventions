@@ -27,6 +27,7 @@ Every surface is a thin adapter over one domain layer.
 - **Tokens are bound to one surface**: an MCP token fails on REST and the other way round, and the browser cookie never works on MCP.
 - **API tokens are a feature like any other**: they are created, listed and revoked over MCP too. The create result returns the token once; its `guidance` tells Claude to hand it to the person to store in the password manager, and not to repeat it.
 - **Every result that names an item carries its URL in the web app**, so Claude can hand the user a link.
+- **A domain object's fields are listed once, in the domain layer** (decided 2026-11-14): each field's name, limit, rule and description, in one table. The MCP tools' input schemas, the REST route table (and so `openapi.json`), the request parsers and the one check every write path runs are built from it, not written out per surface; a surface picks the fields it takes by name. A test per surface fails when it leaves a field out. Each client package builds its requests in one helper. When the surfaces each listed the fields, notefeed's `post_file` tool silently lacked `tags` and `date` that REST had (notefeed/notefeed#384).
 - **The REST API has a route table** from which `openapi.json` is generated and committed; CI fails when it differs.
 
 ## Rules out
@@ -36,8 +37,9 @@ Every surface is a thin adapter over one domain layer.
 - `backend/` importing Next.js, React or the frontend.
 - After-call guidance only in tool descriptions or server instructions, where a client may drop it.
 - A tool result's guidance under any other name than `guidance`, in particular `next`, which reads as a page cursor.
+- A field's limit, rule or description written out again per surface; a field added to REST but not to MCP.
 - One token that works on every surface.
 
 ## Reference
 
-freundebuch: `backend/`, `backend/tools.ts`, `eslint.config.mjs`, ADR 0001 (AI-first app with a built-in MCP) and ADR 0010 (tool results tell Claude what to do next). questlog follows it (ADR 0001). notefeed's `guidance` on all 13 tools (`backend/mcpguidance.ts`, notefeed/notefeed#357), where `next` was already `list_notes`' page cursor. freundebuch and questlog still name the field `next`.
+freundebuch: `backend/`, `backend/tools.ts`, `eslint.config.mjs`, ADR 0001 (AI-first app with a built-in MCP) and ADR 0010 (tool results tell Claude what to do next). questlog follows it (ADR 0001). notefeed's `guidance` on all 13 tools (`backend/mcpguidance.ts`, notefeed/notefeed#357), where `next` was already `list_notes`' page cursor. freundebuch and questlog still name the field `next`. notefeed lists a note's fields once in `backend/notefields.ts` (notefeed/notefeed#384).
