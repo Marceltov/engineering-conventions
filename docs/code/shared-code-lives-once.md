@@ -1,10 +1,12 @@
 # Shared code lives once
 
-**When the same code is needed in a second package of a repository, it moves into the repository's shared package and both use it; it is never copied.** Decided 2026-11-03.
+**When the same code is needed in a second package of a repository, it moves into the repository's shared package and both use it; it is never copied. Inside one package, a check, guard or error written a second time becomes one named helper.** Decided 2026-11-03; repeated checks added 2026-11-16.
 
 ## Why
 
 A helper that is copied three times is fixed in one of them. passageway's connectors each carried their own `_list` and `_int` for reading settings, and the HTTP clients of four packages repeated the same rules (the system trust store, a user agent, a size cap, "a server error fails the whole call"). Adding two more connectors would have made five copies, with the next fix landing in only some of them. The second copy is the moment to share: the code is still small, the call sites are still few, and the tests of the first copy already describe the behaviour.
+
+The same happens inside one package, in smaller pieces. In notefeed's accounts feature (2026-11-16) the question "is this feed the signed-in account's?" was written out as `owner !== undefined && owner === account` on the settings page, in the API, in posting and in the feed lock, each a little differently (`!owner || owner !== account`, `rec?.owner && rec.owner !== account`). Four OAuth handlers each began with the same "no OAuth server, 404", and the same license error was thrown with the same message from three places. Each copy is a place where the access rule can drift, and a reviewer has to check every one.
 
 ## How
 
@@ -15,13 +17,40 @@ A helper that is copied three times is fixed in one of them. passageway's connec
 - **Say what is not shared, and why.** Code that looks alike but differs where it matters (authentication, retries, redirects) stays separate until the shared version can take the difference without a flag per caller.
 - **A private name imported across packages is a copy in disguise.** Importing another package's `_helper` is the sign to move it to the shared package.
 
+### Repeated checks inside a package
+
+- **Name the question, not the expression.** A condition that answers a domain question gets a function that answers it, ideally with every answer as a value: `feedOwnership(feed, account)` returning `"unowned" | "yours" | "others"` instead of three combinations of `owner === undefined` and `owner === account`.
+- **A refusal is a guard.** Code that throws or returns an error when the check fails becomes `requireX()`: `requireOwner(feed, account)`, `requireLicensesSold()`. Callers read as the rule, and the error and its message live once.
+- **A check before every handler is a wrapper or a hook,** not a first line copied into each: `withOAuth(handler)` that answers 404 and otherwise passes the dependency in, or the framework's before-hook (`before: password`).
+- **Repeated declarations are constants:** a response spec, an error description, a set of annotations used by several operations.
+- **Follow the file's shape.** If the module already has a helper of that kind (a before-hook, a guard), the new one looks like it.
+- **Look before opening a pull request:** list the lines the change adds more than twice (`git diff main... | grep '^+' | sort | uniq -c | sort -rn | head`) and fold the real repeats.
+
+```ts
+// Before: the same question, asked by hand in four files
+{owner !== undefined && owner === account && <FeedPasswords … />}
+if (!owner || owner !== account) throw new OwnerOnlyError();
+
+// After: asked once, answered by name
+export const feedOwnership = async (feed: string, account?: string): Promise<"unowned" | "yours" | "others"> => …;
+export async function requireOwner(feed: string, account?: string) {
+  if ((await feedOwnership(feed, account)) !== "yours") throw new OwnerOnlyError();
+}
+{ownership === "yours" && <FeedPasswords … />}
+```
+
 ## Rules out
 
 - A function copied into a second package.
 - Importing an underscore name from another package.
 - A shared package that gains a dependency for everyone to serve one caller.
 - A shared helper with a flag per caller for each way the callers differ.
+- The same condition, guard or error written out by hand in a second place of a package, instead of one named helper.
+- A check copied as the first line of every handler, where a wrapper or a before-hook would do it once.
 
 ## Reference
+
+notefeed (notefeed/notefeed#395, #396, #397, #406): `feedOwnership` and `requireOwner` for the feed owner, `requireFreeUnit` and `requireLicensesSold` for licenses, the `password` before-hook and a shared 401 spec in the API table, `withOAuth` around the OAuth handlers.
+
 
 passageway (Marceltov/passageway#110): the SDK's `settings` helpers and its `web` client behind `passageway-sdk[web]` (#111), the older connectors moved onto them (#112), and the llms.txt and sitemap connectors written against them (#108, #109).
