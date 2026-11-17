@@ -13,5 +13,6 @@ These working rules apply in every repository. Where a repository's CLAUDE.md or
 - Skip brainstorming for small, clearly specified changes.
 - Keep CLAUDE.md small: commands and non-obvious rules only. Put task-specific detail (recipes, style guides, background) in a project skill under `.claude/skills/<name>/SKILL.md` and leave a one-line pointer. When a CLAUDE.md you work in has grown such sections, offer to split them out.
 - When a task is done (shipped, merged, or answered) and the next request is unrelated, tell me to `/clear` first.
+- "Is it still running?" checks: never `pgrep -f` or `grep` a plain pattern inside `ssh host '…'`, `bash -c` or `docker exec`; the pattern is in that shell's own command line and always matches. Use `systemctl is-active <unit>`, `pgrep -x <name>` or a bracketed letter (`pgrep -f '[b]ackup.sh'`), and run the check once against an idle host before waiting on it.
 - Replies: what changed and what's left. No preamble, no recap of the diff.
   </EXTREMELY_IMPORTANT>
