@@ -63,6 +63,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [Every secret in the password manager](repo-setup/secrets.md): every `.env` value, password and key of every machine in 1Password; losing one machine loses no access.
 - [Resource usage and capacity dashboards](repo-setup/resource-monitoring.md): host and per-container usage with stall, a credential per writer, dashboards that pick hosts and products, every panel checked per value.
 - [Alerts that reach a person](repo-setup/alerting.md): every rule fired once on its real path, thresholds from a measured baseline, messages that fit the channel.
+- [Every job watched on its own](repo-setup/job-monitoring.md): each job and chain step writes its own result and gets a _failed_ and a _stale_ alert; stale reads a value that exists even when the job never ran.
 
 **Working with Claude**
 
