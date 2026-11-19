@@ -72,7 +72,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 
 **Stacks**
 
-- [Next.js app](stacks/nextjs.md), [SQLite](stacks/sqlite.md), [Better Auth](stacks/better-auth.md), [mcp-login-oauth](stacks/mcp-login-oauth.md), [Python and FastMCP](stacks/python.md).
+- [Next.js app](stacks/nextjs.md), [SQLite](stacks/sqlite.md), [Better Auth](stacks/better-auth.md), [next-app-kit](stacks/next-app-kit.md) (sign-in, tokens, MCP, REST and migrations from one library, never copied), [mcp-login-oauth](stacks/mcp-login-oauth.md), [Python and FastMCP](stacks/python.md).
 
 ## How a page reads
 

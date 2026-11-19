@@ -8,6 +8,8 @@ Sign-in is security code, and less of our own is better. Better Auth already doe
 
 ## How
 
+- **In a Next.js app, from [next-app-kit](../stacks/next-app-kit.md):** the Better Auth setup, the allowlist, API tokens and the OAuth server for MCP clients described here come from the kit's `next-app-kit/signin` and `next-app-kit/tokens`, never as a copy.
+
 ```mermaid
 flowchart LR
   browser["Browser"] -- "HttpOnly cookie" --> next["Next.js + Better Auth"]
