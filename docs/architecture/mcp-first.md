@@ -8,6 +8,8 @@ The apps are AI-first: the user talks, Claude files and reads back. A feature th
 
 ## How
 
+- **In a Next.js app, from [next-app-kit](../stacks/next-app-kit.md):** the MCP endpoint (`defineTool`, which adds `guidance` to every result) and the REST route table that mirrors the tools come from the kit, never as a copy.
+
 ```mermaid
 flowchart LR
   claude["Claude"] -- "MCP, OAuth token" --> mcp["/mcp"]

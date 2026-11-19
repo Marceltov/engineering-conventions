@@ -54,6 +54,7 @@ nav:
       - Next.js app: stacks/nextjs.md
       - SQLite: stacks/sqlite.md
       - Better Auth: stacks/better-auth.md
+      - next-app-kit: stacks/next-app-kit.md
       - mcp-login-oauth: stacks/mcp-login-oauth.md
       - Python and FastMCP: stacks/python.md
   - Working with Claude:
