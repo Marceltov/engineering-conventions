@@ -34,6 +34,7 @@ nav:
       - Where a repository lives: repo-setup/where-a-repo-lives.md
       - Architecture decisions: repo-setup/adrs.md
       - Issues and ideas: repo-setup/issues-and-ideas.md
+      - Closing keywords stay in their repository: repo-setup/closing-keywords.md
       - Documentation site: repo-setup/docs-site.md
       - Docs live with the code: repo-setup/docs-live-with-the-code.md
       - Diagrams: repo-setup/diagrams.md
