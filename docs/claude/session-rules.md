@@ -20,6 +20,7 @@ The rules, as the hook gives them to each session ([`hooks/session-start.md`](ht
 - **A small `CLAUDE.md`**: commands and rules only, task-specific detail in a project skill (see [CLAUDE.md](../repo-setup/claude-md.md)).
 - **`/clear` between tasks:** when a task is done (shipped, merged or answered) and the next request is unrelated, say so.
 - **A process check that can't match itself:** "is it still running?" asks `systemctl is-active <unit>` or `pgrep -x <name>` (the process name, not the command line). When only the command line will do, bracket one letter (`pgrep -f '[b]ackup.sh'`): the regex still matches `backup.sh`, but not the literal `[b]ackup.sh` in the checking shell, and no other plain copy of the pattern may be in that same shell. Run the check once by hand against a host known to be idle before a loop waits on it.
+- **Credentials:** before using one, search every vault this machine can reach (`op-find <word>`, names only). If several could fit, ask. If a login that should work fails, suspect the credential first and change no infrastructure because of it.
 - **Short replies:** what changed and what's left. No preamble, no recap of the diff.
 
 The hook runs on `startup|clear|compact|resume`, so the rules come back after `/clear` and after compaction. The hook file is sent with every session: keep it short, and change it together with this page.

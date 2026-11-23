@@ -17,6 +17,8 @@ A machine that deploys needs a clone and access to 1Password, nothing else. Ever
 
 The servers of the business could only be maintained from one development machine: the Ansible vault's password and the deployment SSH key existed in a file there and nowhere else. Losing that machine would have locked every server out of its own configuration. The homelab had found the same in October 2026 and moved its secrets to 1Password first; the business followed on 2026-11-02.
 
+On 2026-11-23 a session looked in the first vaults it could read, took a stale login with a matching name and got refused. The right login was in another scope's vault. It then removed a proxy rule on the wrong diagnosis before anyone found the real cause.
+
 ## How
 
 - **When a secret is made, it goes into 1Password before it is used:** a generated password, a provider's API token, a key a tool prints once (an unseal key, a recovery code, a service account's token). Never only in a file on one machine, a terminal's scrollback or a chat.
@@ -26,6 +28,9 @@ The servers of the business could only be maintained from one development machin
 - **An API token an app returns over MCP** at the person's request reaches the chat once, by their choice; it goes into 1Password at once, like any new secret, and is revoked if the chat may be shared.
 - **A server's `.env`** is rendered from those secrets, or stored whole in 1Password when the server writes it itself; either way, every value in it can be found there.
 - **Reading and writing:** `op item get --format json` (never `op read` for a value that must stay byte-exact; it appends a newline), `--cache=false`, values through a 0600 file, never on a command line or in output.
+- **Finding a credential:** before using one, search by name in every vault the machine can reach, with one command that goes through each of its service accounts and prints only vault, name, type and date (`op-find <word>`). When more than one item could fit, ask which.
+- **A login that should work and fails:** suspect the credential first. Stop retrying, search again, and change no proxy rule, setting or account because of it.
+- **Names:** `<product> <user or purpose>`, such as `Grafana admin` or `Mail API key deploy`. A bare product name is only for a product with one credential.
 - **The check:** from a machine with no local secrets, a clone plus 1Password can run the deployment's dry run.
 
 ## Rules out
@@ -35,6 +40,8 @@ The servers of the business could only be maintained from one development machin
 - Secrets committed unencrypted; an encrypted file whose password is not in 1Password.
 - The admin vault's token on a server; one service account for everything.
 - A copy in 1Password edited by hand when the encrypted file is the source.
+- Using the first credential whose name fits, without searching every reachable vault.
+- Changing infrastructure because a login failed, before a wrong credential is ruled out.
 
 ## Reference
 
