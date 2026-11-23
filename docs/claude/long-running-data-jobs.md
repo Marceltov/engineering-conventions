@@ -20,7 +20,7 @@ Before starting a job that takes more than a few minutes or touches tens of thou
 
 - **Detached.** Start it so that it survives the session and the SSH connection. On a systemd host: `systemd-run --unit=<job> /path/to/<job>/run.sh`. The session starts it and can then end.
 - **Resumable.** Running `run.sh` again continues the job. Finished steps leave a marker and are skipped; each step is safe to repeat. Prefer a tool that resumes by itself (`rsync`, `rclone`). When a step can only start over, its comment says so.
-- **Followable.** `status.sh` answers without reading code: is it running, since when, how far (files done of total where the tool can tell, otherwise a measure that grows), errors so far, and the machine's IO pressure. The person gets the exact command, for example `watch -n 30 /path/to/<job>/status.sh`.
+- **Followable.** `status.sh` answers without reading code: is it running, since when, how far (files done of total where the tool can tell, otherwise a measure that grows), errors so far, and the machine's IO pressure. The person gets the exact command to run from where they work, not on the data's machine, for example `watch -n 30 ssh <host> /path/to/<job>/status.sh`.
 - **Checked at the end.** A job's exit code is not its result. The last step compares what the job was meant to produce (file counts, sizes or checksums) and writes the outcome to the log.
 - **Announced.** Before starting, say what the job will compete with on the same disk, such as backups. After starting, tell the person the unit name, the log path and the status command.
 - **Cleaned up.** Say when the job directory can be removed. Keep it until the result has been accepted.
