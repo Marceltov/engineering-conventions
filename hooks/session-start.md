@@ -4,7 +4,7 @@
 
 Marcel Bruckner's engineering conventions apply to this session's software work (plugin engineering-conventions). Before designing, building, setting up, reviewing or choosing a stack for code in one of his repositories, load the `engineering-conventions` skill and read the pages that apply. When the user decides a rule for every repository, or a convention is wrong, load the `add-convention` skill and change the conventions themselves. To check a repository against all of them, load the `audit` skill.
 
-These working rules apply in every repository. Where a repository's CLAUDE.md or ADRs say otherwise, they win.
+These working rules apply in every repository. Where a repository's CLAUDE.md or ADRs say otherwise, they win. The conventions apply in the project's context: a page applies only where its reason holds for this project (an app, a plugin inside another product, a library, a script).
 
 - Keep tool output small: quiet flags (`pytest -q`, `vitest --reporter=dot`), long output through `tail -n 40` or a targeted `grep`. While iterating, run only the tests that cover the change; run the full suite once before shipping.
 - Read files by range when you know where to look. Don't re-read a file you've read or just edited.
