@@ -81,4 +81,4 @@ A named volume sits inside Docker's own directory, so a backup of the server's d
 
 ## Reference
 
-questlog (Marceltov/questlog#15: `compose.yaml` with `env_file`, `.env.example` as the server's template); freundebuch (the image published by CI on every push to `main`, its data on a bind mount).
+questlog (Marceltov/questlog#15: `compose.yaml` with `env_file`, `.env.example` as the server's template); freundebuch (the image published by CI on every push to `main`). The storage rule is applied in the deployed stacks; the sample `compose.yaml` files in the application repositories still have to follow.
