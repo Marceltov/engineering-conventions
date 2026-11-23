@@ -56,7 +56,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 - [Releases](repo-setup/releases.md): a version tag builds the image and the release; its notes live only on GitHub.
 - [Security setup](repo-setup/security.md): private reports, secret and code scanning, a daily audit, and an SBOM and provenance on every release; `SECURITY.md` says it.
 - [Contributor licence agreement](repo-setup/cla.md): a product repository whose licence may change takes the Apache ICLA by pull request comment, enforced by a workflow; permissive libraries need none.
-- [Deploying with Docker Compose](repo-setup/deployment.md): the server runs the published image from `compose.yaml` and one `.env` file; nothing is built there.
+- [Deploying with Docker Compose](repo-setup/deployment.md): the server runs the published image from `compose.yaml` and one `.env` file; nothing is built there, and data that must survive is a bind mount.
 - [Mail on a product's domain](repo-setup/mail.md): one catch-all mailbox people read, role addresses as aliases; the app sends from its own `noreply@` mailbox; SPF, DKIM, DMARC.
 - [Operator pages](repo-setup/operator-pages.md): imprint, privacy, terms and pricing words as the operator's Markdown files named by settings; public texts in `stacks`, contracts in `legal`, the operator guide on the internal docs site.
 - [Going live with a payment provider](repo-setup/going-live-with-payments.md): the test store first, the live store by settings alone; prices, terms, privacy, imprint and support public and the product texts seen on a test checkout before the provider's review; one real purchase and refund before announcing.

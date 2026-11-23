@@ -1,6 +1,6 @@
 # Deploying with Docker Compose
 
-**A self-hosted app is deployed from its published image, with Docker Compose and one `.env` file. The server holds only `compose.yaml` and `.env`: nothing is cloned or built there, and every setting, secrets included, is in the `.env` file.** Decided 2026-10-30.
+**A self-hosted app is deployed from its published image, with Docker Compose and one `.env` file. The server holds only `compose.yaml` and `.env`: nothing is cloned or built there, and every setting, secrets included, is in the `.env` file. Data that must survive is a bind mount; only what can be rebuilt is a named volume.** Decided 2026-10-30, storage 2026-11-23.
 
 ```mermaid
 flowchart LR
@@ -15,6 +15,8 @@ Only an image that passed CI reaches the server; the repository gives the server
 ## Why
 
 Building on the server needs the source, a toolchain and minutes per deploy, and what runs is then not the image CI tested. Settings listed one by one in `compose.yaml` (`APP_FOO: ${APP_FOO:-}`) have to change with every new variable, in the repository and on every server, and one forgotten line silently drops a setting. One `.env` file is the one place a server's settings live. Decided while deploying questlog for the first time (2026-10-30).
+
+A named volume sits inside Docker's own directory, so a backup of the server's data directory does not contain it, and nothing reports the gap. On 2026-11-22, narrowing a backup to the data directory found two applications whose only database was in a named volume. With a bind mount, the path in `compose.yaml` says where the data is and whether it is backed up.
 
 ## How
 
@@ -46,7 +48,7 @@ Building on the server needs the source, a toolchain and minutes per deploy, and
             cache-to: type=gha,mode=max
     ```
 
-- **`compose.yaml` in the repository is the one the server runs:** `image:`, not `build:`; `env_file: .env`; one volume for `DATA_DIR`; `restart: unless-stopped`; the port.
+- **`compose.yaml` in the repository is the one the server runs:** `image:`, not `build:`; `env_file: .env`; one bind mount for `DATA_DIR`; `restart: unless-stopped`; the port.
 
     ```yaml
     services:
@@ -57,12 +59,10 @@ Building on the server needs the source, a toolchain and minutes per deploy, and
           - "3000:3000"
         env_file: .env
         volumes:
-          - app-data:/data
-
-    volumes:
-      app-data:
+          - ./data:/data
     ```
 
+- **Storage follows what a loss would cost.** A database, uploads, the app's own files and keys that would have to be issued again are a bind mount inside the backed-up data directory. A cache, broker, search index or downloaded model is a named volume, and stays out of the backup.
 - **`.env.example` lists every variable** with a comment: what it does, its default, whether it is required. The server's `.env` is a copy of it, filled in, readable only by its owner (`chmod 600`), every value also in the password manager ([Every secret in the password manager](secrets.md)), never committed (`.gitignore`: `.env*` and `!.env.example`).
 - **A copy of `.env.example` starts as it is.** A variable whose empty value would override the image's default (`DATA_DIR`, `PORT`), and an example block that is only valid when complete (an OIDC provider), stays commented out until it is filled in.
 - **Deploy and update:** put the two files in a folder on the server, then `docker compose pull && docker compose up -d`. An image watcher (Watchtower) on the server may do the same on its schedule. A server that shouldn't follow `main` pins a version tag (`:X.Y`) instead.
@@ -76,8 +76,9 @@ Building on the server needs the source, a toolchain and minutes per deploy, and
 - A committed `.env`; a variable the app reads that `.env.example` doesn't list.
 - An `.env.example` whose unchanged copy overrides the image's defaults or keeps the app from starting.
 - Deploying an image that didn't pass CI.
+- Data that can't be rebuilt in a named volume or in a container's writable layer.
 - A publish workflow separate from the tests, or `packages: write` on more than the image job.
 
 ## Reference
 
-questlog (Marceltov/questlog#15: `compose.yaml` with `env_file`, `.env.example` as the server's template); freundebuch (the image published by CI on every push to `main`).
+questlog (Marceltov/questlog#15: `compose.yaml` with `env_file`, `.env.example` as the server's template); freundebuch (the image published by CI on every push to `main`, its data on a bind mount).
