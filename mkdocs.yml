@@ -60,6 +60,7 @@ nav:
   - Working with Claude:
       - Working rules for Claude sessions: claude/session-rules.md
       - Using the Claude Code plugin: plugin.md
+      - Long-running data jobs: claude/long-running-data-jobs.md
       - Publishing a plugin to the marketplace: claude/marketplace.md
 
 theme:
