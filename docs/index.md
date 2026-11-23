@@ -68,6 +68,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 **Working with Claude**
 
 - [Working rules for Claude sessions](claude/session-rules.md): small tool output, narrow reads and searches, no unasked subagents, short replies, process checks that can't match themselves; in every session from its start.
+- [Long-running data jobs](claude/long-running-data-jobs.md): large moves, copies and reindexes run as detached scripts on the data's machine, resumable, with a log and a status command.
 - [Publishing a plugin to the marketplace](claude/marketplace.md): pinned by commit, shipped by bumping `version`, and the plugin starts the marketplace's pin itself.
 
 **Stacks**

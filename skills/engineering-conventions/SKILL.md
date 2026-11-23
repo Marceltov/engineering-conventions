@@ -27,6 +27,7 @@ The conventions are Markdown pages in this plugin's `docs/` folder (`${CLAUDE_PL
 | record a decision                                                                                                          | `repo-setup/adrs.md`                                                                   |
 | open, triage or close an issue, or file an idea for later                                                                  | `repo-setup/issues-and-ideas.md`                                                       |
 | change CLAUDE.md, or the working rules every session gets                                                                  | `repo-setup/claude-md.md`, `claude/session-rules.md`                                   |
+| move, copy, rescan or reindex a lot of data, or start any job that takes more than a few minutes | `claude/long-running-data-jobs.md` |
 | publish a Claude Code plugin, add it to the marketplace, or ship a new version of one                                      | `claude/marketplace.md`                                                                |
 | change docs, values or roadmap, or the docs site's design                                                                  | `repo-setup/docs-site.md`, `repo-setup/values-and-roadmap.md`                          |
 | change how something is set up, deployed or run (its docs change in the same PR), document it, or move notes out of a wiki | `repo-setup/docs-live-with-the-code.md`                                                |
