@@ -37,6 +37,7 @@ nav:
       - Closing keywords stay in their repository: repo-setup/closing-keywords.md
       - Documentation site: repo-setup/docs-site.md
       - Docs live with the code: repo-setup/docs-live-with-the-code.md
+      - A service does not know where it runs: repo-setup/a-service-does-not-know-where-it-runs.md
       - Diagrams: repo-setup/diagrams.md
       - Charts: repo-setup/charts.md
       - Dependabot with auto-merge: repo-setup/dependabot.md
