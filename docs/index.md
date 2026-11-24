@@ -20,6 +20,9 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 !!! note "The repository wins"
     A repository's own `CLAUDE.md`, values page and ADRs override these conventions where they differ. A repository that follows them says so in its `CLAUDE.md`: "Follows Marceltov/engineering-conventions; the rules here win where they differ."
 
+!!! note "Applied in the project's context"
+    Before applying a convention, look at the project: what it is (an app, a plugin for another product, a library, a script), where it runs and what it is built with. A page applies where its reason holds for that project; a stack page applies to that stack only; what a host product prescribes (a plugin's layout, its manifest, its dependency file) wins over a page. A convention left out is named once, with its reason, in the project's `CLAUDE.md` or an ADR ([V7](values.md#v7-applied-in-the-projects-context)).
+
 ## The conventions
 
 **Architecture**
