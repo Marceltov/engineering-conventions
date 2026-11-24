@@ -1,0 +1,53 @@
+# Marceltov/engineering-conventions: repo-setup/security.md. Code scanning for every repository, called from a
+# five-line workflow in each (the page shows it). It scans the code that ships and leaves out test code: test
+# fixtures hold invented personal data on purpose, and CodeQL reports them as leaks, also on every pull request.
+# Secret scanning still covers the tests. scripts/check_codeql_paths.py proves the list below.
+name: codeql
+
+on:
+  workflow_call:
+    inputs:
+      languages:
+        description: 'The CodeQL languages to scan, as a JSON list, for example ["python", "actions"]'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ${{ fromJSON(inputs.languages) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ contains(fromJSON('["java-kotlin", "csharp", "cpp", "go", "swift"]'), matrix.language) && 'autobuild' || 'none' }}
+          # Test code only. A compiled language is analysed as built: its tests stay out of the build too.
+          config: |
+            paths-ignore:
+              - "**/tests/**"
+              - "**/test/**"
+              - "**/__tests__/**"
+              - "**/test_*.py"
+              - "**/*_test.py"
+              - "**/conftest.py"
+              - "**/*.test.ts"
+              - "**/*.test.tsx"
+              - "**/*.test.js"
+              - "**/*.spec.ts"
+              - "**/*.spec.tsx"
+              - "**/*.spec.js"
+              - "**/*_test.go"
+      - uses: github/codeql-action/analyze@v4
+        with:
+          category: /language:${{ matrix.language }}

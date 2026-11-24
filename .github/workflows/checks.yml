@@ -17,3 +17,5 @@ jobs:
       - run: npx --yes prettier@3 --check .
       - run: uvx ruff check .
       - run: uvx ruff format --check .
+      # The shared CodeQL workflow leaves out test code and nothing else.
+      - run: uv run --python 3.14 --with pyyaml scripts/check_codeql_paths.py
