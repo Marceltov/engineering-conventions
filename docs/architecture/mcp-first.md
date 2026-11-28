@@ -2,6 +2,8 @@
 
 **An app is built for Claude first: every feature works over MCP before the REST API and the web pages follow. All three surfaces call the same framework-free domain layer, and every tool result tells Claude what to do next.**
 
+This page is for apps that build their own MCP surface. A server in front of another app's API generates its tools instead: [MCP server for another app's API](mcp-for-another-apps-api.md).
+
 ## Why
 
 The apps are AI-first: the user talks, Claude files and reads back. A feature that only the web app has can't be used the way the app is meant to be used, and three surfaces with their own logic drift apart. Guidance that lives only in tool descriptions costs context in every session, and Claude has to apply it before it knows what a call will do (freundebuch ADR 0010).
@@ -38,6 +40,7 @@ Every surface is a thin adapter over one domain layer.
 - After-call guidance only in tool descriptions or server instructions, where a client may drop it.
 - A tool result's guidance under any other name than `guidance`, in particular `next`, which reads as a page cursor.
 - One token that works on every surface.
+- Applying this page to a server in front of someone else's API: see [MCP server for another app's API](mcp-for-another-apps-api.md).
 
 ## Reference
 

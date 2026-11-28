@@ -64,7 +64,9 @@ Conventions outlive releases. A page names a version only when pinning it is the
 
 The conventions are written for the projects they came from, mostly web apps and MCP servers. A plugin that runs inside another product, a script or a small library has other constraints, and a rule whose reason doesn't hold there makes it worse, not better. So every convention is applied after looking at the project: what it is, where it runs, what it is built with, and what a host product prescribes. Where one is left out, the project says so once, with the reason, so the choice is visible and can be revisited.
 
-**Rules out:** applying a page because it exists rather than because its reason holds for the project; a stack page applied to another stack; a convention overriding what a host product requires of its plugins; leaving a convention out silently.
+The nearest context is the project's siblings: when other repositories already do the same kind of thing (MCP servers in front of an app's API, apps of one stack), their shared pattern comes before a general page, and a new one starts from a sibling. A deviation from it needs the maintainer's approval and an ADR in the new repository.
+
+**Rules out:** applying a page because it exists rather than because its reason holds for the project; a stack page applied to another stack; a convention overriding what a host product requires of its plugins; leaving a convention out silently; designing a project afresh from the general pages when its siblings already share a pattern.
 
 **ADRs:** none yet.
 
