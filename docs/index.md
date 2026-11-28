@@ -28,6 +28,7 @@ They are written for people and for Claude alike: the same pages ship as a [Clau
 **Architecture**
 
 - [MCP first, one domain layer](architecture/mcp-first.md): MCP, REST and the web pages call the same framework-free domain layer; every tool result carries `guidance`.
+- [MCP server for another app's API](architecture/mcp-for-another-apps-api.md): tools generated from the app's OpenAPI spec with `FastMCP.from_openapi`, toolsets and a never-exposed list, guidance in the server instructions; hand-written only without a spec.
 - [One gate for every read](architecture/one-gate-for-every-read.md): privacy, scoping or spoilers are one function every read goes through.
 - [One field list for every surface](architecture/one-field-list.md): a domain object's fields are listed once; MCP, REST, `openapi.json` and the checks are built from that list.
 - [One data layer, the tenant in one place](architecture/data-layer.md): only the data layer talks to the database; a scope from the session applies the tenant, never each query.

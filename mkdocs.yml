@@ -15,6 +15,7 @@ nav:
   - Where engineering-conventions is going: roadmap.md
   - Architecture:
       - MCP first, one domain layer: architecture/mcp-first.md
+      - MCP server for another app's API: architecture/mcp-for-another-apps-api.md
       - One gate for every read: architecture/one-gate-for-every-read.md
       - One field list for every surface: architecture/one-field-list.md
       - One data layer, the tenant in one place: architecture/data-layer.md
